@@ -1,332 +1,541 @@
-#+title: Yet Another Org-mode Presentation Script
-#+author: Masataro Asai
+#+TITLE: Classical Planning in Deep Latent Space
 #+include: "head.org"
+#+LINK: img file:img/%s
+#+LINK: png file:img/%s.png
+#+LINK: jpg file:img/%s.jpg
+#+LINK: svg file:img/%s.svg
+#+LINK: gif file:img/%s.gif
+#+LINK: spng file:img/static/%s.png
+#+LINK: sjpg file:img/static/%s.jpg
+#+html_head: <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:500,900">
+#+html_head_extra:
+#+LINK: ssvg file:img/static/%s.svg
+#+LINK: sgif file:img/static/%s.gif
 
 #+begin_outline-text-1
-#+begin_xlarge
 #+begin_center
-To Start Press "n"
-#+end_center
-#+end_xlarge
 
-#+begin_center
-*WARN* Turn off your custom keyboard shortcuts
+　
+
+#+begin_larger
+Masataro Asai
+
+(MIT-IBM Watson AI Lab, IBM Research, Cambridge)
+#+end_larger
+
+　
+
+[[png:MIT-IBM]]
+
+# [[spng:ibm-research]]
+
 #+end_center
 
-#+begin_note
-#+begin_alignright
-Made by guicho2.71828 (Masataro Asai)
-#+end_alignright
-#+end_note
 #+end_outline-text-1
 
-* What Is It?
+* You found yourself on Mars, unexpected emergency...
 
-#+begin_xlarge
-An Alternative to
+[[png:mars/mars]]
+
+* Two approaches to intelligence : Which is better?
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span3
+
+[[png:mars/mars]]
+
+#+end_span3
+#+begin_span4
 #+begin_center
-Org-based Presentation
+Do you just follow what you *learned* before?
+  
+"Don't think, feel"?
+
+[[sgif:yoda]]
+
+/Reflex agent/
+
 #+end_center
+#+end_span4
+#+begin_span5
++
+  #+begin_center
+  Or do you *think*, adjust, create and choose an appropriate behavior?
+  
+  [[sgif:mars/yoda-hmph]]
+
+  _/Deliberative agent/_
+  #+end_center
+#+end_span5
+#+end_row-fluid
+#+end_container-fluid
+
+#+begin_center
++ → _I wish to build a *logical, /deliberative/ agent*_
+
+  that operates on the _raw input (e.g., visual input)_
+#+end_center
+
+* Classical Planners *solve 8-puzzles << .1sec.*
+
+Symbolic systems excel at deliberation.
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span2
+
+#+end_span2
+#+begin_span4
+[[png:8puzzle-standard]]
+#+end_span4
+#+begin_span4
+[[png:8puzzle-standard-goal]]
+#+end_span4
+#+begin_span2
+[[sgif:8puzzle]]
+#+end_span2
+#+end_row-fluid
+#+end_container-fluid
+
+/but only when we have a PDDL model./
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span12
+#+begin_src scheme
+(:action       move-up ...
+ :precondition (and      (empty ?x ?y-old) ...)
+ :effects      (and (not (empty ?x ?y-old))...))
+#+end_src
+#+end_span12
+#+end_row-fluid
+#+end_container-fluid
+
+PDDL : Planning Domain Description Language
+
+* They cannot solve an */Image-based/* 8-puzzle
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span8
+[[sjpg:puzzle]]
+#+end_span8
+#+begin_span4
++ 
+   #+begin_center
+   *BECAUSE*
+
+   *WE*
+
+   *DO*
+
+   *NOT*
+
+   *HAVE*
+
+   *A*
+
+   #+begin_larger
+   */PDDL/*
+
+   */MODEL/!*
+   #+end_larger
+#+end_center
+#+end_span4
+#+end_row-fluid
+#+end_container-fluid
+
++ *Latplan (AAAI18, ICAPS19, IJCAI20, Arxiv 21)* addresses this problem:
+
+  */No Prior Explicit Knowledge/* (i.e. No Human Annotation)
+
+  　 */No labels/symbols given/* : e.g. "9 tiles", "moving"
+
+* Key problem Latplan solves: @@html:<br>@@ */Knowledge-Acquisition Bottleneck/*
+
+# * We must *automate 2 processes*:
+
+# * Knowledge-Acquisition Bottleneck:
+# 
+# #+begin_quote
+# The *cost of human* involved for converting *real-world problems* into the inputs for
+# domain-independent *symbolic* systems
+# #+end_quote
+
+
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span4
+
 #+begin_alignright
-Method
+*Visual observations*
 #+end_alignright
-#+end_xlarge
 
+[[png:overview/1]]
+
+#+end_span4
+#+begin_span1
+　
+
+　
+
+　
+
+→
+
+　
+#+end_span1
+#+begin_span7
 #+begin_center
-Proceed with "n"
+*PDDL Model*
 #+end_center
+#+begin_src scheme
+(:action       move-up
+ :precondition
+ (and      (empty ?x ?y-old) ...)
+ :effects
+ (and (not (empty ?x ?y-old))...))
+#+end_src
 
-* Usage (on browsers)
+#+end_span7
+#+end_row-fluid
 
-#+begin_smaller
-
-#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span12
++ We must *automate 2 processes*:
+#+end_span12
+#+end_row-fluid
 #+begin_row-fluid
 #+begin_span6
-+ n, <Space>, <Right arrow key>, mouse click, mouse wheel down, touch :: go to the next slide/expand a list
-+ p, <Left arrow key>, mouse wheel up :: back to the previous slide
-+ u, <Up arrow key>, ^ :: go to the parent section
-+ N, <Down arrow key> :: expand all list in the current slide
++ *1. Symbol Grounding:*
+
+  #+begin_center
+  #+begin_larger
+  */Symbols/ = words in PDDL*
+  #+end_larger
+  #+end_center
+  
+  #+begin_smaller
+  | Types        | Examples                     |
+  |--------------+------------------------------|
+  | Objects      | *panel_7*, *x_0*, *y_0* ...  |
+  | Predicates   | (*empty* ?x ?y)              |
+  | Propositions | *p_28* = (empty x_0 y_0)     |
+  | Actions      | (*slide-up* panel_7 x_0 y_1) |
+  #+end_smaller
 #+end_span6
 #+begin_span6
-+ s, or typing "go" :: jump to an arbitrary section (using minibuffer)
-+ d :: debugging mode (shows content border)
-+ <Ctrl-g> or <Esc> :: cancel current key strokes
-+ typing "help" :: show available commands in the minibuffer!
++ *2. Action Model Acquisition:*
+  
+  #+begin_center
+  #+begin_larger
+  */Describe/ the*
+
+  */transition rules/*
+
+  *with symbols.*
+  #+end_larger
+  #+end_center
+  
+  　
+
+  #+begin_center
+  *When* /Empty(x, y_{old}) ∧ .../ ;
+
+  *Then* /¬Empty(x,y_{old}) ∧/ ...
+  #+end_center
+
 #+end_span6
 #+end_row-fluid
 #+end_container-fluid
 
-#+end_smaller
+# #+begin_note
+# The knowledge acquisition bottleneck: time for reassessment? : Cullen, J and Bryman, A Expert Syst. Vol 5 No 3 (August 1988) pp 216-225
+# #+end_note
 
-* Usage (on emacs)
+* Latplan system generates a PDDL (IJCAI20, Arxiv21)
 
-1. clone [[https://github.com/guicho271828/another-org-info][our repo]]
-
-2. =make html= to publish
-
-3. show it on your browser!
-
-* Virtue
-
-+ Simplicity
-  + =code.js= is a pure javascript, only has 200 lines (increasing as new features
-    are added)
-+ Extensibility
-  + you can write your own extension and its easy
-  + set a function to =keyManager.<your-key-strokes>=
-  + the key strokes should contain character $c$ within char code $32 < c < 126$
-    + =Space,!,",...A,B,C,...x,y,z,{,|,~=
-+ LICENSE
-  + GPLv3 ?? < not attatched a license yet
-
-* Example: Expanding a List
-
-+ *the dots* tell "/this is a content/"
-+ list
-+ list
-* Dependencies
-<<dependency>>
-
-+ jQuery (included)
-+ Inkscape (image conversion)
-+ org-mode (included)
-+ MathJax (optional submodule)
-
-* LaTeX output
-
-+ [[file:presen.pdf][PDF Presentaiton]] presen.pdf -- presentation in pdf with similar
-  appearance. Useful when browser-based presentation is not allowed
-+ [[file:resume.pdf][Printable Resume]] resume.pdf -- short and printed version.
-+ =make pdf= and =make resume= on the shell
-+ need the latest $\mbox{\TeX}$ live installation
-  + see =Makefile=
-  + =platex= and =dvipdfmx=
-  + alternatively, =pdflatex=
-
-* Code block / highlightation
-
-
-#+begin_container-fluid
-#+begin_row-fluid
-#+begin_span6
-#+begin_src lisp
-(defun factorial (n)
-  (if (zerop n)
-      1
-      (* n (factorial (1- n)))))
-#+end_src
-#+end_span6
-#+begin_span6
-#+begin_src python
-import numpy as np
-def unit(i):
-    x = np.zeros([i,i])
-    for i in range(i):
-        x[i][i] = 1
-    return x
-#+end_src
-#+end_span6
-#+end_row-fluid
-#+end_container-fluid
-
-
-* Images
-
-+ Put images into =img/= directory.
-+ svg files are converted into png.
-  + We recommend it because
-    1. In html presentation, the inserted svg images capture the keyboard and mouse event
-       and the presentation sometimes does not work right.
-    2. In resume output and pdf presentation, the =svg= and =svg-inkscape= package is a
-       bit buggy and I personally failed make it work.
-+ svg-png conversion is done by =inkscape=
-  + but you can also use ImageMagick =convert= command.
-  + See =img/Makefile= for more information.
-
-* Org-block templates
-
-We mark the html tag with org-mode blocks such as =#+BEGIN_EXAMPLE=.
-Using [[http://orgmode.org/manual/Easy-Templates.html][block template]] (by modifying =org-structure-template-alist=),
-you can quickly write such blocks i.e.:
-
-#+begin_example
-at the beginning of line, hit
-
-<s<tab>
-
-in normal org-mode destribution in emacs,
-it would expand into:
-
-#+begin_src 
-
-#+end_src
-#+end_example
-
-** customizing templates
-
-We provide custom =org-structure-template-alist=.
-These blocks are recognized by the stylesheet we provide,
-so they are highlighted correctly.
-
-#+begin_container-fluid
-#+begin_row-fluid
-#+begin_span6
-+ <S -- smaller
-+ <lar -- larger
-+ <t -- twocolumn
-+ <n -- footnote
-+ <r -- float right
-+ <ar -- align right
-+ <lcr -- "left,center,right" format with x-large fonts
-+ <E -- latex `equation' environment
-+ still more...
-#+end_span6
-#+begin_span6
-copy-paste it
-to your =.emacs=
+[[png:15puzzle-with-pddl]]
 
 #+begin_center
-[[file:config.el]]
-#+end_center
+All symbols are anonymous & generated (=gensym=)
 
-#+end_span6
-#+end_row-fluid
-#+end_container-fluid
+Note: I am not interested in *human symbols* at all
 
-* Utility
-
-+ ./make-periotically.sh [args]
-  + Watches the changes in the directory and =make=
-  + Build statuses are notified in inotify pop-up
-  + all arguments are passed to =make=
-  + dependency : inotifywait, notify-send
-
-* Makefile Targets
-
-+ =make html= -- builds the html version
-+ =make resume= -- builds the resume version
-+ =make pdf= -- builds the pdf version
-+ =make= -- build all
-
-* Test
-
-+ [[http://www.google.com][Link]]
-+ This
-+ Is
-+ A Test
-
-Mathjax formula:
-
-\[
- E=mc^2
-\]
-
-\begin{equation}
- E=mc^2 + \frac{1}{2} mv^2
-\end{equation}
-
-** Twocolumn Test
-
-#+begin_container-fluid
-#+begin_row-fluid
-#+begin_span6
-+ HOOA!
-+ *HOOA!*
-+ HOOA!
-#+end_span6
-#+begin_span6
-This is a LISP ALIEN IN A CAGE!
-
-[[png:alien]]
-
-#+end_span6
-#+end_row-fluid
-#+end_container-fluid
-
-
-** many columns test
-
-
-#+begin_container-fluid
-#+begin_row-fluid
-#+begin_span3
- a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
-#+end_span3
-#+begin_span3
- b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b
-#+end_span3
-#+begin_span3
- c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c
-#+end_span3
-#+begin_span3
- d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d
-#+end_span3
-#+end_row-fluid
-#+end_container-fluid
-
-* A Slide with Too Little Contents
-
-#+begin_center
-#+begin_smaller
-Hi, I'm small!
-#+end_smaller
+Requiring human symbols as input = parasitic (*)
 #+end_center
 
 #+begin_note
-See the headline is correctly adjusted
+(*) Taddeo, Mariarosaria, and Luciano Floridi. "Solving the symbol grounding problem: a critical review of fifteen years of research." Journal of Experimental & Theoretical Artificial Intelligence 17.4 (2005): 419-445.
 #+end_note
 
-* Left-Center-Right template
+* Experimental Results
 
-#+begin_xlarge
-x-large left
+[[spng:experiment/init-goal]]
+
+8-puzzle, 15-puzzle, Lights-Out, Twisted Lights-out, *Blocksworld*, Sokoban
+
+** Success ratio (Arxiv 2021) : 40 problems / domain
+
+[[png:success]]
+
+** Success / Failure cases
+
+[[spng:experiment/blocks-example]]
+
+[[spng:experiment/other-examples]]
+
+* How? *Generative modeling* + */Understanding the target formalism deeper/*
+
++ *Cube-Space AE* learns *PDDL-compatible effects*.
++ What is *PDDL compatibility* ?
+
+# *Background Terminology:*
+# 
+# $z_{t} \rightarrow z_{t+1}$ is called a /progression/
+# #+begin_alignright
+# ($z_{t+1} \rightarrow z_{t}$ is called a /regression/)
+# #+end_alignright
+
++ Action: $\text{Eat}(\text{food🍕})$ 
++ Precondition: $\lnot \text{full}() \land \text{have}(\text{food🍕})$
++ Effects: *Delete effects:* $\lnot\text{have}(\text{food🍕})$ : -- in the stomach now
++ Effects: *Add effects:　* $\text{full}()$
+
+# + Action /eat(person, food)/
+# + Precondition: ¬full(person) ∧ have(person, food)
+# + Delete effect: ¬have(person, food)
+# + Add effect: full(person)
+
+# +
+#   #+begin_src scheme
+#   (:action eat :parameters (?person ?food)
+#   #+end_src
+# +
+#   #+begin_src scheme
+#   　 :precondition (and (not (full ?person))
+#   　                   (have ?person ?food))
+#   #+end_src
+# +
+#   #+begin_src scheme
+#   　 :effects (and (not (have ?person ?food)) ; delete effects
+#   　               (full ?person)))           ; add effects
+#   #+end_src
+
++
+  #+begin_quote
+  _/Action application in PDDL:/_ $z_{t+1} = (z_t \setminus \text{del}(a)\ )\ \cup\ \text{add}(a)$
+  #+end_quote
+
+  Effects $\text{del}(a), \text{add}(a)$ *do not depend on $z_t$*.
+
++
+  #+begin_quote
+  */Naive AAE:/* $z_{t+1} = \text{apply}(z_t, a)$ : *No separation*
+  #+end_quote
+
+# +
+#   #+begin_quote
+#   _/PDDL effect:/_ $z_{t+1} = (z_t \ \setminus \ \text{del}(a)\ )\ \cup\ \text{add}(a)$
+#   
+#   */AAE's effect:/* $z_{t+1} = \text{apply}(z_t, a)$
+#   #+end_quote
+# 
+#   *In PDDL, effects should be consistent for each action*.
+# 
+#   #+begin_alignright
+#   *= Effects should be independent from $z_t$*
+#   #+end_alignright
+
+
+* We can model the dependency in a */graphical model/*
+
+*In PDDL, effects must not depend on $z_t$*.
+
 #+begin_center
-centered
+→ A */random variable/* *e* independent from $z_t$.
 #+end_center
-#+begin_alignright
-right
-#+end_alignright
-#+end_xlarge
 
-#+begin_note
-This is a footnote
-#+end_note
+[[png:space-ae/graphical-model-csae]]
 
-* TODOs
+　
+
++ A powerful mathematical framework:
+
+  *Graphical model + Maximum-likelihood + Variational method* 
+
+  #+begin_alignright
+  → *End-to-end NN training* with a *statistically sound objective*.
+  #+end_alignright
+
+* Need an */appropriate/* model for */your/* target formalism
+
+An example:
+#+begin_center
+Subsymbolic inputs → PDDL formalism → fast, PDDL solver
+#+end_center
+
+A proposal:
+#+begin_center
++ *Nonlinear dynamics* → *linear latent control* → *fast, linear solver*
+#+end_center
+
+[[png:space-ae/graphical-model-style]]
+
+#+begin_center
++ *Caution: It requires a /deep/ understanding of your formalism*
+
+  *(e.g., PDDL, linear control).* Know what you are modeling!
+#+end_center
+
+* Extending the generative model (unpublished)
 
 #+begin_container-fluid
 #+begin_row-fluid
-#+begin_span6
-#+begin_smaller
-+ Features
-  + Table of contents
-  + +=<dl>= does not expand+ *DONE*
-  + +Showing current keystrokes+ *DONE*
-  + auto-scroll/auto-zoom with big contents
-  + Showing current/total page number
-  + +Changing Stylesheet+ *DONE*. "style"
-  + +Up-Section command+ *DONE*. "u"
-  + Slide thumbnail
-  + +stopwatch/countdown timer+ *DONE*. "timer"
-  + +link to #section+ *DONE*.
-    #+HTML: <a href="index.html#6">sample link</a>
-#+end_smaller
-#+end_span6
-#+begin_span6
-#+begin_smaller
-+ Features inspired by other tools
-  + Content Search (in org-infojs)
-  + Drawing mode (in [[http://code.google.com/p/jessyink/][jessyink]])
-  + 'Paused' mode (in [[http://lab.hakim.se/reveal-js/][reveal.js]])
-  + +Export to PDF (also in reveal.js)+ *DONE*
-  + +resume output+ *DONE*
-  + Slide with an image covering the entire background (slideshare)
-  + present one paragraph/word/letter at a time
-    + those in [[http://docutils.sourceforge.net/docs/user/slide-shows.s5.html][s5]]
-  + "C-M-x" style notation in the command definition
-#+end_smaller
-#+end_span6
+#+begin_span4
+#+begin_center
++ Lifted actions,
 
+  Parameters *x*
+  
+  [[png:space-ae/graphical-model-fosae]]
+
+  Predicates, too.
+
+  *Compatible with First Order Logic.*
+
+#+end_center
+#+end_span4
+#+begin_span4
+#+begin_center
++ Temporal actions,
+
+  Action durations *d*
+
+  [[png:space-ae/graphical-model-time]]
+
+  *Compatible with LTL.*
+
+#+end_center
+#+end_span4
+#+begin_span4
+#+begin_center
++ Domain symbol *D*,
+
+  Problem symbol *P*
+
+  [[png:space-ae/graphical-model-domain]]
+
+  Allows mixed-domain training?
+#+end_center
+#+end_span4
 #+end_row-fluid
 #+end_container-fluid
+
+# + Discrete-Continuous
+#
+#  [[png:space-ae/graphical-model-style]]
+
+
+
+* Conclusion
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span7
+#+begin_center
++ *Goal: logical, rational agents*
+
+  operating under *raw observations*
+  
+  [[sgif:mars/yoda-hmph]]
+#+end_center
+#+end_span7
+#+begin_span5
+#+begin_center
++ *Latplan*
+
+  [[png:space-ae/3-1]]
+
+  [[spng:experiment/blocks-example]]
+#+end_center
+#+end_span5
+#+end_row-fluid
+#+begin_row-fluid
+#+begin_span7
+#+begin_center
++ Each type of symbol requires
+
+  *its own mechanism to learn*
+  
+  [[png:namespace/6]]
+#+end_center
+#+end_span7
+#+begin_span5
+#+begin_center
++ Generative models offer
+
+  the *mathematical rigor*
+
+  [[png:space-ae/graphical-model-csae]]
+#+end_center
+#+end_span5
+#+end_row-fluid
+#+end_container-fluid
+
+#+begin_center
+Masataro Asai, Hiroshi Kajino, Alex Fukunaga, Christian Muise:
+
+*Classical Planning in Deep Latent Space.* Arxiv 2107.00110 -> JAIR
+#+end_center
+
+* Success / Failure cases
+
+[[spng:experiment/blocks-example]]
+
+[[spng:experiment/other-examples]]
+* Why _/action symbol grounding/_ is necessary?
+
+"designers always know the action space"? */Wrong!/*
+
+Humans have a good understanding of low-level actuations...
+  
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span6
++
+  #+begin_center
+  Running
+  #+end_center
+  [[sjpg:triathlon/running]]
+# sjpg:triathlon/bicycle
+# sjpg:triathlon/swimming
+#+end_span6
+#+begin_span6
++ 
+  #+begin_center
+  Career Path
+  #+end_center
+  [[sjpg:triathlon/career]]
+
+  #+begin_center
+  Do you fully understand all of your opportunities?
+  #+end_center
+#+end_span6
+#+end_row-fluid
+#+begin_row-fluid
+#+begin_span6
+#+begin_center
++ *Low-level Control*
+#+end_center
+#+end_span6
+#+begin_span6
+#+begin_center
++ */High-level Action/*
+#+end_center
+#+end_span6
+#+end_row-fluid
+#+end_container-fluid
+

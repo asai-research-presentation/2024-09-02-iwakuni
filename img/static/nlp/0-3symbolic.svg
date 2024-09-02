@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="297mm"
+   height="210mm"
+   viewBox="0 0 1052.3622 744.09448"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="0-3symbolic.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="116.61"
+     inkscape:cy="332.74526"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="998"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="レイヤー 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-308.26772)">
+    <text
+       xml:space="preserve"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:27.5px;line-height:normal;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate;"
+       x="56.736752"
+       y="406.19977"
+       id="text4133"><tspan
+         sodipodi:role="line"
+         id="tspan4135"
+         x="56.736752"
+         y="406.19977" /><tspan
+         sodipodi:role="line"
+         x="56.736752"
+         y="443.69977"
+         id="tspan4139">Structural pattern matching using (human) Discrete Symbols</tspan><tspan
+         sodipodi:role="line"
+         x="56.736752"
+         y="481.19977"
+         id="tspan4143" /></text>
+    <text
+       xml:space="preserve"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:60px;line-height:normal;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       x="61.428574"
+       y="380.93362"
+       id="text4145"><tspan
+         sodipodi:role="line"
+         id="tspan4147"
+         x="61.428574"
+         y="380.93362">Symbolic NLP</tspan></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4153"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:27.5px;line-height:normal;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       transform="translate(-121.05586,368.09008)"><flowRegion
+         id="flowRegion4155"><rect
+           id="rect4157"
+           width="893.55554"
+           height="268.82883"
+           x="171.42857"
+           y="394.09448"
+           style="font-size:27.5px" /></flowRegion><flowPara
+         id="flowPara4161"><flowSpan
+   id="flowSpan4404"
+   style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:27.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium'">Human symbols are brittle: </flowSpan>→ lacks the vector space property</flowPara><flowPara
+         id="flowPara4394">E.g. Symbol &quot;king&quot; is opaque (does not tell about its sex)</flowPara></flowRoot>    <text
+       xml:space="preserve"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:27.5px;line-height:normal;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       x="92.934029"
+       y="682.64636"
+       id="text4171"><tspan
+         sodipodi:role="line"
+         id="tspan4173"
+         x="92.934029"
+         y="682.64636">Guaranteed logical correctness</tspan><tspan
+         sodipodi:role="line"
+         x="92.934029"
+         y="717.02136"
+         id="tspan4175"> → application: e.g. knowledge extraction from corporate documents</tspan></text>
+    <text
+       xml:space="preserve"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:25.00030518px;line-height:normal;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium';text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:middle;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       x="538.12402"
+       y="495.15036"
+       id="text4179"><tspan
+         sodipodi:role="line"
+         x="538.12402"
+         y="495.15036"
+         id="tspan4273">Parser (e.g. AMR/</tspan><tspan
+         sodipodi:role="line"
+         x="538.12402"
+         y="526.40076"
+         id="tspan4275">dependency parsing)</tspan></text>
+    <g
+       id="g4301"
+       transform="matrix(0.83334348,0,0,0.83334348,85.134257,88.816987)">
+      <g
+         id="g3"
+         transform="matrix(0.21316657,0,0,0.21316657,169.00079,537.79178)">
+        <g
+           id="g5">
+          <path
+             id="path7"
+             d="m 443.103,71.306 -26.343,0 0,-26.343 c 0,-5.142 -4.167,-9.31 -9.31,-9.31 l -26.342,0 0,-26.343 c 0,-5.142 -4.167,-9.31 -9.31,-9.31 l -302.9,0 c -5.143,0 -9.31,4.169 -9.31,9.31 l 0,422.074 c 0,5.142 4.167,9.31 9.31,9.31 l 26.342,0 0,26.342 c 0,5.142 4.167,9.31 9.31,9.31 l 26.342,0 0,26.342 c 0,5.142 4.167,9.31 9.31,9.31 l 302.9,0 c 5.143,0 9.31,-4.169 9.31,-9.31 l 0,-422.072 c 0.001,-5.142 -4.166,-9.31 -9.309,-9.31 z m -364.895,350.768 0,-403.453 284.279,0 0,403.453 -284.279,0 z m 35.654,35.652 0,-17.032 257.935,0 c 5.143,0 9.31,-4.169 9.31,-9.31 l 0,-377.11 17.033,0 0,403.453 -284.278,0 z m 319.93,35.653 -284.279,0 0,-17.032 257.937,0 c 5.143,0 9.31,-4.169 9.31,-9.31 l 0,-377.11 17.032,0 0,403.452 z"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+      <g
+         id="g9"
+         transform="matrix(0.21316657,0,0,0.21316657,169.00079,537.79178)">
+        <g
+           id="g11">
+          <path
+             id="path13"
+             d="m 271.292,95.592 -101.888,0 c -5.143,0 -9.31,4.169 -9.31,9.31 0,5.141 4.167,9.31 9.31,9.31 l 101.887,0 c 5.143,0 9.31,-4.169 9.31,-9.31 0,-5.141 -4.166,-9.31 -9.309,-9.31 z"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+      <g
+         id="g15"
+         transform="matrix(0.21316657,0,0,0.21316657,169.00079,537.79178)">
+        <g
+           id="g17">
+          <path
+             id="path19"
+             d="m 313.448,141.771 -186.2,0 c -5.143,0 -9.31,4.169 -9.31,9.31 0,5.141 4.167,9.31 9.31,9.31 l 186.2,0 c 5.143,0 9.31,-4.169 9.31,-9.31 0,-5.141 -4.168,-9.31 -9.31,-9.31 z"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+      <g
+         id="g21"
+         transform="matrix(0.21316657,0,0,0.21316657,169.00079,537.79178)">
+        <g
+           id="g23">
+          <path
+             id="path25"
+             d="m 313.448,187.948 -186.2,0 c -5.143,0 -9.31,4.169 -9.31,9.31 0,5.141 4.167,9.31 9.31,9.31 l 186.2,0 c 5.143,0 9.31,-4.169 9.31,-9.31 0,-5.141 -4.168,-9.31 -9.31,-9.31 z"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+      <g
+         id="g27"
+         transform="matrix(0.21316657,0,0,0.21316657,169.00079,537.79178)">
+        <g
+           id="g29">
+          <path
+             id="path31"
+             d="m 313.448,234.125 -186.2,0 c -5.143,0 -9.31,4.169 -9.31,9.31 0,5.141 4.167,9.31 9.31,9.31 l 186.2,0 c 5.143,0 9.31,-4.169 9.31,-9.31 0,-5.141 -4.168,-9.31 -9.31,-9.31 z"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+      <g
+         id="g33"
+         transform="matrix(0.21316657,0,0,0.21316657,169.00079,537.79178)">
+        <g
+           id="g35">
+          <path
+             id="path37"
+             d="m 313.448,280.303 -186.2,0 c -5.143,0 -9.31,4.169 -9.31,9.31 0,5.141 4.167,9.31 9.31,9.31 l 186.2,0 c 5.143,0 9.31,-4.169 9.31,-9.31 0,-5.141 -4.168,-9.31 -9.31,-9.31 z"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+      <g
+         id="g39"
+         transform="matrix(0.21316657,0,0,0.21316657,169.00079,537.79178)">
+        <g
+           id="g41">
+          <path
+             id="path43"
+             d="m 313.448,326.48 -186.2,0 c -5.143,0 -9.31,4.169 -9.31,9.31 0,5.141 4.167,9.31 9.31,9.31 l 186.2,0 c 5.143,0 9.31,-4.169 9.31,-9.31 0,-5.141 -4.168,-9.31 -9.31,-9.31 z"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+    </g>
+    <g
+       transform="matrix(0.21316657,0,0,0.21316657,169.00079,537.79178)"
+       id="g45" />
+    <g
+       transform="matrix(0.21316657,0,0,0.21316657,169.00079,537.79178)"
+       id="g47" />
+    <g
+       transform="matrix(0.21316657,0,0,0.21316657,169.00079,537.79178)"
+       id="g49" />
+    <g
+       transform="matrix(0.21316657,0,0,0.21316657,169.00079,537.79178)"
+       id="g51" />
+    <g
+       transform="matrix(0.21316657,0,0,0.21316657,169.00079,537.79178)"
+       id="g53" />
+    <g
+       transform="matrix(0.21316657,0,0,0.21316657,169.00079,537.79178)"
+       id="g55" />
+    <g
+       transform="matrix(0.21316657,0,0,0.21316657,169.00079,537.79178)"
+       id="g57" />
+    <g
+       transform="matrix(0.21316657,0,0,0.21316657,169.00079,537.79178)"
+       id="g59" />
+    <g
+       transform="matrix(0.21316657,0,0,0.21316657,169.00079,537.79178)"
+       id="g61" />
+    <g
+       transform="matrix(0.21316657,0,0,0.21316657,169.00079,537.79178)"
+       id="g63" />
+    <g
+       transform="matrix(0.21316657,0,0,0.21316657,169.00079,537.79178)"
+       id="g65" />
+    <g
+       transform="matrix(0.21316657,0,0,0.21316657,169.00079,537.79178)"
+       id="g67" />
+    <g
+       transform="matrix(0.21316657,0,0,0.21316657,169.00079,537.79178)"
+       id="g69" />
+    <g
+       transform="matrix(0.21316657,0,0,0.21316657,169.00079,537.79178)"
+       id="g71" />
+    <g
+       transform="matrix(0.21316657,0,0,0.21316657,169.00079,537.79178)"
+       id="g73" />
+    <text
+       xml:space="preserve"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:25.00030518px;line-height:normal;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       x="212.51675"
+       y="512.9256"
+       id="text4259"><tspan
+         sodipodi:role="line"
+         id="tspan4261"
+         x="212.51675"
+         y="512.9256">Document</tspan></text>
+    <text
+       xml:space="preserve"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:25.00030518px;line-height:normal;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       x="361.92337"
+       y="510.77554"
+       id="text4263"><tspan
+         sodipodi:role="line"
+         id="tspan4265"
+         x="361.92337"
+         y="510.77554">→</tspan></text>
+    <text
+       xml:space="preserve"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:25.00030518px;line-height:normal;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium';text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:middle;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       x="797.62146"
+       y="495.01285"
+       id="text4267"><tspan
+         sodipodi:role="line"
+         id="tspan4269"
+         x="797.62146"
+         y="495.01285">Prolog-like</tspan><tspan
+         sodipodi:role="line"
+         x="797.62146"
+         y="526.26324"
+         id="tspan4271">query</tspan></text>
+    <text
+       xml:space="preserve"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:25.00030518px;line-height:normal;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       x="688.13031"
+       y="510.77554"
+       id="text4263-3"><tspan
+         sodipodi:role="line"
+         id="tspan4265-6"
+         x="688.13031"
+         y="510.77554">→</tspan></text>
+    <text
+       xml:space="preserve"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.75022888px;line-height:100%;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       x="426.73181"
+       y="564.93555"
+       id="text4324"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan4326"
+         x="426.73181"
+         y="564.93555">(w / want-01</tspan><tspan
+         sodipodi:role="line"
+         x="426.73181"
+         y="583.68579"
+         id="tspan4328">  :arg0 (b / boy)</tspan><tspan
+         sodipodi:role="line"
+         x="426.73181"
+         y="602.43604"
+         id="tspan4330">  :arg1 (g / go-01</tspan><tspan
+         sodipodi:role="line"
+         x="426.73181"
+         y="621.18622"
+         id="tspan4332">    :arg0 b))</tspan></text>
+    <text
+       xml:space="preserve"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.58351135px;line-height:100%;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       x="676.19464"
+       y="563.56079"
+       id="text4324-7"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         x="676.19464"
+         y="563.56079"
+         id="tspan4332-6">(:- (above ?x ?y)</tspan><tspan
+         sodipodi:role="line"
+         x="676.19464"
+         y="578.14429"
+         id="tspan4370">    (or (on ?x ?y)</tspan><tspan
+         sodipodi:role="line"
+         x="676.19464"
+         y="592.72778"
+         id="tspan4372">        (exists (?z)</tspan><tspan
+         sodipodi:role="line"
+         x="676.19464"
+         y="607.31134"
+         id="tspan4374">          (and (on ?z ?x)</tspan><tspan
+         sodipodi:role="line"
+         x="676.19464"
+         y="621.89484"
+         id="tspan4376">               (above ?y ?z)))))</tspan></text>
+    <text
+       xml:space="preserve"
+       style="color:#000000;font-style:italic;font-variant:normal;font-weight:500;font-stretch:normal;font-size:22.5px;line-height:normal;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium Italic';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ff5555;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       x="129.29953"
+       y="904.87994"
+       id="text4419"><tspan
+         sodipodi:role="line"
+         id="tspan4421"
+         x="129.29953"
+         y="904.87994" /></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4427"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:27.5px;line-height:normal;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       transform="translate(-63.416254,276.89208)"><flowRegion
+         id="flowRegion4429"><rect
+           id="rect4431"
+           width="1035.4064"
+           height="141.42137"
+           x="115.15739"
+           y="580.44977"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:27.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium';fill:#000000" /></flowRegion><flowPara
+         id="flowPara4433"
+         style="font-style:italic;font-variant:normal;font-weight:500;font-stretch:normal;font-size:27.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium Italic'"><flowSpan
+   style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium'"
+   id="flowSpan4241">Wittgenstein’s “atomic meaning” hypothesis</flowSpan> (blue book)</flowPara><flowPara
+         id="flowPara4220">There <flowSpan
+   style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:27.5px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Bold Italic'"
+   id="flowSpan4439">must be</flowSpan> a set of atomic logical symbols (e.g. sex) in human language</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4229"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:25px;line-height:normal;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium';text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:middle;white-space:normal;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       transform="translate(-171.72593,320.38955)"><flowRegion
+         id="flowRegion4231"><rect
+           id="rect4233"
+           width="891.96472"
+           height="124.24876"
+           x="258.59906"
+           y="629.94727"
+           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:25px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium';text-align:center;text-anchor:middle" /></flowRegion><flowPara
+         id="flowPara4235"
+         style="-inkscape-font-specification:'CMU Serif Bold';font-family:'CMU Serif';font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:30px">→ Learned atomic propositional symbols would address</flowPara><flowPara
+         id="flowPara4237"
+         style="-inkscape-font-specification:'CMU Serif Bold';font-family:'CMU Serif';font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;font-size:30px">the weakness of both paradims</flowPara></flowRoot>  </g>
+</svg>

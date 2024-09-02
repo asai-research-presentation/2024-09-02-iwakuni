@@ -51,7 +51,8 @@ img {
   /* background-color: #777; */ }
 
 blockquote {
-  /* font-style: italic; */ }
+  /* font-style: italic; */
+  margin: 0.5em; }
 
 li > .li-content:hover {
   color: #833;

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="145.52084mm"
+   height="48.288231mm"
+   viewBox="0 0 145.52084 48.288231"
+   version="1.1"
+   id="svg871"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="search-agent1.svg">
+  <defs
+     id="defs865" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.959798"
+     inkscape:cx="292.94301"
+     inkscape:cy="125.7404"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="982"
+     inkscape:window-x="0"
+     inkscape:window-y="37"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:snap-text-baseline="true" />
+  <metadata
+     id="metadata868">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="レイヤー 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-5.7465478,7.3860534)">
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot1416"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.33333397px;line-height:125%;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Bold';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3.77952766;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       transform="matrix(0.34667807,0,0,0.34667807,-11.063276,-21.796242)"><flowRegion
+         id="flowRegion1418"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.33333397px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Bold';text-align:start;text-anchor:start"><rect
+           id="rect1420"
+           width="626.29456"
+           height="530.33008"
+           x="48.487324"
+           y="39.636158"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.33333397px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Bold';text-align:start;text-anchor:start" /></flowRegion><flowPara
+         id="flowPara1422"><flowSpan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.33333397px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Bold';fill:#800080"
+   id="flowSpan1450">function</flowSpan> SearchAgent():</flowPara><flowPara
+         id="flowPara1426">    OPEN ← { <flowSpan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.33333397px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Bold';fill:#ff0000"
+   id="flowSpan1446">init</flowSpan> }</flowPara><flowPara
+         id="flowPara1428"><flowSpan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.33333397px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Bold';fill:#800080"
+   id="flowSpan1472">    until</flowSpan> goal found:</flowPara><flowPara
+         id="flowPara1430">        node ← select(OPEN)</flowPara><flowPara
+         id="flowPara1432">        Children ← <flowSpan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.33333397px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Bold';fill:#ff0000"
+   id="flowSpan1442">expand</flowSpan>(node)</flowPara><flowPara
+         id="flowPara1434"><flowSpan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.33333397px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Bold';fill:#800080"
+   id="flowSpan1474">        for</flowSpan><flowSpan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.33333397px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Bold';fill:#800080"
+   id="flowSpan1476">each</flowSpan> c ∈ Children:</flowPara><flowPara
+         id="flowPara1436">            key ← <flowSpan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.33333397px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Bold';fill:#ff0000"
+   id="flowSpan1444">evaluate</flowSpan>(c)</flowPara><flowPara
+         id="flowPara1438">            insert(OPEN, c, key)</flowPara><flowPara
+         id="flowPara1440" /></flowRoot>    <text
+       xml:space="preserve"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.62237406px;line-height:100%;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Bold';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#008080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.31027937;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       x="74.077347"
+       y="30.546976"
+       id="text4503"><tspan
+         sodipodi:role="line"
+         id="tspan4501"
+         x="74.077347"
+         y="30.546976"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.62237406px;line-height:100%;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Bold';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;vector-effect:none;fill:#008080;fill-opacity:1;stroke:none;stroke-width:1.31027937;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none">← Reinforcement Learning</tspan><tspan
+         sodipodi:role="line"
+         x="74.077347"
+         y="35.16935"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.62237406px;line-height:100%;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Bold';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;vector-effect:none;fill:#008080;fill-opacity:1;stroke:none;stroke-width:1.31027937;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none"
+         id="tspan4505">     e.g. DQN (Mnih et al. 15)</tspan><tspan
+         sodipodi:role="line"
+         x="74.077347"
+         y="39.791725"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.62237406px;line-height:100%;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Bold';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;vector-effect:none;fill:#008080;fill-opacity:1;stroke:none;stroke-width:1.31027937;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none"
+         id="tspan4507">             AlphaGo (Silver et al. 16)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.62237406px;line-height:110.00000238%;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Bold';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#008080;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.31027937;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate;"
+       x="76.194016"
+       y="2.0129025"
+       id="text4511"><tspan
+         sodipodi:role="line"
+         id="tspan4509"
+         x="76.194016"
+         y="2.0129025"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.62237406px;line-height:110.00000238%;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Bold';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;vector-effect:none;fill:#008080;fill-opacity:1;stroke:none;stroke-width:1.31027937;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;">← Apriori s<tspan
+   style="line-height:110.00000238%;fill:#008080;stroke-width:1.31027937;"
+   id="tspan4588">tate representation</tspan></tspan><tspan
+         sodipodi:role="line"
+         x="76.194016"
+         y="7.0975142"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.62237406px;line-height:110.00000238%;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Bold';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;vector-effect:none;fill:#008080;fill-opacity:1;stroke:none;stroke-width:1.31027937;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;"
+         id="tspan4584">　　(Game of Go)</tspan></text>
+    <path
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.47772241;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="m 33.728422,2.9739476 h 7.428815"
+       id="path38"
+       inkscape:connector-curvature="0" />
+    <path
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.47772241;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="M 35.461811,32.441585 H 55.395802"
+       id="path38-3-6"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.47772241;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="M 99.244292,2.9739476 H 145.47509"
+       id="path38-7"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <image
+       y="4.0287766"
+       x="115.56496"
+       id="image4177"
+       xlink:href="data:image/png;base64,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 "
+       preserveAspectRatio="none"
+       height="17.687143"
+       width="17.391243" />
+  </g>
+</svg>
