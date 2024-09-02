@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="354.48734mm"
-   height="83.521217mm"
-   viewBox="0 0 354.48734 83.521218"
+   width="500mm"
+   height="117.9211mm"
+   viewBox="0 0 500.00001 117.9211"
    version="1.1"
    id="svg8"
-   inkscape:version="1.0.2 (e86c870879, 2021-01-15)"
-   sodipodi:docname="blocks-example.svg">
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
+   sodipodi:docname="blocks-example.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <defs
      id="defs2">
     <marker
-       style="overflow:visible;"
+       style="overflow:visible"
        id="Arrow1Lend"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1Lend"
        inkscape:isstock="true">
       <path
-         transform="scale(0.8) rotate(180) translate(12.5,0)"
-         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
          id="path1135" />
     </marker>
     <marker
-       style="overflow:visible;"
+       style="overflow:visible"
        id="Arrow1Mend"
-       refX="0.0"
-       refY="0.0"
+       refX="0"
+       refY="0"
        orient="auto"
        inkscape:stockid="Arrow1Mend"
        inkscape:isstock="true">
       <path
-         transform="scale(0.4) rotate(180) translate(10,0)"
-         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
          id="path1141" />
     </marker>
     <clipPath
@@ -189,7 +189,7 @@
          y="59.162357" />
     </clipPath>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Greyscale"
        id="filter11632">
       <feColorMatrix
@@ -197,7 +197,7 @@
          id="feColorMatrix11630" />
     </filter>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Greyscale"
        id="filter11636">
       <feColorMatrix
@@ -205,7 +205,7 @@
          id="feColorMatrix11634" />
     </filter>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Greyscale"
        id="filter11640">
       <feColorMatrix
@@ -213,7 +213,7 @@
          id="feColorMatrix11638" />
     </filter>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Greyscale"
        id="filter11644">
       <feColorMatrix
@@ -221,7 +221,7 @@
          id="feColorMatrix11642" />
     </filter>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Greyscale"
        id="filter11648">
       <feColorMatrix
@@ -229,7 +229,7 @@
          id="feColorMatrix11646" />
     </filter>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Greyscale"
        id="filter11652">
       <feColorMatrix
@@ -237,7 +237,7 @@
          id="feColorMatrix11650" />
     </filter>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Greyscale"
        id="filter11656">
       <feColorMatrix
@@ -245,7 +245,7 @@
          id="feColorMatrix11654" />
     </filter>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Greyscale"
        id="filter11660">
       <feColorMatrix
@@ -253,7 +253,7 @@
          id="feColorMatrix11658" />
     </filter>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Greyscale"
        id="filter11664">
       <feColorMatrix
@@ -261,7 +261,7 @@
          id="feColorMatrix11662" />
     </filter>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Greyscale"
        id="filter11668">
       <feColorMatrix
@@ -269,7 +269,7 @@
          id="feColorMatrix11666" />
     </filter>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Greyscale"
        id="filter11672">
       <feColorMatrix
@@ -277,7 +277,7 @@
          id="feColorMatrix11670" />
     </filter>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Greyscale"
        id="filter11676">
       <feColorMatrix
@@ -285,7 +285,7 @@
          id="feColorMatrix11674" />
     </filter>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Greyscale"
        id="filter11680">
       <feColorMatrix
@@ -293,7 +293,7 @@
          id="feColorMatrix11678" />
     </filter>
     <filter
-       style="color-interpolation-filters:sRGB;"
+       style="color-interpolation-filters:sRGB"
        inkscape:label="Greyscale"
        id="filter11684">
       <feColorMatrix
@@ -322,9 +322,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.6062163"
-     inkscape:cx="475.2506"
-     inkscape:cy="151.18095"
+     inkscape:zoom="0.26599734"
+     inkscape:cx="669.17962"
+     inkscape:cy="157.89631"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -333,7 +333,10 @@
      inkscape:window-height="906"
      inkscape:window-x="14"
      inkscape:window-y="20"
-     inkscape:window-maximized="0" />
+     inkscape:window-maximized="0"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -342,7 +345,6 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -350,7 +352,7 @@
      inkscape:label="レイヤー 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(69.306362,37.209782)">
+     transform="translate(69.255559,37.275918)">
     <image
        width="304.79999"
        height="76.199997"
@@ -360,18 +362,18 @@
        x="-54.126183"
        y="-16.933332"
        clip-path="url(#clipPath902)"
-       transform="matrix(1.0015837,0,0,1.0015837,-0.18705844,0.43267448)" />
+       transform="matrix(1.4118699,0,0,1.4118699,28.105989,15.879527)" />
     <text
        xml:space="preserve"
-       style="font-weight:300;font-size:12.7201px;line-height:100%;font-family:'IBM Plex Sans';-inkscape-font-specification:'IBM Plex Sans, Light';text-decoration:none;text-decoration-line:none;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;fill:#000000;stroke-width:0.124816;stop-color:#000000;"
-       x="141.51778"
-       y="5.0555739"
+       style="font-weight:300;font-size:17.9307px;line-height:100%;font-family:'IBM Plex Sans';-inkscape-font-specification:'IBM Plex Sans, Light';text-decoration:none;text-decoration-line:none;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;fill:#000000;stroke-width:0.175945;stop-color:#000000"
+       x="227.85843"
+       y="22.396139"
        id="text908"><tspan
          sodipodi:role="line"
          id="tspan906"
-         x="141.51778"
-         y="5.0555739"
-         style="stroke-width:0.124816;">...</tspan></text>
+         x="227.85843"
+         y="22.396139"
+         style="stroke-width:0.175945">...</tspan></text>
     <image
        width="304.79999"
        height="114.3"
@@ -381,18 +383,18 @@
        x="-35.983326"
        y="-5.7452397"
        clip-path="url(#clipPath957)"
-       transform="matrix(1.0015837,0,0,1.0015837,-56.078461,-15.912258)" />
+       transform="matrix(1.4118699,0,0,1.4118699,-50.680627,-7.1609021)" />
     <text
        xml:space="preserve"
-       style="font-weight:300;font-size:12.7201px;line-height:100%;font-family:'IBM Plex Sans';-inkscape-font-specification:'IBM Plex Sans, Light';text-decoration:none;text-decoration-line:none;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;fill:#000000;stroke-width:0.124816;stop-color:#000000;"
-       x="214.67825"
-       y="36.065468"
+       style="font-weight:300;font-size:17.9307px;line-height:100%;font-family:'IBM Plex Sans';-inkscape-font-specification:'IBM Plex Sans, Light';text-decoration:none;text-decoration-line:none;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;fill:#000000;stroke-width:0.175945;stop-color:#000000"
+       x="330.98819"
+       y="66.108849"
        id="text908-3"><tspan
          sodipodi:role="line"
          id="tspan906-6"
-         x="214.67825"
-         y="36.065468"
-         style="stroke-width:0.124816;">...</tspan></text>
+         x="330.98819"
+         y="66.108849"
+         style="stroke-width:0.175945">...</tspan></text>
     <image
        width="304.79999"
        height="114.3"
@@ -402,7 +404,7 @@
        x="-12.620321"
        y="48.053883"
        clip-path="url(#clipPath995)"
-       transform="matrix(1.0015837,0,0,1.0015837,87.265389,-105.65237)" />
+       transform="matrix(1.4118699,0,0,1.4118699,151.38224,-133.66193)" />
     <image
        width="304.79999"
        height="76.199997"
@@ -412,7 +414,7 @@
        x="-51.858326"
        y="48.834526"
        clip-path="url(#clipPath1056)"
-       transform="matrix(1.0015837,0,0,1.0015837,-2.5428835,-96.531971)" />
+       transform="matrix(1.4118699,0,0,1.4118699,24.78513,-120.80547)" />
     <image
        width="304.79999"
        height="76.199997"
@@ -422,7 +424,7 @@
        x="-51.858326"
        y="48.834526"
        clip-path="url(#clipPath1068)"
-       transform="matrix(1.0015837,0,0,1.0015837,299.63657,-130.83477)" />
+       transform="matrix(1.4118699,0,0,1.4118699,450.74861,-169.15998)" />
     <image
        width="304.79999"
        height="76.199997"
@@ -432,7 +434,7 @@
        x="-51.858326"
        y="48.834526"
        clip-path="url(#clipPath1052)"
-       transform="matrix(1.0015837,0,0,1.0015837,-2.5856932,-96.531971)" />
+       transform="matrix(1.4118699,0,0,1.4118699,24.724784,-120.80547)" />
     <image
        width="304.79999"
        height="76.199997"
@@ -442,7 +444,7 @@
        x="-51.858326"
        y="48.834526"
        clip-path="url(#clipPath1074)"
-       transform="matrix(1.0015837,0,0,1.0015837,-1.8798631,-96.556904)" />
+       transform="matrix(1.4118699,0,0,1.4118699,25.719748,-120.84062)" />
     <image
        width="304.79999"
        height="76.199997"
@@ -452,7 +454,7 @@
        x="-51.858326"
        y="48.834526"
        clip-path="url(#clipPath1048)"
-       transform="matrix(1.0015837,0,0,1.0015837,-2.5726686,-96.531971)" />
+       transform="matrix(1.4118699,0,0,1.4118699,24.743144,-120.80547)" />
     <image
        width="304.79999"
        height="76.199997"
@@ -462,7 +464,7 @@
        x="-51.858326"
        y="48.834526"
        clip-path="url(#clipPath1064)"
-       transform="matrix(1.0015837,0,0,1.0015837,-1.6650635,-96.531971)" />
+       transform="matrix(1.4118699,0,0,1.4118699,26.022538,-120.80547)" />
     <image
        width="304.79999"
        height="76.199997"
@@ -472,7 +474,7 @@
        x="-51.858326"
        y="48.834526"
        clip-path="url(#clipPath1044)"
-       transform="matrix(1.0015837,0,0,1.0015837,-2.5559051,-96.531971)" />
+       transform="matrix(1.4118699,0,0,1.4118699,24.766774,-120.80547)" />
     <image
        width="304.79999"
        height="76.199997"
@@ -482,7 +484,7 @@
        x="-51.858326"
        y="48.834526"
        clip-path="url(#clipPath1060)"
-       transform="matrix(1.0015837,0,0,1.0015837,-1.6482969,-96.531971)" />
+       transform="matrix(1.4118699,0,0,1.4118699,26.046173,-120.80547)" />
     <image
        width="304.79999"
        height="76.199997"
@@ -492,133 +494,133 @@
        x="-51.858326"
        y="48.834526"
        clip-path="url(#clipPath1040)"
-       transform="matrix(1.0015837,0,0,1.0015837,-2.5428835,-96.531971)" />
+       transform="matrix(1.4118699,0,0,1.4118699,24.78513,-120.80547)" />
     <text
        xml:space="preserve"
-       style="font-weight:300;font-size:12.7px;line-height:100%;font-family:'IBM Plex Sans';-inkscape-font-specification:'IBM Plex Sans, Light';text-decoration:none;text-decoration-line:none;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;fill:#000000;stroke-width:0.124619;stop-color:#000000;"
-       x="-70.474762"
-       y="-22.467573"
+       style="font-weight:300;font-size:17.9024px;line-height:100%;font-family:'IBM Plex Sans';-inkscape-font-specification:'IBM Plex Sans, Light';text-decoration:none;text-decoration-line:none;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;fill:#000000;stroke-width:0.175668;stop-color:#000000"
+       x="-68.328354"
+       y="-16.40152"
        id="text956"><tspan
          sodipodi:role="line"
          id="tspan954"
-         x="-70.474762"
-         y="-22.467573"
-         style="stroke-width:0.124619;">(1)</tspan></text>
+         x="-68.328354"
+         y="-16.40152"
+         style="stroke-width:0.175668">(1)</tspan></text>
     <text
        xml:space="preserve"
-       style="font-weight:300;font-size:12.7px;line-height:100%;font-family:'IBM Plex Sans';-inkscape-font-specification:'IBM Plex Sans, Light';text-decoration:none;text-decoration-line:none;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;fill:#000000;stroke-width:0.124619;stop-color:#000000;"
-       x="-70.474762"
-       y="8.4837761"
+       style="font-weight:300;font-size:17.9024px;line-height:100%;font-family:'IBM Plex Sans';-inkscape-font-specification:'IBM Plex Sans, Light';text-decoration:none;text-decoration-line:none;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;fill:#000000;stroke-width:0.175668;stop-color:#000000"
+       x="-68.328354"
+       y="27.228662"
        id="text956-3"><tspan
          sodipodi:role="line"
          id="tspan954-5"
-         x="-70.474762"
-         y="8.4837761"
-         style="stroke-width:0.124619;">(2)</tspan></text>
+         x="-68.328354"
+         y="27.228662"
+         style="stroke-width:0.175668">(2)</tspan></text>
     <text
        xml:space="preserve"
-       style="font-weight:300;font-size:12.7px;line-height:100%;font-family:'IBM Plex Sans';-inkscape-font-specification:'IBM Plex Sans, Light';text-decoration:none;text-decoration-line:none;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;fill:#000000;stroke-width:0.124619;stop-color:#000000;"
-       x="-70.474762"
-       y="39.444637"
+       style="font-weight:300;font-size:17.9024px;line-height:100%;font-family:'IBM Plex Sans';-inkscape-font-specification:'IBM Plex Sans, Light';text-decoration:none;text-decoration-line:none;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;fill:#000000;stroke-width:0.175668;stop-color:#000000"
+       x="-68.328354"
+       y="70.872253"
        id="text956-6"><tspan
          sodipodi:role="line"
          id="tspan954-2"
-         x="-70.474762"
-         y="39.444637"
-         style="stroke-width:0.124619;">(3)</tspan></text>
+         x="-68.328354"
+         y="70.872253"
+         style="stroke-width:0.175668">(3)</tspan></text>
     <rect
-       style="fill:none;stroke:#000000;stroke-width:0.264583;stop-color:#000000;"
+       style="fill:none;stroke:#000000;stroke-width:0.372966;stop-color:#000000"
        id="rect906-7-3"
-       width="5.5046148"
-       height="5.6681051"
-       x="-39.707649"
-       y="37.348328" />
+       width="7.7595115"
+       height="7.9899735"
+       x="-27.603716"
+       y="67.917213" />
     <text
        xml:space="preserve"
-       style="font-weight:300;font-size:6.35px;line-height:100%;font-family:'IBM Plex Sans';-inkscape-font-specification:'IBM Plex Sans, Light';text-decoration:none;text-decoration-line:none;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;fill:#000000;stroke-width:0.124619;stop-color:#000000;"
-       x="-40.250561"
-       y="23.333958"
+       style="font-weight:300;font-size:8.9512px;line-height:100%;font-family:'IBM Plex Sans';-inkscape-font-specification:'IBM Plex Sans, Light';text-decoration:none;text-decoration-line:none;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;fill:#000000;stroke-width:0.175668;stop-color:#000000"
+       x="-28.369024"
+       y="48.162033"
        id="text977"><tspan
          sodipodi:role="line"
          id="tspan975"
-         x="-40.250561"
-         y="23.333958"
-         style="font-size:6.35px;stroke-width:0.124619;">a red block turns black</tspan></text>
+         x="-28.369024"
+         y="48.162033"
+         style="font-size:8.9512px;stroke-width:0.175668">a red block turns black</tspan></text>
     <rect
-       style="fill:none;stroke:#000000;stroke-width:0.264583;stop-color:#000000;"
+       style="fill:none;stroke:#000000;stroke-width:0.372966;stop-color:#000000"
        id="rect906-7-3-5"
-       width="5.5046148"
-       height="5.6681051"
-       x="1.9737157"
-       y="31.591238" />
+       width="7.7595115"
+       height="7.9899735"
+       x="31.151897"
+       y="59.801807" />
     <rect
-       style="fill:none;stroke:#000000;stroke-width:0.264583;stop-color:#000000;"
+       style="fill:none;stroke:#000000;stroke-width:0.372966;stop-color:#000000"
        id="rect906-7-3-6"
-       width="5.5046148"
-       height="5.6681051"
-       x="47.0504"
-       y="37.428699" />
+       width="7.7595115"
+       height="7.9899735"
+       x="94.69368"
+       y="68.03051" />
     <rect
-       style="fill:none;stroke:#000000;stroke-width:0.264583;stop-color:#000000;"
+       style="fill:none;stroke:#000000;stroke-width:0.372966;stop-color:#000000"
        id="rect906-7-3-6-2"
-       width="5.5046148"
-       height="5.6681051"
-       x="84.472336"
-       y="37.428699" />
+       width="7.7595115"
+       height="7.9899735"
+       x="147.44504"
+       y="68.03051" />
     <rect
-       style="fill:none;stroke:#000000;stroke-width:0.264583;stop-color:#000000;"
+       style="fill:none;stroke:#000000;stroke-width:0.372966;stop-color:#000000"
        id="rect906-7-3-6-9"
-       width="5.5046148"
-       height="5.6681051"
-       x="122.19818"
-       y="37.428699" />
+       width="7.7595115"
+       height="7.9899735"
+       x="200.62482"
+       y="68.03051" />
     <rect
-       style="fill:none;stroke:#000000;stroke-width:0.264583;stop-color:#000000;"
+       style="fill:none;stroke:#000000;stroke-width:0.372966;stop-color:#000000"
        id="rect906-7-3-6-9-1"
-       width="5.5046148"
-       height="5.6681051"
-       x="160.41072"
-       y="37.428699" />
+       width="7.7595115"
+       height="7.9899735"
+       x="254.49063"
+       y="68.03051" />
     <rect
-       style="fill:none;stroke:#000000;stroke-width:0.265;stop-color:#000000;stroke-miterlimit:4;stroke-dasharray:0.53, 0.53000000000000003;stroke-dashoffset:0;"
+       style="fill:none;stroke:#000000;stroke-width:0.373554;stroke-miterlimit:4;stroke-dasharray:0.747108, 0.747108;stroke-dashoffset:0;stop-color:#000000"
        id="rect906-7-3-6-9-2"
-       width="5.5046148"
-       height="5.6681051"
-       x="145.09113"
-       y="34.66951" />
+       width="7.7595115"
+       height="7.9899735"
+       x="232.89557"
+       y="64.141052" />
     <text
        xml:space="preserve"
-       style="font-weight:300;font-size:6.35px;line-height:100%;font-family:'IBM Plex Sans';-inkscape-font-specification:'IBM Plex Sans, Light';text-decoration:none;text-decoration-line:none;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;fill:#000000;stroke-width:0.124619;stop-color:#000000;"
-       x="151.80701"
-       y="22.426283"
+       style="font-weight:300;font-size:8.9512px;line-height:100%;font-family:'IBM Plex Sans';-inkscape-font-specification:'IBM Plex Sans, Light';text-decoration:none;text-decoration-line:none;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;fill:#000000;stroke-width:0.175668;stop-color:#000000"
+       x="242.36252"
+       y="46.882542"
        id="text977-7"><tspan
          sodipodi:role="line"
          id="tspan975-0"
-         x="151.80701"
-         y="22.426283"
-         style="font-size:6.35px;stroke-width:0.124619;">a different black block turns red</tspan></text>
+         x="242.36252"
+         y="46.882542"
+         style="font-size:8.9512px;stroke-width:0.175668">a different black block turns red</tspan></text>
     <rect
-       style="fill:none;stroke:#000000;stroke-width:0.265;stroke-miterlimit:4;stroke-dasharray:0.53, 0.53000000000000003;stroke-dashoffset:0;stop-color:#000000;"
+       style="fill:none;stroke:#000000;stroke-width:0.373554;stroke-miterlimit:4;stroke-dasharray:0.747108, 0.747108;stroke-dashoffset:0;stop-color:#000000"
        id="rect906-7-3-6-9-2-9"
-       width="5.5046148"
-       height="5.6681051"
-       x="186.54199"
-       y="37.58004" />
+       width="7.7595115"
+       height="7.9899735"
+       x="291.32626"
+       y="68.243843" />
     <rect
-       style="fill:none;stroke:#000000;stroke-width:0.264583;stop-color:#000000;"
+       style="fill:none;stroke:#000000;stroke-width:0.372966;stop-color:#000000"
        id="rect906-7-3-6-9-1-3"
-       width="5.5046148"
-       height="5.6681051"
-       x="198.10704"
-       y="37.428699" />
+       width="7.7595115"
+       height="7.9899735"
+       x="307.62878"
+       y="68.03051" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend);"
-       d="m 150.59573,34.669508 c 7.38324,-3.468585 12.50928,-3.55693 18.85954,-3.067228 5.36722,0.413894 11.38779,1.850408 15.35409,5.005663"
+       style="fill:none;stroke:#000000;stroke-width:0.372966px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 240.65506,64.141051 c 10.40769,-4.889447 17.63355,-5.013982 26.58511,-4.32368 7.56584,0.583441 16.05266,2.608405 21.6437,7.056171"
        id="path1130"
        sodipodi:nodetypes="cac" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-6);"
-       d="m -34.203033,37.348328 c 6.306823,-5.173712 11.254578,-6.516771 17.530945,-7.599743 5.304766,-0.915325 11.493768,-0.99954 16.11286825,1.086385"
+       style="fill:none;stroke:#000000;stroke-width:0.372966px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-6)"
+       d="M -19.844203,67.917216 C -10.953869,60.624158 -3.9793285,58.730931 4.8680737,57.204333 12.345871,55.914057 21.07012,55.795344 27.581377,58.735742"
        id="path1130-6"
        sodipodi:nodetypes="cac" />
   </g>
