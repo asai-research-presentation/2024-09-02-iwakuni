@@ -720,7 +720,7 @@ function_dictionary["myfunc"]
 
 
 
-* Conclusion (前半)
+* Part 1: Conclusion
 
 #+begin_container-fluid
 #+begin_row-fluid
@@ -735,7 +735,7 @@ function_dictionary["myfunc"]
 #+begin_center
 + *Latplan* で記号接地
 
-  [[png:15puzzle-with-pddl]]
+  [[sjpg:puzzle]]
 
 #+end_center
 #+end_span5
@@ -769,7 +769,9 @@ function_dictionary["myfunc"]
 + 記号接地するなら *対象言語を /ちゃんと/ 理解して /正しく/ モデル化しよう!*
 
 
-
+#+begin_center
+質問: 2つまで
+#+end_center
 
 * Why _/action symbol grounding/_ is necessary?                    :noexport:
 
@@ -818,15 +820,18 @@ Humans have a good understanding of low-level actuations...
 
 * Part 2:
 
-#+begin_center
 #+begin_xlarge
-理性的な実世界エージェントの アーキテクチャ
-#+end_xlarge
-を考える
+理性的な実世界エージェントの
+#+begin_center
+*/アーキテクチャ/*
 #+end_center
+#+begin_alignright
+を考える
+#+end_alignright
+#+end_xlarge
 
 #+begin_alignright
-→表現学習以外の プランニング+機械学習
++ → *表現学習以外* の プランニング+機械学習
 #+end_alignright
 
 
@@ -961,17 +966,246 @@ SL
 
 * ICAPS22
 
-Reinforcement Learning for Classical Planning: Viewing Heuristics as Dense Reward Generators
+[[png:pddlrl/title]]
 
-** Value function learning
+* Value function learning
 
-** Reward Shaping
+SGD Loss function:
 
-** Heuristic Function
+\[
+\frac{1}{|B|}\sum_{s\in B} \frac{1}{2}\left| V(s) - \mathbb{E}_{a\in A} [Q(a, s)] \right|^2
+\]
 
-** NLM
+$B$: batches in the experience replay
 
-** Results
+#+begin_larger
+Research Questions:
+#+begin_center
++ *Q: RLだけで 古典プランニングを解けるか?* (A: *不可*)
+
++ *Q: RLだけで プランニングを高速化できるか?* (A: *不可*)
+
++ *Q: プランニングの道具と適切に組み合わせれば?* */(A: 可)/*
+#+end_center
+#+begin_alignright
++ Lessons learned: *古典プランニングを甘く見るな*
+#+end_alignright
+#+end_larger
+
+
+* Why Classical Plannning is difficult for RL?
+
+Rewards in Classical Planning:
+
+#+begin_center
+#+begin_larger
++ $r(s,a,s') = \left\{\begin{array}{ll} 1 & \text{if}\ s' \ \text{is a goal}, \\ 0 & \text{otherwise}. \end{array}\right.$
+
+  *This is extremely sparse.*
+
+#+end_larger
+#+end_center
+
++ */Any non-goal states/* are *equally /worthless/*
+
+  + *No guidance* for RL until a goal,
+
+  + which is *difficult to find* in the first place!
+
+* Potential-Based */Reward Shaping/* (PBRS) @@html:<br>@@ for Sparse Rewards
+
+Given a *potential function* $\phi(s)$, */redefine rewards/* as:
+
+\begin{align}
+\hat{r}(s, a, s') &= r(s, a, s') + \gamma \phi(s') - \phi(s). \label{eq:shaping1}
+\end{align}
+
++ */Important:/* PBRS *preserves* the optimal value function
+
+  \begin{align}
+  V^*_\gamma(s) &= \hat{V}^*_\gamma(s) + \phi(s). \label{eq:shaping2}
+  \end{align}
+
+  #+begin_alignright
+  #+begin_larger
+  = *learning the residual from $\phi(s)$*
+  #+end_larger
+  #+end_alignright
+
+#+begin_note
+Ng, Harada, Russell. "Policy invariance under reward transformations: Theory and application to reward shaping." ICML. Vol. 99. 1999.
+#+end_note
+
+* Heuristic Function $h(s)$ in classical planning
+
++ *Distance estimate*
+  + $h(s)=5 \quad \longleftrightarrow \quad s - s_1 - s_2 - s_3 - s_4 - \text{goal}$ (おおよそ) 
+  + Many implementations: $h^{\text{add}}$, $h^{\text{FF}}$, $h^{\text{CEA}}$, ...
+
+    #+begin_smaller
+    (Bonet&Geffner 01, Hoffmann 01, Helmert 08) もっと新しいのもある
+    #+end_smaller
+
+#+begin_xlarge
++ *Heuristics satisfies the PBRS requirements*
+
++ 
+  #+begin_alignright
+  */Let's use $h(s)$ for PBRS!/*
+  #+end_alignright
+#+end_xlarge
+
+* Issue 1: */Discounting/*
+
+#+begin_larger
+*RL : /discounted rewards/* ↔ *Planning :* _/undiscounted costs/_
+#+end_larger
+
+　
+
+Our solution:
+
++ *Training* : Convert $h(s)\rightarrow h_{\gamma}(s)$ : */discounting/* $h(s)$ for PBRS
+
++
+  \begin{align}
+  \phi(s) &= h_\gamma(s) = \sum_{t=1}^{h(s)} \gamma^t\cdot 1 = \dfrac{1 - \gamma^{h(s)}}{1 - \gamma}.
+  \end{align}
+
+  # V_\gamma(s) &= \hat{V}_\gamma(s) + \phi(s) \quad \text{where}\\
+  # \phi(s) &= \sum_{t=1}^{h(s)} \gamma^t\cdot (-1) = -\frac{1-\gamma^{h(s)}}{1-\gamma}
+  # h(s) &= \sum_{t=1}^{h(s)} 1, & h_\gamma(s) &= \sum_{t=1}^{h(s)} \gamma^t\cdot 1 = \dfrac{1 - \gamma^{h(s)}}{1 - \gamma}.
+
+
++ *Planning* : Convert $V_{\gamma}(s)\rightarrow V(s)$ : _/undiscounting/_ a learned $V_{\gamma}(s)$
+
++   
+  \begin{align}
+  V_\gamma(s) = \dfrac{1 - \gamma^{V(s)}}{1 - \gamma}
+  &\Leftrightarrow
+  V(s) = \log_\gamma (1 - (1 - \gamma)V_\gamma(s)).
+  \end{align}
+
+* Issue 2: Handling */First-Order Logic Input/*
+
+Our solution: *Neural Logic Machine (NLM)* [Dong et. al. ICLR 2019]
+
+[[png:pddlrl/nlm6]]
+
+** Issue 2: Handling */First-Order Logic Input/*
+
+Our solution: *Neural Logic Machine (NLM)* [Dong et. al. ICLR 2019]
+
+[[png:pddlrl/nlm5]]
+
+** Issue 2: Handling */First-Order Logic Input/*
+
+Our solution: *Neural Logic Machine (NLM)* [Dong et. al. ICLR 2019]
+
+[[png:pddlrl/nlm4]]
+
+** Issue 2: Handling */First-Order Logic Input/*
+
+Our solution: *Neural Logic Machine (NLM)* [Dong et. al. ICLR 2019]
+
+[[png:pddlrl/nlm3]]
+
+** Issue 2: Handling */First-Order Logic Input/*
+
+Our solution: *Neural Logic Machine (NLM)* [Dong et. al. ICLR 2019]
+
+[[png:pddlrl/nlm2]]
+
+** Issue 2: Handling */First-Order Logic Input/*
+
+Our solution: *Neural Logic Machine (NLM)* [Dong et. al. ICLR 2019]
+
+[[png:pddlrl/nlm1]]
+
+** Issue 2: Handling */First-Order Logic Input/*
+
+Our solution: *Neural Logic Machine (NLM)* [Dong et. al. ICLR 2019]
+
+[[png:pddlrl/nlm]]
+
++ *Size* & *Permutation invariant* to FOL binary inputs
+
++ *Quite useful for various FOL tasks*
+  + ILP [Dong et. al. ICLR 2019]
+  + Regression (our work) 
+
+* Results
+
+Skipped
+
+* ICAPS 2022 : Conclusion
+
+#+begin_center
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span6
++ *Sparse Rewards*
+
+  #+begin_smaller
+  $r(s) = \left\{\begin{array}{ll} 1 & \text{if}\ s \ \text{is a goal}, \\ 0 & \text{otherwise}. \end{array}\right.$
+
+  ゴールにたどり着くのが
+
+  とても難しい
+  #+end_smaller
+#+end_span6
+#+begin_span6
++ *Potential-Based*
+
+  *Reward Shaping*
+
+  $V^*_\gamma(s) = \hat{V}^*_\gamma(s) + \phi(s)$
+
+  #+begin_smaller
+  $\phi(s)=$ 距離の見積もり $h(s)$
+
+  Sparse Reward を解決
+  #+end_smaller
+#+end_span6
+#+end_row-fluid
+#+begin_row-fluid
+#+begin_span6
++ *Discounting*
+
+  $h_\gamma(s)  = \dfrac{1 - \gamma^{h(s)}}{1 - \gamma}$
+
+  $V(s) = \log_\gamma (1 - (1 - \gamma)V_\gamma(s))$
+
+  #+begin_smaller
+  これがないと
+
+  $h(s)=\infty$ のとき死ぬ
+  #+end_smaller
+#+end_span6
+#+begin_span6
++ *First-Order Logic Input*
+
+  [[png:pddlrl/nlm]]
+
+  #+begin_smaller
+  異なるサイズの問題に汎化
+  #+end_smaller
+
+#+end_span6
+#+end_row-fluid
+#+end_container-fluid
+
+#+begin_smaller
++ *Q: RLだけで 古典プランニングを解けるか?* (A: *不可*)
+
+  *Q: RLだけで プランニングを高速化できるか?* (A: *不可*)
+
+  *Q: プランニングの道具と適切に組み合わせれば?* */(A: 可)/*
+
+  Lessons learned: */古典プランニングを甘く見るな/*
+#+end_smaller
+#+end_center
+
 
 * IJCAI24
 
@@ -1145,7 +1379,7 @@ Is $\mathcal{N}(\mu,\sigma)$ the correct distribution for $h^*$?
 
 [[png:truncated-gaussian/6]]
 
-* Conclusion
+* IJCAI 2024 : Conclusion
 
 #+begin_container-fluid
 #+begin_row-fluid
