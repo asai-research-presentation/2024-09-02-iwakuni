@@ -1424,6 +1424,1396 @@ Take-home message: *Whenever you see a square error, doubt it!*
 #+end_row-fluid
 #+end_container-fluid
 
-* 探索アルゴリズム
 
+* How Traditional Algorithms work : Dijkstra (1956)                :noexport:
+
+dfs bfs *dijkstra* A* GBFS
+
+[[png:search/astar2]]
+
+Dijkstra: *priority queue sorted by* $g(n)$
+
+
+** How Traditional Algorithms work : Dijkstra (1956)
+
+dfs bfs *dijkstra* A* GBFS
+
+[[png:search/astar3]]
+
+Dijkstra: *priority queue sorted by* $g(n)$
+
+
+** How Traditional Algorithms work : Dijkstra (1956)
+
+dfs bfs *dijkstra* A* GBFS
+
+[[png:search/astar4]]
+
+Dijkstra: *priority queue sorted by* $g(n)$
+
+
+
+** How Traditional Algorithms work : */A*/* (Hart et. al, 1968)
+
+dfs bfs dijkstra */A*/* GBFS
+
+[[png:search/astar5]]
+
+Dijkstra: *priority queue sorted by* $g(n)$
+
+*/A*/* : *priority queue sorted by* $f(n) = g(n)+h(n)$
+
+** How Traditional Algorithms work : */A*/* (Hart et. al, 1968)
+
+dfs bfs dijkstra */A*/* GBFS
+
+[[png:search/astar6]]
+
+Dijkstra: *priority queue sorted by* $g(n)$
+
+*/A*/* : *priority queue sorted by* $f(n) = g(n)+h(n)$
+
+** How Traditional Algorithms work : */A*/* (Hart et. al, 1968)
+
+dfs bfs dijkstra */A*/* GBFS
+
+[[png:search/astar7]]
+
+Dijkstra: *priority queue sorted by* $g(n)$
+
+*/A*/* : *priority queue sorted by* $f(n) = g(n)+h(n)$
+
+** How Traditional Algorithms work : */Greedy Best First Search/* (Geffner et. al, 2001)
+
+dfs bfs dijkstra A* *GBFS*
+
+[[png:search/gbfs0]]
+
+Dijkstra: *priority queue sorted by* $g(n)$
+
+*/A*/* : *priority queue sorted by* $f(n) = g(n)+h(n)$
+
+*/GBFS/* : *priority queue sorted by* $h(n)$ : Ignore $g(n)$
+
+** How Traditional Algorithms work : */Greedy Best First Search/* (Geffner et. al, 2001)
+
+dfs bfs dijkstra A* *GBFS*
+
+[[png:search/gbfs1]]
+
+Dijkstra: *priority queue sorted by* $g(n)$
+
+*/A*/* : *priority queue sorted by* $f(n) = g(n)+h(n)$
+
+*/GBFS/* : *priority queue sorted by* $h(n)$ : Ignore $g(n)$
+
+** How Traditional Algorithms work : */Greedy Best First Search/* (Geffner et. al, 2001)
+
+dfs bfs dijkstra A* *GBFS*
+
+[[png:search/gbfs2]]
+
+Dijkstra: *priority queue sorted by* $g(n)$
+
+*/A*/* : *priority queue sorted by* $f(n) = g(n)+h(n)$
+
+*/GBFS/* : *priority queue sorted by* $h(n)$ : Ignore $g(n)$
+
+
+
+** How Traditional Algorithms work : */Greedy Best First Search/* (Geffner et. al, 2001)
+
+dfs bfs dijkstra A* *GBFS*
+
+[[png:search/gbfs3]]
+
+Dijkstra: *priority queue sorted by* $g(n)$
+
+*/A*/* : *priority queue sorted by* $f(n) = g(n)+h(n)$
+
+*/GBFS/* : *priority queue sorted by* $h(n)$ : Ignore $g(n)$
+
+** How Traditional Algorithms work : */Greedy Best First Search/* (Geffner et. al, 2001)
+
+dfs bfs dijkstra A* *GBFS*
+
+[[png:search/astar7]]
+
+Dijkstra: *priority queue sorted by* $g(n)$
+
+*/A*/* : *priority queue sorted by* $f(n) = g(n)+h(n)$
+
+*/GBFS/* : *priority queue sorted by* $h(n)$ : Ignore $g(n)$
+
+
+** How Traditional Algorithms work : */Hill Climbing/* in RL
+
+dfs bfs dijkstra A* *GBFS*
+
+[[png:search/hc1]]
+
+Dijkstra: *priority queue sorted by* $g(n)$
+
+*/A*/* : *priority queue sorted by* $f(n) = g(n)+h(n)$
+
+*/GBFS/* : *priority queue sorted by* $h(n)$ : Ignore $g(n)$
+
+** How Traditional Algorithms work : */Hill Climbing/* in RL
+
+dfs bfs dijkstra A* *GBFS*
+
+[[png:search/hc2]]
+
+Dijkstra: *priority queue sorted by* $g(n)$
+
+*/A*/* : *priority queue sorted by* $f(n) = g(n)+h(n)$
+
+*/GBFS/* : *priority queue sorted by* $h(n)$ : Ignore $g(n)$
+
+*Importance of Priority Queue!!!*
+
+* Monte Carlo Tree Search (General version)
+
+[[png:search/mcts01]]
+
+** Monte Carlo Tree Search (General version)
+
+[[png:search/mcts02]]
+
+** Monte Carlo Tree Search (General version)
+
+[[png:search/mcts03]]
+
+** Monte Carlo Tree Search (General version)
+
+[[png:search/mcts04]]
+
+** Monte Carlo Tree Search (General version)
+
+[[png:search/mcts05]]
+
+** Monte Carlo Tree Search (General version)
+
+[[png:search/mcts06]]
+
+** Monte Carlo Tree Search (General version)
+
+[[png:search/mcts07]]
+
+** Monte Carlo Tree Search (General version)
+
+[[png:search/mcts08]]
+
+** Monte Carlo Tree Search (General version)
+
+[[png:search/mcts08]]
+
+| 　　　　　　 | Heuristic function 　 | 　　　　　　　　　　　 |
+|-------------+----------------------+----------------------|
+| Game        | ✗ Hand-coded         |                      |
+| (e.g., Go)  | ✗ Not accurate       |                      |
+|-------------+----------------------+----------------------|
+| 　　　　　　 | 　                    | 　                    |
+| 　　　　　　 | 　                    | 　                    |
+
+** Monte Carlo Tree Search (General version)
+
+[[png:search/mcts08]]
+
+| 　　　　　　 | Heuristic function 　 | Simulation / Rollout   |
+|-------------+----------------------+------------------------|
+| Game        | ✗ Hand-coded         | ✔ Finite horizon (9x9) |
+| (e.g., Go)  | ✗ Not accurate       |                        |
+|-------------+----------------------+------------------------|
+| 　　　　　　 | 　                    | 　                      |
+| 　　　　　　 | 　                    | 　                      |
+
+** Monte Carlo Tree Search (General version)
+
+[[png:search/mcts08]]
+
+| 　　　　　　 | Heuristic function 　 | Simulation / Rollout   |
+|------------+--------------------+----------------------|
+| Game       | ✗ Hand-coded       | ✔ Finite horizon (9x9)     |
+| (e.g., Go) | ✗ Not accurate     | ✔ Dense reward       |
+|------------+--------------------+----------------------|
+| 　　　　　　     | 　                  | 　                    |
+| 　　　　　　     | 　                  | 　                    |
+
+** Monte Carlo Tree Search (General version)
+
+[[png:search/mcts08]]
+
+| 　　　　　　 | Heuristic function 　 | Simulation / Rollout   |
+|------------+----------------------+----------------------|
+| Game       | ✗ Hand-coded         | ✔ Finite horizon (9x9)     |
+| (e.g., Go) | ✗ Not accurate       | ✔ Dense reward       |
+|------------+----------------------+----------------------|
+| Classical  |                      |                      |
+| Planning   |                      |                      |
+
+** Monte Carlo Tree Search (General version)
+
+[[png:search/mcts08]]
+
+| 　　　　　　 | Heuristic function 　 | Simulation / Rollout   |
+|------------+----------------------+----------------------|
+| Game       | ✗ Hand-coded         | ✔ Finite horizon (9x9)     |
+| (e.g., Go) | ✗ Not accurate       | ✔ Dense reward       |
+|------------+----------------------+----------------------|
+| Classical  |                      | ✗ Infinite horizon   |
+| Planning   |                      |                      |
+
+** Monte Carlo Tree Search (General version)
+
+[[png:search/mcts08]]
+
+| 　　　　　　 | Heuristic function 　 | Simulation / Rollout   |
+|------------+----------------------+----------------------|
+| Game       | ✗ Hand-coded         | ✔ Finite horizon (9x9)     |
+| (e.g., Go) | ✗ Not accurate       | ✔ Dense reward       |
+|------------+----------------------+----------------------|
+| Classical  |                      | ✗ Infinite horizon   |
+| Planning   |                      | ✗ Sparse reward      |
+
+** Monte Carlo Tree Search (General version)
+
+[[png:search/mcts08]]
+
+| 　　　　　　 | Heuristic function 　 | Simulation / Rollout   |
+|------------+----------------------+----------------------|
+| Game       | ✗ Hand-coded         | ✔ Finite horizon (9x9)     |
+| (e.g., Go) | ✗ Not accurate       | ✔ Dense reward       |
+|------------+----------------------+----------------------|
+| Classical  | ✔ Automated          | ✗ Infinite horizon   |
+| Planning   |                      | ✗ Sparse reward      |
+
+** Monte Carlo Tree Search (General version)
+
+[[png:search/mcts08]]
+
+| 　　　　　　 | Heuristic function 　 | Simulation / Rollout   |
+|------------+----------------------+----------------------|
+| Game       | ✗ Hand-coded         | ✔ Finite horizon (9x9)     |
+| (e.g., Go) | ✗ Not accurate       | ✔ Dense reward       |
+|------------+----------------------+----------------------|
+| Classical  | ✔ Automated          | ✗ Infinite horizon   |
+| Planning   | ✔ Domain-Independent | ✗ Sparse reward      |
+
+
+* Bandit for Action Selection                                      :noexport:
+
+[[png:bandit/1]]
+
+** Bandit for Action Selection
+
+[[png:bandit/2]]
+
+** Bandit for Action Selection
+
+[[png:bandit/3]]
+
+* Backup in MCTS : Avg
+
+[[png:tree-based/1]]
+
+** Backup in MCTS : Avg vs. Min
+
+[[png:tree-based/2]]
+
+
+** Backup in MCTS : Avg vs. Min = */GBFS, A*/*
+
+[[png:tree-based/3]]
+
+#+begin_center
+#+begin_xlarge
++ *GBFS: Traditional SotA*
++ Std MCTS has been bad
+#+end_xlarge
+#+end_center
+
+** GBFS */can/* be seen as MCTS (Keller et al. 2013)
+
+|   |           |                |                                       <r> |
+|   | Algorithm |                |                          Action Selection |
+|---+-----------+----------------+-------------------------------------------|
+|   | */GBFS/*  | */MCTS + Min/* |          $\hspace{3em}h(s)\hspace{6.5em}$ |
+|   | GreedyUCT | MCTS + Avg     | $\hspace{3em}h(s)-c\sqrt{{\log N}/{n_i}}$ |
+
+Oct: We reproduced
+
+#+begin_xlarge
+#+begin_center
++ MCTS+UCB < */MCTS+Min/*
+#+end_center
+#+end_xlarge
+
+* Search / Planning community is SO bad at statistics (more wrong than we initially thought) :noexport:
+
+*Nobody* understands the original UCB paper [Auer 2002] properly. 😢
+
++ [Keller 2013] uses UCB1 in [Auer 2002], which assumes [0, 1] rewards
+  + *BUT!* Node evaluation is a distance to the goal, which is *unbounded*
+  + To satisfy [0,1], normalize $h(s_i)$ by min, max over arms (hack! 😠)
++ [Auer 2002] *already* proposed *UCB1-Normal* (Theorem 4)
+  + UCB1 for the unbounded rewards == Gaussian distributed rewards
++ [Tesauro 2010] *rediscovers* UCB1-Normal, *but does not realize it! 🤯*
+  + UCB1 was widely known in 2010, but no one knew UCB1-Normal 🤔
+
+#+begin_note
+Keller, T.; and Helmert, M. 2013. Trial-Based Heuristic Tree Search for Finite Horizon MDPs. ICAPS
+
+Auer, P.; Cesa-Bianchi, N.; and Fischer, P. 2002. Finite-Time Analysis of the Multiarmed Bandit Problem. Machine Learning
+
+Tesauro, G.; Rajan, V.; and Segal, R. 2010. Bayesian Inference in Monte-Carlo Tree Search. UAI
+#+end_note
+
+* Experiments! International Planning Competition (IPC) benchmark set :noexport:
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span6
+[[spng:ipc-all]]
+#+end_span6
+#+begin_span6
+Various domains from the industry
+
+Test the *general* performance
+#+end_span6
+#+end_row-fluid
+#+end_container-fluid
+
+** Experiments! International Planning Competition (IPC) benchmark set
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span6
+[[spng:ipc-pruned]]
+#+end_span6
+#+begin_span6
+Various domains from the industry
+
+Test the *general* performance
+
+We excluded some domains:
+
++ with incompatible extensions (not supported by pyperplan)
++ with no heuristic uncertainty (randomization does not affect FF heuristic)
+#+end_span6
+#+end_row-fluid
+#+end_container-fluid
+
+* Baseline Experiments                                             :noexport:
+
+*Task:* Find the goal while *visiting as few nodes as possible!*
+
++ Node expansions == search efficiency
++ Not the speed (runtime) *yet*
+  + We will optimize them later by reimplementing it in C++
+  + *but*, generally $\text{runtime} \propto \text{expansion}$
+
+#+begin_alignright
++ Next, contestants →
+#+end_alignright
+
+** Contestants
+
+*Task:* Find the goal while *visiting as few nodes as possible!*
+
++ Standard GBFS (Greedy Best First Search) :: Standard implementation
+  + Standard FF vs Randomized FF (1 seed)
++ Tree-based GBFS :: MCTS with $h(s_i)$, backup statistics: minimum among arms
+  + Standard FF vs Randomized FF (10 seeds mean)
+  + Standard FF vs Randomized FF (10 seeds minimum)
++ Bounded UCB (Keller's butchered UCB1) :: $\frac{h(s_i)-\min_j h(s_j)}{\max_j h(s_j)-\min_j h(s_j)}-c\sqrt{{\log N}/{n_i}}$
+  + It needs an exploration hyperparameter $c\in \{0.3,1.0,3.0\}$
++ UCB1-Normal :: $h(s_i)-\sigma_i \sqrt{\log N}$
+  + Theoretically justified + No need for a hyperparameter
+
+** Standard GBFS Std FF vs Rand FF : Rand wins (interesting result!)
+
+[[spng:plots/expansions__gbfs-False-10-0.2-inf-0.5-False__gbfs-True-10-0.2-inf-0.5-False]]
+
+** Tree-based GBFS Std FF vs Rand FF (10 seeds mean) : Std wins (interesting result!)
+
+[[spng:plots/expansions__GBFSMean-False-10-0.2-inf-0.5-False__GBFSMean-True-10-0.2-inf-0.5-False]]
+
+** Tree-based GBFS Std FF vs Rand FF (10 seeds minimum) : Rand wins (Significant result!)
+
+[[spng:plots/expansions__GBFSMin-False-10-0.2-inf-0.5-False__GBFSMin-True-10-0.2-inf-0.5-False]]
+
+** Tree-based GBFS Std FF vs Rand FF (10 seeds maximum) : Std wins (interesting result!)
+
+[[spng:plots/expansions__GBFSMax-False-10-0.2-inf-0.5-False__GBFSMax-True-10-0.2-inf-0.5-False]]
+
+** Is Standard GBFS == Tree-Based GBFS? (Reproducing Keller's claims)
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span4
+#+begin_center
+Std FF
+
+[[spng:plots/expansions__gbfs-False-10-0.2-inf-0.5-False__GBFSMean-False-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span4
+#+begin_span4
+#+begin_center
+Rand FF min
+
+[[spng:plots/expansions__gbfs-True-10-0.2-inf-0.5-False__GBFSMin-True-10-0.2-inf-0.5-False]]
+#+end_center
+#+end_span4
+#+begin_span4
+#+begin_center
+Rand FF mean
+
+[[spng:plots/expansions__gbfs-True-10-0.2-inf-0.5-False__GBFSMean-True-10-0.2-inf-0.5-False]]
+#+end_center
+#+end_span4
+#+end_row-fluid
+#+end_container-fluid
+
+** Standard GBFS vs Bounded UCB (Keller's butchered UCB1) (Reproducing Keller's claims)
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span4
+#+begin_center
+*Even in the original paper*, his butchered UCB1 did not perform good
+
+[[spng:keller-gbfs-ucb1]]
+#+end_center
+#+end_span4
+#+begin_span4
+#+begin_center
+Std FF: Butchered UCB1 is *BAD*
+
+[[spng:plots/expansions__gbfs-False-10-0.2-inf-0.5-False__BoundedUCT-False-10-0.2-inf-0.5-False]]
+#+end_center
+#+end_span4
+#+begin_span4
+#+begin_center
+Rand FF: Butchered UCB1 is *BAD*
+
+[[spng:plots/expansions__gbfs-True-10-0.2-inf-0.5-False__BoundedUCT-True-10-0.2-inf-0.5-False]]
+#+end_center
+#+end_span4
+#+end_row-fluid
+#+end_container-fluid
+
+** Standard GBFS vs UCB1-Normal (Significant result!)
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span6
+#+begin_center
+Std FF: UCB1-Normal wins
+
+[[spng:plots/expansions__gbfs-False-10-0.2-inf-0.5-False__UCT-False-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span6
+#+begin_span6
+#+begin_center
+Rand FF: GBFS wins (surprising)
+
+[[spng:plots/expansions__gbfs-True-10-0.2-inf-0.5-False__UCT-True-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span6
+#+end_row-fluid
+#+end_container-fluid
+
+** Bounded UCB vs UCB1-Normal (Significant result!)
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span6
+#+begin_center
+Std FF: UCB1-Normal wins
+
+[[spng:plots/expansions__BoundedUCT-False-10-0.2-inf-0.5-False__UCT-False-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span6
+#+begin_span6
+#+begin_center
+Rand FF: UCB1-Normal wins
+
+[[spng:plots/expansions__BoundedUCT-True-10-0.2-inf-0.5-False__UCT-True-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span6
+#+end_row-fluid
+#+end_container-fluid
+
+** Summary
+
++ Std GBFS : Std FF vs *Rnd FF* (significant result)
++ Tree-GBFS : Std FF vs *Rnd FF* (significant result)
++ Std FF : Tree-GBFS vs Std GBFS -- on par (Keller's claim)
++ Rnd FF : Tree-GBFS vs Std GBFS -- on par (Keller's claim+)
++ Std FF  : *Std GBFS* vs Bounded UCB (Keller's claim)
++ Rnd FF : *Std GBFS* vs Bounded UCB (Keller's claim+)
++ Std FF  : Std GBFS vs *UCB1-Normal* (significant result)
++ Rnd FF : *Std GBFS* vs UCB1-Normal (significant result)
++ Std FF  : Bounded UCB vs *UCB1-Normal* (significant result)
++ Rnd FF : Bounded UCB vs *UCB1-Normal* (significant result)
+
+Alright, it seems we no longer have to worry about the buchered UCB.
+
+
+
+* Baseline Experiments 2                                           :noexport:
+
+Next, we test more UCB variants.
+
++ Bounded UCB1 :: $\frac{h(s_i)-\min_j h(s_j)}{\max_j h(s_j)-\min_j h(s_j)}-c\sqrt{{\log N}/{n_i}}$
+  + It needs an exploration hyperparameter $c\in \{0.3,1.0,3.0\}$
++ UCB1 :: $h(s_i)-c\sqrt{{\log N}/{n_i}}$
+  + It needs an exploration hyperparameter $c\in \{0.3,1.0,3.0\}$
++ UCB1-Normal :: $h(s_i)-\sigma_i \sqrt{\log N}$
+  + Theoretically justified + No need for a hyperparameter
+
+** Butchered UCB1 vs UCB1
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span4
+#+begin_center
+Std FF, $c=0.3$
+
+[[spng:plots/expansions__BoundedUCT-False-10-0.2-0.3-0.5-False__UCT-False-10-0.2-0.3-0.5-False]]
+
+#+end_center
+#+end_span4
+#+begin_span4
+#+begin_center
+Std FF, $c=1.0$
+
+[[spng:plots/expansions__BoundedUCT-False-10-0.2-1.0-0.5-False__UCT-False-10-0.2-1.0-0.5-False]]
+
+#+end_center
+#+end_span4
+#+begin_span4
+#+begin_center
+Std FF, $c=3.0$
+
+[[spng:plots/expansions__BoundedUCT-False-10-0.2-3.0-0.5-False__UCT-False-10-0.2-3.0-0.5-False]]
+
+#+end_center
+#+end_span4
+#+end_row-fluid
+#+begin_row-fluid
+#+begin_span4
+#+begin_center
+Rnd FF, $c=0.3$
+
+[[spng:plots/expansions__BoundedUCT-True-10-0.2-0.3-0.5-False__UCT-True-10-0.2-0.3-0.5-False]]
+
+#+end_center
+#+end_span4
+#+begin_span4
+#+begin_center
+Rnd FF, $c=1.0$
+
+[[spng:plots/expansions__BoundedUCT-True-10-0.2-1.0-0.5-False__UCT-True-10-0.2-1.0-0.5-False]]
+
+#+end_center
+#+end_span4
+#+begin_span4
+#+begin_center
+Rnd FF, $c=3.0$
+
+[[spng:plots/expansions__BoundedUCT-True-10-0.2-3.0-0.5-False__UCT-True-10-0.2-3.0-0.5-False]]
+
+#+end_center
+#+end_span4
+#+end_row-fluid
+#+end_container-fluid
+
+Bounded UCB $\approx\,$ UCB $\gg\,$ UCB1-Normal → There is *something* in UCB1-Normal
+
+* */One/* reason: Poor understanding. @@html:<br>@@\rightarrow UCB1 to */UCB1-Normal/*
+
+#+begin_quote
+| UCB1        | $h(s_i)-c\sqrt{\frac{\log N}{n_i}}$  |
+| UCB1-Normal | $h(s_i)-\sigma_i \sqrt{\log N}\quad$ |
+
+#+begin_center
+$N$: parent visit, $n_i$: visit for child $i$
+
+$h(s_i), \sigma_i$ : mean / stdev over the subtree of $i$
+#+end_center
+#+end_quote
+
+
+
+| / |  <  |   |     |   |  >  |
+|   | <c> |   | <c> |   | <c> |
+|   |     |   |     |   |     |
+|   |     |   |     |   |     |
+|   |     |   |     |   |     |
+
+
+* */One/* reason: Poor understanding. @@html:<br>@@\rightarrow UCB1 to */UCB1-Normal/*
+
+#+begin_quote
+| UCB1        | $h(s_i)-c\sqrt{\frac{\log N}{n_i}}$  |
+| UCB1-Normal | $h(s_i)-\sigma_i \sqrt{\log N}\quad$ |
+
+#+begin_center
+$N$: parent visit, $n_i$: visit for child $i$
+
+$h(s_i), \sigma_i$ : mean / stdev over the subtree of $i$
+#+end_center
+#+end_quote
+
+$\frac{c}{\sqrt{n_i}}\rightarrow \sigma_i$ : *Adjusts the exploration rate* toward the goal
+
+| /      |   <   |    |       |    |  >   |
+|        |  <c>  |    |  <c>  |    | <c>  |
+|        | init  | → |  →   | → | goal |
+| $h(s)$ | large | → | small | → |  0   |
+
+(stat fact: $\sigma\approx O(n^{-\frac{1}{2}})$)
+
+* Different $c$ of UCB vs UCB1-Normal                              :noexport:
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span3
+#+begin_center
+Std FF, $c=.01$
+
+[[spng:plots/expansions__UCT-False-10-0.2-inf-0.5-False__UCT-False-10-0.2-0.01-0.5-False]]
+
+#+end_center
+#+end_span3
+#+begin_span3
+#+begin_center
+Std FF, $c=0.3$
+
+[[spng:plots/expansions__UCT-False-10-0.2-inf-0.5-False__UCT-False-10-0.2-0.3-0.5-False]]
+
+#+end_center
+#+end_span3
+#+begin_span3
+#+begin_center
+Std FF, $c=1.0$
+
+[[spng:plots/expansions__UCT-False-10-0.2-inf-0.5-False__UCT-False-10-0.2-1.0-0.5-False]]
+
+#+end_center
+#+end_span3
+#+begin_span3
+#+begin_center
+Std FF, $c=3.0$
+
+[[spng:plots/expansions__UCT-False-10-0.2-inf-0.5-False__UCT-False-10-0.2-3.0-0.5-False]]
+
+#+end_center
+#+end_span3
+#+end_row-fluid
+#+begin_row-fluid
+#+begin_span3
+#+begin_center
+Rnd FF, $c=.01$
+
+[[spng:plots/expansions__UCT-True-10-0.2-inf-0.5-False__UCT-True-10-0.2-0.01-0.5-False]]
+
+#+end_center
+#+end_span3
+#+begin_span3
+#+begin_center
+Rnd FF, $c=0.3$
+
+[[spng:plots/expansions__UCT-True-10-0.2-inf-0.5-False__UCT-True-10-0.2-0.3-0.5-False]]
+
+#+end_center
+#+end_span3
+#+begin_span3
+#+begin_center
+Rnd FF, $c=1.0$
+
+[[spng:plots/expansions__UCT-True-10-0.2-inf-0.5-False__UCT-True-10-0.2-1.0-0.5-False]]
+
+#+end_center
+#+end_span3
+#+begin_span3
+#+begin_center
+Rnd FF, $c=3.0$
+
+[[spng:plots/expansions__UCT-True-10-0.2-inf-0.5-False__UCT-True-10-0.2-3.0-0.5-False]]
+
+#+end_center
+#+end_span3
+#+end_row-fluid
+#+end_container-fluid
+
+Smaller $c$ is better, but not enough. Automatic scaling ($\sigma$) is the key
+
+* Avg vs. Min
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span6
+[[png:tree-based/5]]
+#+end_span6
+#+begin_span6
+#+end_span6
+#+end_row-fluid
+#+end_container-fluid
+
+** Avg vs. Min
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span6
+[[png:tree-based/4]]
+#+end_span6
+#+begin_span6
+#+end_span6
+#+end_row-fluid
+#+end_container-fluid
+
+** Avg vs. Min
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span6
+[[png:tree-based/4]]
++ *Least average* :: *on average* close to the goal
+  + Bad nodes can *hide* goals!
+#+end_span6
+#+begin_span6
+[[png:tree-based/6]]
++ *Least minima (preferred)* :: *at best* close to the goal
+  + Bad nodes do not matter!
+#+end_span6
+#+end_row-fluid
+#+end_container-fluid
+
+** Avg vs. Min               :noexport:
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span6
+[[png:tree-based/4]]
+#+end_span6
+#+begin_span6
+Select a subtree by...
+
++ *Least average* :: *on average* close to the goal
+  + Bad nodes can *hide* goals!
++ *Least minima (preferred)* :: *in the best case* close to the goal
+  + Bad nodes do not matter!
+#+end_span6
+#+end_row-fluid
+#+end_container-fluid
+
+
+Characterized by the *backup strategy difference*.
+
+* Avg. vs. Min. = Different Backup strategy
+
++ Standard UCB1-Normal --- avg ::
+  Backup $(\sum_i n_i,\ \frac{\sum_i n_i \mu_i}{\sum_i n_i})$ : weighted sum of means
++ Keller et al. 2013 --- */minimum of means/* without statistical justification ::
+  Backup $(\sum_i n_i,\ \min_i \mu_i)$
++ Tesauro et al. 2010 --- */approximate minimum/* ::
+  Backup a dist. of minimum of Gaussians [Clerk, 1961]
+  # + If $X_1\sim \mathcal{N}(\mu_1,\sigma_1), X_2\sim \mathcal{N}(\mu_2,\sigma_2)$, then
+  # + $\max(X_1,X_2)\sim \mathcal{N}(\mu_3,\sigma_3)$ where
+  # + $\mu_3=\mu_1\Phi(\alpha)+\mu_2\Phi(-\alpha)+(\sigma_1^2+\sigma_2^2)\phi(\alpha)$
+  # + $\sigma_3=(\mu_1^2+\sigma_1^2)\Phi(\alpha)+(\mu_2^2+\sigma_2^2)\Phi(-\alpha)+(\mu_1+\mu_2)(\sigma_1^2+\sigma_2^2)\phi(\alpha)$
+  # + *Cons*: Not exact for $>2$ arms, *Pros*: Statistical Justification
+
+#+begin_quote
+#+begin_center
+#+begin_xlarge
+None outperforms GBFS
+#+end_xlarge
+in our reproduction
+#+end_center
+#+end_quote
+
+* Experiments                                                      :noexport:
+
+|                                                                              <r> |                                       |                |              |
+| /                                                                                | <                                     |                | >            |
+| selection \ backup                                                               | $\frac{\sum_i n_i \mu_i}{\sum_i n_i}$ | $\min_i \mu_i$ | Tesauro      |
+|----------------------------------------------------------------------------------+---------------------------------------+----------------+--------------|
+|                                                                          $\mu_i$ |                                       | GBFS           |              |
+| $\frac{\mu_i-\min_j h(s_j)}{\max_j h(s_j)-\min_j h(s_j)}-c\sqrt{{\log N}/{n_i}}$ | Bounded UCB                           | Bounded UCB*   | Bounded UCB+ |
+|                                                   $\mu_i-c\sqrt{{\log N}/{n_i}}$ | UCB                                   | UCB*           | UCB+         |
+|                                                   $\mu_i-\sigma_i \sqrt{\log N}$ | UCB1-Normal                           | UCB1-Normal*   | UCB1-Normal+ |
+
+There are also Std FF vs Rnd FF versions, $c\in\{0.3,1.0,3.0\}$
+
+Too many, → *We focus on UCB1-Normal*
+
+** Results vs. GBFS, deterministic FF : not conclusive
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span4
+#+begin_center
+*Std FF, mean (win)*
+
+[[spng:plots/expansions__UCT-False-10-0.2-inf-0.5-False__GBFSMean-False-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span4
+#+begin_span4
+#+begin_center
+Std FF, min
+
+[[spng:plots/expansions__UCTStar-False-10-0.2-inf-0.5-False__GBFSMean-False-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span4
+#+begin_span4
+#+begin_center
+*Std FF, tesauro (win)*
+
+[[spng:plots/expansions__UCTPlus-False-10-0.2-inf-0.5-False__GBFSMean-False-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span4
+#+end_row-fluid
+#+end_container-fluid
+
+** Results vs. GBFS with mean of randomized FF
+
+Since GBFS + mean randFF < GBFS + min randFF, this is a straw-man comparison
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span4
+#+begin_center
+*Rnd FF, GBFS mean vs UCT mean (win)*
+
+[[spng:plots/expansions__UCT-True-10-0.2-inf-0.5-False__GBFSMean-True-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span4
+#+begin_span4
+#+begin_center
+*Rnd FF, GBFS mean vs UCT min (win)*
+
+[[spng:plots/expansions__UCTStar-True-10-0.2-inf-0.5-False__GBFSMean-True-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span4
+#+begin_span4
+#+begin_center
+*Rnd FF, GBFS mean vs UCT tesauro (win)*
+
+[[spng:plots/expansions__UCTPlus-True-10-0.2-inf-0.5-False__GBFSMean-True-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span4
+#+end_row-fluid
+#+end_container-fluid
+
+** Results vs. GBFS with min of randomized FF
+
+UCB1-Normal, UCB1-Normal*, UCB1-Normal+ are *worse* than GBFS with min of randomized FF!
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span4
+#+begin_center
+/Rnd FF, GBFS min vs UCT mean (lost)/
+
+[[spng:plots/expansions__UCT-True-10-0.2-inf-0.5-False__GBFSMin-True-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span4
+#+begin_span4
+#+begin_center
+/Rnd FF, GBFS min vs UCT min (lost)/
+
+[[spng:plots/expansions__UCTStar-True-10-0.2-inf-0.5-False__GBFSMin-True-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span4
+#+begin_span4
+#+begin_center
+/Rnd FF, GBFS min vs UCT tesauro (lost)/
+
+[[spng:plots/expansions__UCTPlus-True-10-0.2-inf-0.5-False__GBFSMin-True-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span4
+#+end_row-fluid
+#+end_container-fluid
+
+** Results: Tesauro vs mean, min (not conclusive)
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span6
+#+begin_center
+Std FF, vs mean
+
+[[spng:plots/expansions__UCT-False-10-0.2-inf-0.5-False__UCTPlus-False-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span6
+#+begin_span6
+#+begin_center
+*Std FF, vs min (win)*
+
+[[spng:plots/expansions__UCTStar-False-10-0.2-inf-0.5-False__UCTPlus-False-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span6
+#+end_row-fluid
+#+begin_row-fluid
+#+begin_span6
+#+begin_center
+/Rnd FF, mean (lost)/
+
+[[spng:plots/expansions__UCT-True-10-0.2-inf-0.5-False__UCTPlus-True-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span6
+#+begin_span6
+#+begin_center
+Rnd FF, min
+
+[[spng:plots/expansions__UCTStar-True-10-0.2-inf-0.5-False__UCTPlus-True-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span6
+#+end_row-fluid
+#+end_container-fluid
+
+
+** Conclusion of reproducing existing work
+
+* New Algorithm : Model the minimum */correctly/*
+
+Fit the data to...
+
+|             |                                         |        <c>         |
+| UCB1        | *a /known/ finite support distribution* | $[0,1]$ , $[3,5]$  |
+| UCB1-Normal | *a Gaussian distribution*               | $[-\infty,\infty]$ |
+
+#+begin_quote
++ *Do heuristics have /known/ bounds e.g. $[3,5]$ ? /No!/*
+
++ *Are heuristic samples $\in[-\infty,\infty]$ ? /No!/*
+
++ *Fact* : Heuristic $h^{\text{FF}}$ has */unknown/* bounds
+
+  \[
+  0 \leq h^+(s) \leq h^{\text{FF}}(s) < \ ?
+  \]
+
+  (NP-hard to compute $h^+$ == unknown, $?$ is also unknown)
+#+end_quote
+
+* What distribution is the right answer?
+
+
+
+|             | Range            | How it is distributed?          |
+|-------------+------------------+---------------------------------|
+| Gaussian    | _/Unbounded/_ ✗  |                                 |
+| Exponential | */Half-Bounded/* |                                 |
+| Uniform     | */Bounded/*      |                                 |
+|             |                  |                                 |
+|             |                  | 　　　　　　　　　　　　　　　　　 |
+
+
+[[png:candidate-distribution]]
+
+** What distribution is the right answer?
+
+In optimization problems, */good solutions are rare/*.
+
+|             | Range        | How it is distributed?          |
+|-------------+--------------+---------------------------------|
+| Gaussian    | Unbounded ✗  |                                 |
+| Exponential | Half-Bounded |                                 |
+| Uniform     | Bounded      |                                 |
+|             |              |                                 |
+|             |              | 　　　　　　　　　　　　　　　　　 |
+
+[[png:candidate-distribution]]
+
+** What distribution is the right answer?
+
+*Good solutions are rare*. == */Monotonically increasing./*
+
+|             | Range        | How it is distributed?              |
+|-------------+--------------+-------------------------------------|
+| Gaussian    | Unbounded ✗  |                                     |
+| Exponential | Half-Bounded | _/Smallest value is most common/_ ✗ |
+| Uniform     | Bounded      | Equally likely around min and max   |
+|             |              |                                     |
+|             |              | 　　　　　　　　　　　　　　　　　     |
+
+[[png:candidate-distribution]]
+
+** What distribution is the right answer?
+
+*Good solutions are rare*. == */Monotonically increasing./*
+
+|             | Range        | How it is distributed?              |
+|-------------+--------------+-------------------------------------|
+| Gaussian    | Unbounded ✗  |                                     |
+| Exponential | Half-Bounded | _/Smallest value is most common/_ ✗ |
+| Uniform     | Bounded      | Equally likely around min and max   |
+| *Power*     | */Bounded/*  | */Smallest value is rare/*          |
+|             |              | 　　　　　　　　　　　　　　　　　     |
+
+[[png:power]]
+
+** What distribution is the right answer?                          :noexport:
+
+*Power* distribution : *Bounded* distribution, with *largest point = /rarest/*
+
+Sign flip ($\min \leftrightarrow \max$) will achieve the desired effect
+
+[[spng:gpd]]
+
+* But Why? */What theory/* justifies this?
+
+*Central Limit Theorem*: Given i.i.d. RVs $x_0, \ldots x_n$, there is a sequence $a_n>0, b_n$ s.t. $\exists \mu, \sigma$
+
+\[
+ S_n= \sum_{i=0}^n \frac{x_i-b_n}{a_n}  \longrightarrow \mathcal{N}(\mu, \sigma)
+\]
+
+** But Why? */What theory/* justifies this?
+
+*Central Limit Theorem*: Given i.i.d. RVs $x_0, \ldots x_n$, there is a sequence $a_n>0, b_n$ s.t. $\exists \mu, \sigma$
+
+\[
+ S_n= \sum_{i=0}^n \frac{x_i-b_n}{a_n}  \longrightarrow \mathcal{N}(\mu, \sigma)
+\]
+
+*Extreme Value Theorem type 1*: Given i.i.d. RVs $x_0, \ldots x_n$, there is a sequence $a_n>0, b_n$ s.t. $\exists \mu, \sigma, \xi$
+
+\[
+ M_n= \max     \frac{x_i-b_n}{a_n}  \longrightarrow \mathrm{EVD}(\mu, \sigma, \xi)
+\]
+
+** But Why? */What theory/* justifies this?
+
+*Central Limit Theorem*: Given i.i.d. RVs $x_0, \ldots x_n$, there is a sequence $a_n>0, b_n$ s.t. $\exists \mu, \sigma$
+
+\[
+ S_n= \sum_{i=0}^n \frac{x_i-b_n}{a_n}  \longrightarrow \mathcal{N}(\mu, \sigma)
+\]
+
+*Extreme Value Theorem type 1*: Given i.i.d. RVs $x_0, \ldots x_n$, there is a sequence $a_n>0, b_n$ s.t. $\exists \mu, \sigma, \xi$
+
+\[
+ M_n= \max     \frac{x_i-b_n}{a_n}  \longrightarrow \mathrm{EVD}(\mu, \sigma, \xi)
+\]
+
+*/Extreme Value Theorem type 2/*: Given i.i.d. RVs $x_0 < \ldots < x_k < \ldots < x_n$, there is a sequence $a_n>0, b_n$ s.t. $\exists \mu, \sigma, \xi$
+
+\[
+  p(x | x > x_k)  \longrightarrow \mathrm{GPD}(\mu, \sigma, \xi)
+\]
+
+$\mathrm{GPD}$ : */Generalized Pareto Distribution/* is the way to go. *Why?*
+
+** Power, Uniform, Exponential, Pareto are special cases of Generalized Pareto $\mathrm{GPD}(\theta, \sigma, \xi)$.
+
+|                           |   <c>    |             <c>             |
+|                           |   min    |             max             |
+|---------------------------+----------+-----------------------------|
+| $\xi>0$ = Pareto          | $\theta$ |          $\infty$           |
+| $\xi=0$ = Exponential     | $\theta$ |          $\infty$           |
+| $\xi<0$ = (Flipped) Power | $\theta$ | $\theta-\frac{\sigma}{\xi}$ |
+| $\xi=-1$ = Uniform        | $\theta$ | $\theta-\frac{\sigma}{\xi}$ |
+| $\xi<-1$                  | $\theta$ | $\theta-\frac{\sigma}{\xi}$ |
+
+[[spng:gpd]]
+
+* Modeling the average
+
+[[png:clt-vs-evt/0]]
+
+** Modeling the average = Fitting the dist. with Gaussian
+
+[[png:clt-vs-evt/1]]
+
+** Modeling the maximum
+
+[[png:clt-vs-evt/2]]
+
+** Modeling the maximum = Fitting the tail dist. with GP
+
+[[png:clt-vs-evt/3]]
+
+* New Algorithm : Model the minimum */correctly/*
+
+Fitting GPD itself is *difficult* (computational issue)
+
+\rightarrow fit subclasses: *Uniform* and *Power*
+
+|                | Lower bound        | Upper bound     | Shape                 |
+|----------------+--------------------+-----------------+-----------------------|
+| UCB1           | _/Known/_ $0$      | _/Known/_ $1$   |                       |
+| UCB1-Normal    | $-\infty$          | $\infty$        |                       |
+| *UCB1-Uniform* | */Unknown/* $\ell$ | */Unknown/* $u$ | _/Fixed, Flat/_       |
+| *UCB1-Power*   | _/Known/_ $0$      | */Unknown/* $u$ | */Rare near maximum/* |
+
+
+#+begin_quote
+(GPD: 3-parameters, Uniform/Power: 2-parameters)
+#+end_quote
+
+* Results: UCB1-Uniform vs GBFS
+
+*IPC 2008 Cybersec(urity) domain results* solved by both.
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span6
+#+begin_center
+Deterministic FF
+
+[[spng:plots-cyber/expansions__UniformUCT-hff-False-10-0.2-inf-0.5-False__gbfs-hff-False-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span6
+#+begin_span6
+#+begin_center
+Randomized FF
+
+[[spng:plots-cyber/expansions__UniformUCT-hff-True-10-0.2-inf-0.5-False__GBFSMin-hff-True-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span6
+#+end_row-fluid
+#+end_container-fluid
+
+*Upper triangle == Ours is better.*  (conclusive win)
+
+** Results: UCB1-Uniform vs UCB1-Normal
+
+*IPC 2008 Cybersec(urity) domain results* solved by both.
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span6
+#+begin_center
+Deterministic FF
+
+[[spng:plots-cyber/expansions__UniformUCT-hff-False-10-0.2-inf-0.5-False__UCT-hff-False-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span6
+#+begin_span6
+#+begin_center
+Randomized FF
+
+[[spng:plots-cyber/expansions__UniformUCT-hff-True-10-0.2-inf-0.5-False__UCT-hff-True-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span6
+#+end_row-fluid
+#+end_container-fluid
+
+*Upper triangle == Ours is better.*  (conclusive win)
+
+** Results: UCB1-Power vs GBFS
+
+*IPC 2008 Cybersec(urity) domain results* solved by both.
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span6
+#+begin_center
+Deterministic FF
+
+[[spng:plots-cyber/expansions__PowerUCT-hff-False-10-0.2-inf-0.5-False__gbfs-hff-False-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span6
+#+begin_span6
+#+begin_center
+Randomized FF
+
+[[spng:plots-cyber/expansions__PowerUCT-hff-True-10-0.2-inf-0.5-False__GBFSMin-hff-True-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span6
+#+end_row-fluid
+#+end_container-fluid
+
+*Upper triangle == Ours is better.*  (conclusive win)
+
+** Results: UCB1-Power vs UCB1-Normal
+
+*IPC 2008 Cybersec(urity) domain results* solved by both.
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span6
+#+begin_center
+Deterministic FF
+
+[[spng:plots-cyber/expansions__PowerUCT-hff-False-10-0.2-inf-0.5-False__UCT-hff-False-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span6
+#+begin_span6
+#+begin_center
+Randomized FF
+
+[[spng:plots-cyber/expansions__PowerUCT-hff-True-10-0.2-inf-0.5-False__UCT-hff-True-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span6
+#+end_row-fluid
+#+end_container-fluid
+
+*Upper triangle == Ours is better.*  (conclusive win)
+
+* Conclusion : */Power & Uniform UCT/* > _/GBFS & MCTS/_
+
++ *GBFS* : *Traditional SotA* in planning, basis of newer enhancements
++ UCB1 : _/never outperformed/_ GBFS
++ UCB1-Normal : _/comparable/_, _/inconclusive/_ vs. GBFS
++ *UCB1-Uniform/Power* : */Clearly outperformed/ GBFS* for the 1st time!
+
+*Key Takeaway*:
+
++ */Fundamental theory/* for *all /optimization/ problems*:
+
+  By definition, nothing beats the optima! \rightarrow *min/max*, *finite support*
+
++ *Future work for publication* (outside the core focus of this project):
+
+  C++ reimplementation
+
+  #+begin_smaller
+  Apply existing enhancements to GBFS
+  + Delayed Heuristic Evaluation DHE
+  + Preferred Operator
+  + Diversified Best First Search (DBFS), Type-GBFS, $\epsilon$-greedy GBFS
+  + Novelty-based pruning
+  #+end_smaller
+
+
+* Results: UCB1-Uniform vs GBFS
+
+*All IPC domain results* solved by both.
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span6
+#+begin_center
+Deterministic FF
+
+[[spng:plots-new/expansions__UniformUCT-False-10-0.2-inf-0.5-False__gbfs-False-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span6
+#+begin_span6
+#+begin_center
+Randomized FF
+
+[[spng:plots-new/expansions__UniformUCT-True-10-0.2-inf-0.5-False__GBFSMin-True-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span6
+#+end_row-fluid
+#+end_container-fluid
+
+*Upper triangle == Ours is better.*  (conclusive win)
+
+** Results: UCB1-Uniform vs UCB1-Normal
+
+*All IPC domain results* solved by both.
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span6
+#+begin_center
+Deterministic FF
+
+[[spng:plots-new/expansions__UniformUCT-False-10-0.2-inf-0.5-False__UCT-False-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span6
+#+begin_span6
+#+begin_center
+Randomized FF
+
+[[spng:plots-new/expansions__UniformUCT-True-10-0.2-inf-0.5-False__UCT-True-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span6
+#+end_row-fluid
+#+end_container-fluid
+
+*Upper triangle == Ours is better.*  (conclusive win)
+
+** Results: UCB1-Power vs GBFS
+
+*All IPC domain results* solved by both.
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span6
+#+begin_center
+Deterministic FF
+
+[[spng:plots-new/expansions__PowerUCT-False-10-0.2-inf-0.5-False__gbfs-False-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span6
+#+begin_span6
+#+begin_center
+Randomized FF
+
+[[spng:plots-new/expansions__PowerUCT-True-10-0.2-inf-0.5-False__GBFSMin-True-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span6
+#+end_row-fluid
+#+end_container-fluid
+
+*Upper triangle == Ours is better.*  (conclusive win)
+
+** Results: UCB1-Power vs UCB1-Normal
+
+*All IPC domain results* solved by both.
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span6
+#+begin_center
+Deterministic FF
+
+[[spng:plots-new/expansions__PowerUCT-False-10-0.2-inf-0.5-False__UCT-False-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span6
+#+begin_span6
+#+begin_center
+Randomized FF
+
+[[spng:plots-new/expansions__PowerUCT-True-10-0.2-inf-0.5-False__UCT-True-10-0.2-inf-0.5-False]]
+
+#+end_center
+#+end_span6
+#+end_row-fluid
+#+end_container-fluid
+
+*Upper triangle == Ours is better.*  (conclusive win)
 
