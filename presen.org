@@ -1,4 +1,4 @@
-#+TITLE:  シンボルグラウンディングと @@html:<br>@@ グラフィカルモデル
+#+TITLE:  ニューロシンボリック Classical Planning
 #+include: "head.org"
 #+LINK: img file:img/%s
 #+LINK: png file:img/%s.png
@@ -31,7 +31,21 @@ Masataro Asai
 
 #+end_center
 
+#+begin_center
+質問はZoomに書き込み
+#+end_center
+
 #+end_outline-text-1
+
+* Part 1:
+
+#+begin_xlarge
+#+begin_center
+記号接地と
+
+グラフィカルモデル
+#+end_center
+#+end_xlarge
 
 * 火星に取り残された! うわ やっべ どうしよう?
 
@@ -382,7 +396,6 @@ PDDL : Planning Domain Description Language
 #   *= Effects should be independent from $z_t$*
 #   #+end_alignright
 
-
 * 高速ソルバのためにPDDL記号モデルを学習 @@html:<br>@@ →言語の制約を */NNモデルに埋め込まないといけない/*
 
 + *PDDLでは、アクションの効果と状態 $z_t$ は独立している.*
@@ -637,25 +650,25 @@ function_dictionary["myfunc"]
 
 
 
-# * 記号的言語に接地したいなら、対象言語をちゃんと理解して */正しい/* モデルをつくりましょう
-#
-# 例1:
-# #+begin_center
-# 画像入力 → PDDL → 高速PDDLソルバ
-# #+end_center
-#
-# 例2 (未発表):
-# #+begin_center
-# + 非線形状態遷移モデル → 線形隠れ制御モデル → 高速線形制御ソルバ
-# #+end_center
-#
-# [[png:space-ae/graphical-model-style]]
-#
-# #+begin_center
-# + *Caution: It requires a /deep/ understanding of your formalism*
-#
-#   *(e.g., PDDL, linear control).* Know what you are modeling!
-# #+end_center
+* 記号的言語に接地したいなら、対象言語をちゃんと理解して */正しい/* モデルをつくりましょう :noexport:
+
+例1:
+#+begin_center
+画像入力 → PDDL → 高速PDDLソルバ
+#+end_center
+
+例2 (未発表):
+#+begin_center
++ 非線形状態遷移モデル → 線形隠れ制御モデル → 高速線形制御ソルバ
+#+end_center
+
+[[png:space-ae/graphical-model-style]]
+
+#+begin_center
++ *Caution: It requires a /deep/ understanding of your formalism*
+
+  *(e.g., PDDL, linear control).* Know what you are modeling!
+#+end_center
 
 * Extending the generative model (unpublished)
 
@@ -707,7 +720,7 @@ function_dictionary["myfunc"]
 
 
 
-* Conclusion
+* Conclusion (前半)
 
 #+begin_container-fluid
 #+begin_row-fluid
@@ -758,12 +771,7 @@ function_dictionary["myfunc"]
 
 
 
-* Success / Failure cases
-
-[[spng:experiment/blocks-example]]
-
-[[spng:experiment/other-examples]]
-* Why _/action symbol grounding/_ is necessary?
+* Why _/action symbol grounding/_ is necessary?                    :noexport:
 
 "designers always know the action space"? */Wrong!/*
 
@@ -805,4 +813,383 @@ Humans have a good understanding of low-level actuations...
 #+end_span6
 #+end_row-fluid
 #+end_container-fluid
+
+
+
+* Part 2:
+
+#+begin_center
+#+begin_xlarge
+理性的な実世界エージェントの アーキテクチャ
+#+end_xlarge
+を考える
+#+end_center
+
+#+begin_alignright
+→表現学習以外の プランニング+機械学習
+#+end_alignright
+
+
+* 理性的な実世界エージェントのアーキテクチャ
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span3
+[[sgif:mars/yoda-hmph]]
+#+end_span3
+#+begin_span9
+[[png:nesyarch/6]]
+#+end_span9
+#+end_row-fluid
+#+end_container-fluid
+
+** 理性的な実世界エージェントのアーキテクチャ
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span3
+[[sgif:mars/yoda-hmph]]
+#+end_span3
+#+begin_span9
+[[png:nesyarch/5]]
+#+end_span9
+#+end_row-fluid
+#+end_container-fluid
+
+** 理性的な実世界エージェントのアーキテクチャ
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span3
+[[sgif:mars/yoda-hmph]]
+#+end_span3
+#+begin_span9
+[[png:nesyarch/4]]
+#+end_span9
+#+end_row-fluid
+#+end_container-fluid
+
+** 理性的な実世界エージェントのアーキテクチャ
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span3
+[[sgif:mars/yoda-hmph]]
+#+end_span3
+#+begin_span9
+[[png:nesyarch/3]]
+#+end_span9
+#+end_row-fluid
+#+end_container-fluid
+
+** 理性的な実世界エージェントのアーキテクチャ
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span3
+[[sgif:mars/yoda-hmph]]
+#+end_span3
+#+begin_span9
+[[png:nesyarch/2]]
+#+end_span9
+#+end_row-fluid
+#+end_container-fluid
+
+** 理性的な実世界エージェントのアーキテクチャ
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span3
+[[sgif:mars/yoda-hmph]]
+#+end_span3
+#+begin_span9
+[[png:nesyarch/1]]
+#+end_span9
+#+end_row-fluid
+#+end_container-fluid
+
+** 理性的な実世界エージェントのアーキテクチャ
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span3
+[[sgif:mars/yoda-hmph]]
+#+end_span3
+#+begin_span9
+[[png:nesyarch/0]]
+#+end_span9
+#+end_row-fluid
+#+end_container-fluid
+
+** 理性的な実世界エージェントのアーキテクチャ
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span3
+[[sgif:mars/yoda-hmph]]
+#+end_span3
+#+begin_span9
+[[png:nesyarch/0a]]
+#+end_span9
+#+end_row-fluid
+#+end_container-fluid
+
+* 探索ヒューリスティクスの学習:
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span6
+#+begin_xlarge
+#+begin_center
+RL
+
+(ICAPS 2022)
+#+end_center
+#+end_xlarge
+#+end_span6
+#+begin_span6
+#+begin_xlarge
+#+begin_center
+SL
+
+(IJCAI 2024)
+#+end_center
+#+end_xlarge
+#+end_span6
+#+end_row-fluid
+#+end_container-fluid
+
+* ICAPS22
+
+Reinforcement Learning for Classical Planning: Viewing Heuristics as Dense Reward Generators
+
+** Value function learning
+
+** Reward Shaping
+
+** Heuristic Function
+
+** NLM
+
+** Results
+
+* IJCAI24
+
+[[png:truncated-gaussian/title]]
+
+
+
+#+begin_xlarge
+#+begin_center
+RL 嫌いなんで ... 教師あり学習!
+#+end_center
+#+end_xlarge
+
+* Task: Learn the shortest path cost
+
+[[png:truncated-gaussian/1b]]
+
+** Task: Learn the shortest path cost
+
+[[png:truncated-gaussian/1a]]
+
+** Task: Learn the shortest path cost
+
+[[png:truncated-gaussian/1]]
+
+#+begin_larger
+#+begin_center
++ *Q: Can we exploit the /admissibility/ of heuristics* in training?
+#+end_center
+#+end_larger
+
+* Stop using (Mean) Square Errors!
+
+[[png:truncated-gaussian/2j]]
+
+** Stop using (Mean) Square Errors!
+
+[[png:truncated-gaussian/2i]]
+
+** Stop using (Mean) Square Errors!
+
+[[png:truncated-gaussian/2h]]
+
+** Stop using (Mean) Square Errors!
+
+[[png:truncated-gaussian/2g]]
+
+** Stop using (Mean) Square Errors!
+
+[[png:truncated-gaussian/2f]]
+
+** Stop using (Mean) Square Errors!
+
+[[png:truncated-gaussian/2e]]
+
+** Stop using (Mean) Square Errors!
+
+[[png:truncated-gaussian/2d]]
+
+** Stop using (Mean) Square Errors!
+
+[[png:truncated-gaussian/2c]]
+
+** Stop using (Mean) Square Errors!
+
+[[png:truncated-gaussian/2b]]
+
+** Stop using (Mean) Square Errors!
+
+[[png:truncated-gaussian/2a]]
+
+** Stop using (Mean) Square Errors!
+
+[[png:truncated-gaussian/2]]
+
+* 
+
+[[png:truncated-gaussian/3c]]
+
+** 
+
+[[png:truncated-gaussian/3b]]
+
+** 
+
+[[png:truncated-gaussian/3a]]
+
+** 
+
+[[png:truncated-gaussian/3]]
+
+* Thinking with Distributions                                      :noexport:
+
+Is $\mathcal{N}(\mu,\sigma)$ the correct distribution for $h^*$?
+
+[[png:truncated-gaussian/4]]
+
++ We know $h^*\ge 0$
++ We know $h^*\ge h$ : *admissible heuristics*
++ *Why the heck* do we assign */non-zero probability/* to $h^*< 0$?
++ i.e. $\mathcal{N}(\mu,\sigma)$ *ignores* our */expert knowledge/* on $h^*$
++ It is not the *correct* distribution
+
+* Thinking with Distributions
+
+Is $\mathcal{N}(\mu,\sigma)$ the correct distribution for $h^*$?
+
+[[png:truncated-gaussian/4e]]
+
+** Thinking with Distributions
+
+Is $\mathcal{N}(\mu,\sigma)$ the correct distribution for $h^*$?
+
+[[png:truncated-gaussian/4d]]
+
+** Thinking with Distributions
+
+Is $\mathcal{N}(\mu,\sigma)$ the correct distribution for $h^*$?
+
+[[png:truncated-gaussian/4c]]
+
+** Thinking with Distributions
+
+Is $\mathcal{N}(\mu,\sigma)$ the correct distribution for $h^*$?
+
+[[png:truncated-gaussian/4b]]
+
+** Thinking with Distributions
+
+Is $\mathcal{N}(\mu,\sigma)$ the correct distribution for $h^*$?
+
+[[png:truncated-gaussian/4a]]
+
+** Thinking with Distributions
+
+Is $\mathcal{N}(\mu,\sigma)$ the correct distribution for $h^*$?
+
+[[png:truncated-gaussian/4]]
+
+* What is the correct distribution?
+
++ Follow the */Maximum Entropy Principle/* (Jaynes 1957):
+
+  #+begin_quote
+  + /Choose the distribution with the *largest entropy*/
+  + /among those that satisfy the *expert knowledge / constraint*./
+  #+end_quote
+
++
+  #+begin_alignright
+  #+begin_larger
+  ↪ We know a lower bound $h\le h^*$ !
+
+  *This is our expert knowledge!*
+  #+end_larger
+  #+end_alignright
+
+* What is the max-ent distribution for our assumption?
+
+[[png:truncated-gaussian/5c]]
+
+** What is the max-ent distribution for our assumption?
+
+[[png:truncated-gaussian/5b]]
+
+** What is the max-ent distribution for our assumption?
+
+[[png:truncated-gaussian/5a]]
+
+** Results 
+
+[[png:truncated-gaussian/6]]
+
+* Conclusion
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span6
++ *We learn* $h^*$
+
+  [[png:truncated-gaussian/1]]
+
+#+end_span6
+#+begin_span6
++ *Square error = Gaussian*
+
+  [[png:truncated-gaussian/3]]
+#+end_span6
+#+end_row-fluid
+#+begin_row-fluid
+#+begin_span6
++ *Gaussian is a lie*
+
+  [[png:truncated-gaussian/4]]
+#+end_span6
+#+begin_span6
++ *Max-ent: Truncated Gaussian*
+
+  [[png:truncated-gaussian/5a]]
+#+end_span6
+#+end_row-fluid
+#+end_container-fluid
+
+Take-home message: *Whenever you see a square error, doubt it!*
+
+* 理性的な実世界エージェントのアーキテクチャ
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span3
+[[sgif:mars/yoda-hmph]]
+#+end_span3
+#+begin_span9
+[[png:nesyarch/0b]]
+#+end_span9
+#+end_row-fluid
+#+end_container-fluid
+
+* 探索アルゴリズム
+
 
