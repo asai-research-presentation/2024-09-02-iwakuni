@@ -2378,3 +2378,37 @@ $\text{UCB1-Power}_i = \frac{u_ia_i}{a_i+1} -u_i\sqrt{6n_i \log N}$
 #+end_span7
 #+end_row-fluid
 #+end_container-fluid
+
+* LLM + Planning (, Reasoning) が成功するには?
+
+単体ではおそらくプランニング不可 by Rao (Subbarao Kambhampati)
+
++ おおよそRLと同じような問題を抱えている (ごった煮)
++ 全部一度にこなそうとしている
+  + *表現学習* : ここだけはとても汎化している
+  + *探索* : 全くしていない(Reflex Agent) か 非常に原始的 (CoT)
+  + *ヒューリスティクス* : 「常識」の丸暗記
++ プランニングに対する *解像度* が低い
+
+#+begin_note
+Gundawar, Atharva, et al. "Robust Planning with LLM-Modulo Framework: Case Study in Travel Planning." arXiv
+
+Kambhampati, Subbarao, et al. "LLMs Can't Plan, But Can Help Planning in LLM-Modulo Frameworks." arXiv
+
+Valmeekam, Karthik, et al. "On the planning abilities of large language models-a critical investigation." Neurips 2023
+#+end_note
+
+* 自分が将来的にやりそうなネタ
+
++ *表現学習* : LLM を使ってPDDL生成 (Latplanと同じ)
++ *ヒューリスティクス* : LLM を使ってロボットのガイド
+  + Planning Modulo LLM : 探索の中からLLMを使う
++ *探索* : LLM で CDCL とかやると面白そう
+
+現在あまりインターンは採用していないが、共同研究は可能!
+
+#+begin_center
+MIT-IBM Watson AI Lab
+
+[[png:MIT-IBM]]
+#+end_center
