@@ -2349,3 +2349,33 @@ $\text{UCB1-Power}_i = \frac{u_ia_i}{a_i+1} -u_i\sqrt{6n_i \log N}$
 # 
 # + 学習系の人は、記号系の人/タスクを見くびらないように
 
+* Final Words
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span5
+[[png:nesyarch/0b]]
+
++ Deep RL?
+  + Repr. Learning
+  + Heuristic Learning
+  + Search Algorithm
+  + Active Learning
+  + Contiual Learning
+
+#+end_span5
+#+begin_span7
++ *Deep RL /sucks/*
++ *Deep RL is /Pseudoscience/*
+  + Lack of reproducibility
+    + Insufficient seeds
+    + Leslie: 20 seeds minimum!
+  + */1 change affects N components/*
++ _/The science/_ as a *sane* researcher:
+  + _/Split/_ the architecture into parts
+  + _/Study each part individually/_
+  + _/Do correct mathematical modeling/_
+#+end_span7
+#+end_row-fluid
+#+end_container-fluid
+
