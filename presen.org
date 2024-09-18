@@ -2302,3 +2302,50 @@ $\text{UCB1-Power}_i = \frac{u_ia_i}{a_i+1} -u_i\sqrt{6n_i \log N}$
 
 
 
+* Conclusion & Take-home message
+
+#+begin_container-fluid
+#+begin_row-fluid
+#+begin_span8
++ 記号接地:
+  + PDDLを *正しく* モデル化しよう!
+    + →グラフィカルモデル
++ ヒューリスティクス学習:
+  + RL : Reward Shaping を *正しく* やろう!
+    + */Discouning/* , _/Undiscounting/_
+  + SL : $h^*(s)$ を *正しく* モデル化しよう!
+    + Truncated Gaussian
++ 探索アルゴリズム改善 / Bandit:
+  + $h(s)$ を *正しく* モデル化しよう!
+    + → Gaussian, Power
+#+end_span8
+#+begin_span4
+[[png:nesyarch/0b]]
+
+#+begin_larger
+#+begin_center
++ *正しさへの*
+
+  *こだわりは*
+
+  *いつか*
+
+  *実を結ぶはず*
+
+  (大変だけど)
+
+#+end_center
+#+end_larger
+  
+#+end_span4
+#+end_row-fluid
+#+end_container-fluid
+
+# + 意味あるニューロシンボリックをやるには
+# 
+#   PhD2回分勉強する必要あり (記号系+学習系)
+# 
+# + 記号系の人は、学習系の人をバカにしすぎないように
+# 
+# + 学習系の人は、記号系の人/タスクを見くびらないように
+
