@@ -1,4 +1,4 @@
-#+TITLE:  ニューロシンボリック Classical Planning
+#+TITLE:  Neuro-Symbolic Classical Planning
 #+include: "head.org"
 #+LINK: img file:img/%s
 #+LINK: png file:img/%s.png
@@ -15,7 +15,7 @@
 #+begin_outline-text-1
 #+begin_center
 
-
+　
 
 #+begin_larger
 Masataro Asai
@@ -23,7 +23,7 @@ Masataro Asai
 (MIT-IBM Watson AI Lab, IBM Research, Cambridge)
 #+end_larger
 
-
+　
 
 [[png:MIT-IBM]]
 
@@ -37,21 +37,11 @@ Masataro Asai
 
 #+end_outline-text-1
 
-* Part 1:
-
-#+begin_xlarge
-#+begin_center
-記号接地と
-
-グラフィカルモデル
-#+end_center
-#+end_xlarge
-
-* 火星に取り残された! うわ やっべ どうしよう?
+* You found yourself on Mars, unexpected emergency...
 
 [[png:mars/mars]]
 
-* どっちの「知性」がいいですか?
+* Two approaches to intelligence : Which is better?
 
 #+begin_container-fluid
 #+begin_row-fluid
@@ -62,38 +52,38 @@ Masataro Asai
 #+end_span3
 #+begin_span4
 #+begin_center
-*経験に基づく勘だけ* でどうにかなる?
-
-"考えるな、感じろ" でうまく行きますか?
+Do you just follow what you *learned* before?
+  
+"Don't think, feel"?
 
 [[sgif:yoda]]
 
-/Reflex (反射) agent/
+/Reflex agent/
 
 #+end_center
 #+end_span4
 #+begin_span5
 +
   #+begin_center
-  ちょっと *頭を使って* 臨機応変に対応しますか?
-
+  Or do you *think*, adjust, create and choose an appropriate behavior?
+  
   [[sgif:mars/yoda-hmph]]
 
-  _/Deliberative (熟考) agent/_
+  _/Deliberative agent/_
   #+end_center
 #+end_span5
 #+end_row-fluid
 #+end_container-fluid
 
 #+begin_center
-+ → _私がやりたいのは *熟考エージェント*_
++ → _I wish to build a *logical, /deliberative/ agent*_
 
-  しかも、 _生のセンサー入力(画像)を直接使えるやつ_
+  that operates on the _raw input (e.g., visual input)_
 #+end_center
 
-* 古典プランナ (古典自動計画ソルバ): @@html:<br>@@ *8パズルをミリ秒単位で解ける.*
+* Classical Planners *solve 8-puzzles << .1sec.*
 
-記号的探索・推論システムは爆速
+Symbolic systems excel at deliberation.
 
 #+begin_container-fluid
 #+begin_row-fluid
@@ -112,7 +102,7 @@ Masataro Asai
 #+end_row-fluid
 #+end_container-fluid
 
-/でも PDDL があるときにしか 適用不可能./
+/but only when we have a PDDL model./
 
 #+begin_container-fluid
 #+begin_row-fluid
@@ -128,7 +118,7 @@ Masataro Asai
 
 PDDL : Planning Domain Description Language
 
-* 弱点: */画像ベース入力/* になると適用不可能
+* They cannot solve an */Image-based/* 8-puzzle
 
 #+begin_container-fluid
 #+begin_row-fluid
@@ -136,38 +126,42 @@ PDDL : Planning Domain Description Language
 [[sjpg:puzzle]]
 #+end_span8
 #+begin_span4
-+
++ 
    #+begin_center
-   *なぜなら*
+   *BECAUSE*
 
-   *プランナは*
+   *WE*
 
-   *実行するのに*
+   *DO*
+
+   *NOT*
+
+   *HAVE*
+
+   *A*
 
    #+begin_larger
    */PDDL/*
 
-   */モデルが/*
-
-   */必要/!*
+   */MODEL/!*
    #+end_larger
 #+end_center
 #+end_span4
 #+end_row-fluid
 #+end_container-fluid
 
-+ *Latplan (AAAI18, ICAPS19, IJCAI20, JAIR 22)* はこの問題を解決
++ *Latplan (AAAI18, ICAPS19, IJCAI20, JAIR22)* addresses this problem:
 
-  */画像に対する事前知識なし/* (画像に対するアノテーションなど)
+  */No Prior Explicit Knowledge/* (i.e. No Human Annotation)
 
-  　 */人に由来するラベル・記号は一切なし/* : "タイルが9つある", "動く"
+  　 */No labels/symbols given/* : e.g. "9 tiles", "moving"
 
-* Latplan の目標: */知識獲得ボトルネックの解消/*
+* Key problem Latplan solves: @@html:<br>@@ */Knowledge-Acquisition Bottleneck/*
 
 # * We must *automate 2 processes*:
 
 # * Knowledge-Acquisition Bottleneck:
-#
+# 
 # #+begin_quote
 # The *cost of human* involved for converting *real-world problems* into the inputs for
 # domain-independent *symbolic* systems
@@ -180,22 +174,22 @@ PDDL : Planning Domain Description Language
 #+begin_span4
 
 #+begin_alignright
-*状態遷移の観測データ*
+*Visual observations*
 #+end_alignright
 
 [[png:overview/1]]
 
 #+end_span4
 #+begin_span1
+　
 
+　
 
-
-
-
+　
 
 →
 
-
+　
 #+end_span1
 #+begin_span7
 #+begin_center
@@ -214,43 +208,42 @@ PDDL : Planning Domain Description Language
 
 #+begin_row-fluid
 #+begin_span12
-+ Latplan が自動化すべき作業は *2つ* あり、これらは別のタスク:
++ We must *automate 2 processes*:
 #+end_span12
 #+end_row-fluid
 #+begin_row-fluid
 #+begin_span6
-+ *1. 記号生成:*
++ *1. Symbol Grounding:*
 
   #+begin_center
   #+begin_larger
-  */シンボル/ = PDDL内で使われる語彙*
+  */Symbols/ = words in PDDL*
   #+end_larger
   #+end_center
-
-+
+  
   #+begin_smaller
   | Types        | Examples                     |
   |--------------+------------------------------|
-  | オブジェクト | *panel_7*, *x_0*, *y_0* ...  |
-  | 述語 | (*empty* ?x ?y)              |
-  | 命題 | *p_28* = (empty x_0 y_0)     |
-  | アクション | (*slide-up* panel_7 x_0 y_1) |
+  | Objects      | *panel_7*, *x_0*, *y_0* ...  |
+  | Predicates   | (*empty* ?x ?y)              |
+  | Propositions | *p_28* = (empty x_0 y_0)     |
+  | Actions      | (*slide-up* panel_7 x_0 y_1) |
   #+end_smaller
 #+end_span6
 #+begin_span6
-+ *2. アクションモデル獲得:*
-
++ *2. Action Model Acquisition:*
+  
   #+begin_center
   #+begin_larger
-  */状態遷移ルールを/*
+  */Describe/ the*
 
-  */シンボルを用いて/*
+  */transition rules/*
 
-  */表現すること/*
+  *with symbols.*
   #+end_larger
   #+end_center
-
-+
+  
+  　
 
   #+begin_center
   *When* /Empty(x, y_{old}) ∧ .../ ;
@@ -266,7 +259,7 @@ PDDL : Planning Domain Description Language
 # The knowledge acquisition bottleneck: time for reassessment? : Cullen, J and Bryman, A Expert Syst. Vol 5 No 3 (August 1988) pp 216-225
 # #+end_note
 
-* Latplan は PDDL を自動生成 (IJCAI20, JAIR22)
+* Latplan system generates a PDDL (IJCAI20, JAIR22)
 
 [[png:15puzzle-with-pddl/2]]
 
@@ -278,7 +271,7 @@ PDDL : Planning Domain Description Language
 
 
 
-** Latplan は PDDL を自動生成 (IJCAI20, JAIR22)
+** Latplan system generates a PDDL (IJCAI20, JAIR22)
 
 [[png:15puzzle-with-pddl/1]]
 
@@ -290,57 +283,56 @@ PDDL : Planning Domain Description Language
 
 
 
-** Latplan は PDDL を自動生成 (IJCAI20, JAIR22)
+** Latplan system generates a PDDL (IJCAI20, JAIR22)
 
 [[png:15puzzle-with-pddl/0]]
 
 #+begin_center
-+ Latplan が生成・接地するシンボルは すべて *無名シンボル* (=gensym=)
+All symbols are anonymous & generated (=gensym=)
 
-  *人間の使う 自然言語シンボル* は扱わない
+Note: I am not interested in *human symbols* at all
 
-+ 自然言語シンボルへの接地は *寄生的* 記号接地(*) とよばれる
+Requiring human symbols as input = parasitic (*)
 
-  *理由:* 人間の作った世界の離散化に依存しているから (例: *虹🌈は7色?*)
-
-  #+begin_note
-  (*) Taddeo, Mariarosaria, and Luciano Floridi. "Solving the symbol grounding problem: a critical review of fifteen years of research." Journal of Experimental & Theoretical Artificial Intelligence 17.4 (2005): 419-445.
-  #+end_note
++ (How many colors are in a 🌈 ?)
 #+end_center
 
+#+begin_note
+(*) Taddeo, Mariarosaria, and Luciano Floridi. "Solving the symbol grounding problem: a critical review of fifteen years of research." Journal of Experimental & Theoretical Artificial Intelligence 17.4 (2005): 419-445.
+#+end_note
 
-* Latplan が解けるパズル/プランニング問題の例
+* Experimental Results
 
 [[spng:experiment/init-goal]]
 
 8-puzzle, 15-puzzle, Lights-Out, Twisted Lights-out, *Blocksworld*, Sokoban
 
-** 成功率 (1ドメインあたり40タスク)
+** Success ratio (Arxiv 2021) : 40 problems / domain
 
 [[png:success]]
 
-** 成功例 / 失敗例
+** Success / Failure cases
 
 [[spng:experiment/blocks-example]]
 
-# [[spng:experiment/other-examples]]
+[[spng:experiment/other-examples]]
 
-* このシステムの肝: *生成モデリング* + @@html:<br>@@ _/ちゃんと古典プランニングのことを勉強すること/_
+* How? */Embedding the formalism/* in the model
 
-+ Latplan は *PDDLと互換性のあるアクションモデルを画像から学習する*.
-+ *「PDDLと互換性がある」ってどういう意味 ?*
++ *Latplan* learns *PDDL-compatible effects*.
++ What is *PDDL compatibility* ?
 
 # *Background Terminology:*
-#
+# 
 # $z_{t} \rightarrow z_{t+1}$ is called a /progression/
 # #+begin_alignright
 # ($z_{t+1} \rightarrow z_{t}$ is called a /regression/)
 # #+end_alignright
 
-+ アクション: $a=\text{Eat}(\text{pizza🍕})$
-+ 前提条件: $\text{pre}(a)=\lnot \text{full}() \land \text{have}(\text{pizza🍕})$ --- 空腹かつピザがある
-+ 効果: *削除効果:* $\text{del}(a)=\{\text{have}(\text{pizza🍕}) \}$ --- ピザはなくなって
-+ 効果: *追加効果:* $\text{add}(a)=\{\text{full}() \}$ --- 満腹になる
++ Action: $\text{Eat}(\text{pizza🍕})$ 
++ Precondition: $\lnot \text{full}() \land \text{have}(\text{pizza🍕})$
++ Effects: *Delete effects:* $\lnot\text{have}(\text{pizza🍕})$ : -- in the stomach now
++ Effects: *Add effects:* $\text{full}()$
 
 # + Action /eat(person, pizza)/
 # + Precondition: ¬full(person) ∧ have(person, pizza)
@@ -364,46 +356,45 @@ PDDL : Planning Domain Description Language
 
 +
   #+begin_quote
-  _/状態遷移ルール:/_ $z_{t+1} = (z_t \setminus \text{del}(a)\ )\ \cup\ \text{add}(a)$
+  _/Action application in PDDL:/_ $z_{t+1} = (z_t \setminus \text{del}(a)\ )\ \cup\ \text{add}(a)$
   #+end_quote
 
-  効果 $\text{del}(a), \text{add}(a)$ は *$z_t$ に依存しない*.
+  Effects $\text{del}(a), \text{add}(a)$ *do not depend on $z_t$*.
 
-+ */よくある世界モデル/* は *そこをわかってない！* (自動計画の人がいない)
++
   #+begin_quote
-  */よくある世界モデル:/* $z_{t+1} = \text{なぞのニューラルネット}(z_t, a)$
+  */Naive "world model":/* $z_{t+1} = \text{NN}(z_t, a)$ : *No separation*
   #+end_quote
 
 +
 
   #+begin_larger
   #+begin_center
-  PDDLに変換できない → */高速なソルバを使えない/*
+  Not PDDL compatible → */Can't use a fast solver/*
   #+end_center
   #+end_larger
-
 
 # +
 #   #+begin_quote
 #   _/PDDL effect:/_ $z_{t+1} = (z_t \ \setminus \ \text{del}(a)\ )\ \cup\ \text{add}(a)$
-#
+#   
 #   */AAE's effect:/* $z_{t+1} = \text{apply}(z_t, a)$
 #   #+end_quote
-#
+# 
 #   *In PDDL, effects should be consistent for each action*.
-#
+# 
 #   #+begin_alignright
 #   *= Effects should be independent from $z_t$*
 #   #+end_alignright
 
-* 高速ソルバのためにPDDL記号モデルを学習 @@html:<br>@@ →言語の制約を */NNモデルに埋め込まないといけない/*
+* To use a fast planner we need PDDL @@html:<br>@@ → We should */embed PDDL grammar in NN model/*
 
-+ *PDDLでは、アクションの効果と状態 $z_t$ は独立している.*
+*In PDDL, effects must not depend on $z_t$*.
 
 #+begin_center
-+ → $z_t$ と独立な変数 *e* を導入する必要あり。
++ → A */random variable/* *e* independent from $z_t$.
 
-+
++ 　
 
   [[png:space-ae/graphical-model-csae]]
 #+end_center
@@ -412,26 +403,22 @@ PDDL : Planning Domain Description Language
 # 無名シンボルを生成するため、$z_t$ や $a$ には *離散隠れ変数* を使う (Gumbel-Softmax)
 # #+end_smaller
 
-+ これを *離散的隠れ変数* (Gumbel-Softmax) + *変分学習* で訓練。
++ Train *discrete latent variables* (how?) via *Variational Inference*
 
-  グラフィカルモデルが数学的根拠を与える
+  The graphical model provides a mathematical foundation
 
-* 離散表現学習: Gumbel-Softmax VAE ほか
+* Discrete representation learning: Gumbel-Softmax VAE, etc.
 
 [[png:sae/state-ae-before]]
 
-** 離散表現学習: Gumbel-Softmax VAE ほか
+** Discrete representation learning: Gumbel-Softmax VAE, etc.
 
 [[png:sae/state-ae]]
 
-+ 2017年ぐらい以降、多数の手法が考案されている
++ Various methods became available after 2017
 
   (REBAR, RELAX, VQVAE, SQVAE, ...)
 
-  +
-    #+begin_alignright
-    ニューロシンボリックをするなら要チェック!
-    #+end_alignright
 
 * Important aspects of symbol grounding:                           :noexport:
 
@@ -486,9 +473,9 @@ function_dictionary["myfunc"]
 #+end_row-fluid
 #+end_container-fluid
 
-* /シンボル/ は一種類だけではない
+* There is no /the symbol/
 
-*/命題シンボル/* (handempty, ...) vs. _/アクションシンボル/_ (pickup,...).
+*/Propositional symbol/* (handempty, ...) vs. _/Action symbol/_ (pickup,...).
 
 #+begin_container-fluid
 #+begin_row-fluid
@@ -499,32 +486,32 @@ function_dictionary["myfunc"]
 #+begin_center
 +
   #+begin_larger
-  これらは *別の名前空間に存在する*.
+  They are in a *separate namespace*.
   #+end_larger
 
+  　 
 
+  Same in human symbols:
 
-  自然言語シンボルも同様:
+  　 I */like/* an apple : verb
 
-  　 I */like/* an apple : 動詞
-
-  　 Thanks for the */like/* on Facebook! : 名詞
+  　 Thanks for the */like/* on Facebook! : noun
 
   Common Lisp (Lisp-2) vs. Scheme (Lisp-1)
 #+end_center
 
 #+begin_larger
 #+begin_alignright
-+ → *別の名前空間* にあるシンボルは
++ → symbols in *different namespace* requires
 
-  *別の言語制約が必要。*
+  *a different constraints.*
 #+end_alignright
 #+end_larger
 #+end_span8
 #+end_row-fluid
 #+end_container-fluid
 
-* PDDL: 6つの名前空間, 6つのメカニズム
+* PDDL: 6 namespaces, 6 mechanisms
 
 [[png:namespace/1]]
 
@@ -536,7 +523,7 @@ function_dictionary["myfunc"]
 
 
 
-** PDDL: 6つの名前空間, 6つのメカニズム
+** PDDL: 6 namespaces, 6 mechanisms
 
 [[png:namespace/2]]
 
@@ -548,7 +535,7 @@ function_dictionary["myfunc"]
 
 
 
-** PDDL: 6つの名前空間, 6つのメカニズム
+** PDDL: 6 namespaces, 6 mechanisms
 
 [[png:namespace/3]]
 
@@ -560,46 +547,46 @@ function_dictionary["myfunc"]
 
 
 
-** PDDL: 6つの名前空間, 6つのメカニズム
+** PDDL: 6 namespaces, 6 mechanisms
 
 [[png:namespace/4]]
 
-*問題シンボル:* 「マリオのステージを表すシンボル」→ 別の状態空間を生成
+*Problem symbol:* → Different search space
 
-　Stage 1-1, Stage 1-2, ...
-
-
+　Stage 1-1, Stage 1-2, ... in Super Mario Bros.
 
 
 
-** PDDL: 6つの名前空間, 6つのメカニズム
+
+
+** PDDL: 6 namespaces, 6 mechanisms
 
 [[png:namespace/5]]
 
-*問題シンボル:* 「マリオのステージを表すシンボル」→ 別の状態空間を生成
+*Problem symbol:* → Different search space
 
-　Stage 1-1, Stage 1-2, ...
+　Stage 1-1, Stage 1-2, ... in Super Mario Bros.
 
-*ドメインシンボル:* 「別のゲームを表すシンボル」 → 別のアクションを生成
+*Domain symbol:*  → Different set of available actions
 
-　マリオ、ゼルダ、ドンキーコング、F-Zero ...
+　Super Mario Bros., Donkey Kong, ...
 
-** PDDL: 6つの名前空間, 6つのメカニズム
+** PDDL: 6 namespaces, 6 mechanisms
 
 [[png:namespace/6]]
 
-*問題シンボル:* 「マリオのステージを表すシンボル」→ 別の状態空間を生成
+*Problem symbol:* → Different search space
 
-　Stage 1-1, Stage 1-2, ...
+　Stage 1-1, Stage 1-2, ... in Super Mario Bros.
 
-*ドメインシンボル:* 「別のゲームを表すシンボル」 → 別のアクションを生成
+*Domain symbol:*  → Different set of available actions
 
-　マリオ、ゼルダ、ドンキーコング、F-Zero ...
+　Super Mario Bros., Donkey Kong, ...
 
 
-* 実際 Latplan を述語論理に拡張可 (ICLR2021 workshop)
+* Latplan extension with (ground) First-order logic (ICLR2021 workshop)
 
-*Latplan/FOSAE++* : 画像内の異なるオブジェクトに使えるアクションを学習
+*Latplan/FOSAE++* : Learns actions generalized over objects
 
 #+begin_container-fluid
 #+begin_row-fluid
@@ -613,63 +600,13 @@ function_dictionary["myfunc"]
 #+end_container-fluid
 
 
-+ *追加制約:* Successor State Axiom (*非束縛変数の禁止* [Reiter, 1991])
-
-+ アクション: $a=\text{Eat}(\text{pizza}🍕)$ : 引数 $\text{pizza}🍕$
-+
-  #+begin_center
-  *効果:* */発表(フロム, アーマードコアの新作)/*
-  #+end_center
-+
-  #+begin_alignright
-  ↑ $\text{pizza}🍕$ を使わないので禁止
-  #+end_alignright
-
-+
-  #+begin_larger
-  #+begin_center
-  新たな制約が *述語シンボル* のグラウンディングを可能にした
-  #+end_center
-  #+end_larger
-
-
-* 結論                                                             :noexport:
-
-#+begin_xlarge
-記号接地したいなら
-
-#+begin_center
-*対象言語を /ちゃんと/ 理解して*
-#+end_center
-
-#+begin_alignright
-*/正しい/ モデルをつくろう!*
-#+end_alignright
-#+end_xlarge
-
-
-
-
-* 記号的言語に接地したいなら、対象言語をちゃんと理解して */正しい/* モデルをつくりましょう :noexport:
-
-例1:
-#+begin_center
-画像入力 → PDDL → 高速PDDLソルバ
-#+end_center
-
-例2 (未発表):
-#+begin_center
-+ 非線形状態遷移モデル → 線形隠れ制御モデル → 高速線形制御ソルバ
-#+end_center
-
-[[png:space-ae/graphical-model-style]]
-
-#+begin_center
-+ *Caution: It requires a /deep/ understanding of your formalism*
-
-  *(e.g., PDDL, linear control).* Know what you are modeling!
-#+end_center
-
++ *Constraint:* Successor State Axiom [Reiter, 1991]
+  + *disallow free variables*
++ Action: $a=\text{Eat}(\text{pizza}🍕)$ :
+  + *Effect:* */explode(entire room)/* (Prohibited under SSA)
+    + A prior that *limits what can happen*
++ Now encoded in NN
+  
 * Extending the generative model (unpublished)
 
 #+begin_container-fluid
@@ -679,7 +616,7 @@ function_dictionary["myfunc"]
 + Lifted actions,
 
   Parameters *x*
-
+  
   [[png:space-ae/graphical-model-fosae]]
 
   Predicates, too.
@@ -726,33 +663,36 @@ function_dictionary["myfunc"]
 #+begin_row-fluid
 #+begin_span7
 #+begin_center
-+ *Goal: 理性的な実世界エージェント*
++ *Goal: logical, rational agents*
 
+  operating under *raw observations*
+  
   [[sgif:mars/yoda-hmph]]
 #+end_center
 #+end_span7
 #+begin_span5
 #+begin_center
-+ *Latplan* で記号接地
++ *Latplan*
 
   [[sjpg:puzzle]]
-
 #+end_center
 #+end_span5
 #+end_row-fluid
 #+begin_row-fluid
 #+begin_span7
 #+begin_center
-+ 異なるシンボルは  *別々の制約が必要*
++ Each type of symbol requires
 
+  *its own mechanism to learn*
+  
   [[png:namespace/6]]
 #+end_center
 #+end_span7
 #+begin_span5
 #+begin_center
-+ 生成モデルによって
++ Generative models offer
 
-  *制約を精緻に記述可能*
+  the *mathematical rigor*
 
   [[png:space-ae/graphical-model-csae]]
 #+end_center
@@ -769,16 +709,12 @@ function_dictionary["myfunc"]
 + 記号接地するなら *対象言語を /ちゃんと/ 理解して /正しく/ モデル化しよう!*
 
 
-#+begin_center
-質問: 2つまで
-#+end_center
-
 * Why _/action symbol grounding/_ is necessary?                    :noexport:
 
 "designers always know the action space"? */Wrong!/*
 
 Humans have a good understanding of low-level actuations...
-
+  
 #+begin_container-fluid
 #+begin_row-fluid
 #+begin_span6
@@ -791,7 +727,7 @@ Humans have a good understanding of low-level actuations...
 # sjpg:triathlon/swimming
 #+end_span6
 #+begin_span6
-+
++ 
   #+begin_center
   Career Path
   #+end_center
@@ -821,21 +757,20 @@ Humans have a good understanding of low-level actuations...
 * Part 2:
 
 #+begin_xlarge
-理性的な実世界エージェントの
+Rational Real-World Agent:
 #+begin_center
-*/アーキテクチャ/*
+*/the Architecture/*
 #+end_center
 #+begin_alignright
-を考える
 #+end_alignright
 #+end_xlarge
 
 #+begin_alignright
-+ → *表現学習以外* の プランニング+機械学習
++ → Planning + Learning that is not *Representation Learning*
 #+end_alignright
 
 
-* 理性的な実世界エージェントのアーキテクチャ
+* Rational Real-World Agent: the Architecture
 
 #+begin_container-fluid
 #+begin_row-fluid
@@ -848,7 +783,7 @@ Humans have a good understanding of low-level actuations...
 #+end_row-fluid
 #+end_container-fluid
 
-** 理性的な実世界エージェントのアーキテクチャ
+** Rational Real-World Agent: the Architecture
 
 #+begin_container-fluid
 #+begin_row-fluid
@@ -861,7 +796,7 @@ Humans have a good understanding of low-level actuations...
 #+end_row-fluid
 #+end_container-fluid
 
-** 理性的な実世界エージェントのアーキテクチャ
+** Rational Real-World Agent: the Architecture
 
 #+begin_container-fluid
 #+begin_row-fluid
@@ -874,7 +809,7 @@ Humans have a good understanding of low-level actuations...
 #+end_row-fluid
 #+end_container-fluid
 
-** 理性的な実世界エージェントのアーキテクチャ
+** Rational Real-World Agent: the Architecture
 
 #+begin_container-fluid
 #+begin_row-fluid
@@ -887,7 +822,7 @@ Humans have a good understanding of low-level actuations...
 #+end_row-fluid
 #+end_container-fluid
 
-** 理性的な実世界エージェントのアーキテクチャ
+** Rational Real-World Agent: the Architecture
 
 #+begin_container-fluid
 #+begin_row-fluid
@@ -900,7 +835,7 @@ Humans have a good understanding of low-level actuations...
 #+end_row-fluid
 #+end_container-fluid
 
-** 理性的な実世界エージェントのアーキテクチャ
+** Rational Real-World Agent: the Architecture
 
 #+begin_container-fluid
 #+begin_row-fluid
@@ -913,7 +848,7 @@ Humans have a good understanding of low-level actuations...
 #+end_row-fluid
 #+end_container-fluid
 
-** 理性的な実世界エージェントのアーキテクチャ
+** Rational Real-World Agent: the Architecture
 
 #+begin_container-fluid
 #+begin_row-fluid
@@ -926,7 +861,7 @@ Humans have a good understanding of low-level actuations...
 #+end_row-fluid
 #+end_container-fluid
 
-** 理性的な実世界エージェントのアーキテクチャ
+** Rational Real-World Agent: the Architecture
 
 #+begin_container-fluid
 #+begin_row-fluid
@@ -939,7 +874,7 @@ Humans have a good understanding of low-level actuations...
 #+end_row-fluid
 #+end_container-fluid
 
-* 探索ヒューリスティクスの学習:
+* Learning forward search heuristics:
 
 #+begin_container-fluid
 #+begin_row-fluid
@@ -981,14 +916,14 @@ $B$: batches in the experience replay
 #+begin_larger
 Research Questions:
 #+begin_center
-+ *Q: RLだけで 古典プランニングを解けるか?* (A: *不可*)
++ *Q: Can RL solve classical planning by itself?* (A: *No*)
 
-+ *Q: RLだけで プランニングを高速化できるか?* (A: *不可*)
++ *Q: Can RL accelerate planning algorithm by itself?* (A: *No*)
 
-+ *Q: プランニングの道具と適切に組み合わせれば?* */(A: 可)/*
++ *Q: With the help of heuristic functions in classical planning?* */(A: Yes)/*
 #+end_center
 #+begin_alignright
-+ Lessons learned: *古典プランニングを甘く見るな*
++ Lessons learned: *Don't underestimate the power of planning heuristics...*
 #+end_alignright
 #+end_larger
 

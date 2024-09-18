@@ -178,10 +178,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.76045758"
-     inkscape:cx="772.56117"
-     inkscape:cy="276.80702"
+     inkscape:cx="802.80612"
+     inkscape:cy="270.23204"
      inkscape:document-units="px"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer5"
      inkscape:window-width="1920"
      inkscape:window-height="997"
      inkscape:window-x="0"
@@ -214,6 +214,13 @@
      id="layer1"
      transform="translate(-52.519188,-264.52841)"
      style="display:inline">
+    <ellipse
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stop-color:#000000"
+       id="path118"
+       cx="170.66628"
+       cy="345.5126"
+       rx="117.14709"
+       ry="79.984192" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:24px;line-height:100%;font-family:'Noto Sans CJK JP';-inkscape-font-specification:'Noto Sans CJK JP Bold';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:middle;white-space:normal;shape-padding:0;shape-margin:0;inline-size:0;opacity:1;vector-effect:none;fill:#ff0000;fill-opacity:1;stroke-width:0.471001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
@@ -225,6 +232,55 @@
          x="233.5435"
          y="86.795044"
          id="tspan947" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:120%;font-family:'Noto Sans CJK JP';-inkscape-font-specification:'Noto Sans CJK JP';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:middle;white-space:normal;shape-padding:0;shape-margin:0;inline-size:0;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:0.471001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+       x="233.5435"
+       y="86.795044"
+       id="text945-3"
+       transform="translate(-63.54923,237.67763)"><tspan
+         sodipodi:role="line"
+         id="tspan943-6"
+         x="233.5435"
+         y="86.795044"
+         style="font-weight:bold;font-size:32px;fill:#ff0000">Propositional</tspan><tspan
+         sodipodi:role="line"
+         x="233.5435"
+         y="125.19505"
+         id="tspan947-7"
+         style="font-weight:bold;font-size:32px;fill:#ff0000">symbols</tspan><tspan
+         sodipodi:role="line"
+         x="233.5435"
+         y="163.59505"
+         id="tspan1013" /></text>
+    <ellipse
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stop-color:#000000"
+       id="path118-6"
+       cx="439.36798"
+       cy="345.5126"
+       rx="117.14709"
+       ry="79.984192" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:120%;font-family:'Noto Sans CJK JP';-inkscape-font-specification:'Noto Sans CJK JP';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:middle;white-space:normal;shape-padding:0;shape-margin:0;inline-size:0;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:0.471001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+       x="233.5435"
+       y="86.795044"
+       id="text945-3-2"
+       transform="translate(205.88446,237.67763)"><tspan
+         sodipodi:role="line"
+         id="tspan943-6-7"
+         x="233.5435"
+         y="86.795044"
+         style="font-weight:bold;font-size:32px;fill:#0000ff">Action</tspan><tspan
+         sodipodi:role="line"
+         x="233.5435"
+         y="125.19505"
+         id="tspan947-7-0"
+         style="font-weight:bold;font-size:32px;fill:#0000ff">symbols</tspan><tspan
+         sodipodi:role="line"
+         x="233.5435"
+         y="163.59505"
+         id="tspan1013-3" /></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot5385"
@@ -302,92 +358,6 @@
          y="-82.89875">(<tspan
    style="font-weight:bold;fill:#008000"
    id="tspan786">on</tspan> ?x ?y)</tspan></text>
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer4"
-     inkscape:label="Layer 4"
-     transform="translate(2.1826172e-7,-2.9625757)"
-     style="display:inline">
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:100%;font-family:'Noto Sans CJK JP';-inkscape-font-specification:'Noto Sans CJK JP';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;shape-margin:0;inline-size:0;display:inline;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:0.471001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
-       x="765.06006"
-       y="-75.328278"
-       id="text800"
-       transform="translate(26.785278,365.48049)"><tspan
-         sodipodi:role="line"
-         id="tspan798"
-         x="765.06006"
-         y="-75.328278"
-         style="font-weight:bold;font-size:32px;fill:#808000">A B C</tspan></text>
-  </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer5"
-     inkscape:label="Layer 5"
-     transform="translate(2.1826172e-7,-2.9625757)"
-     style="display:inline">
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:100%;font-family:'Noto Sans CJK JP';-inkscape-font-specification:'Noto Sans CJK JP';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;shape-margin:0;inline-size:0;display:inline;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:0.471001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
-       x="954.45227"
-       y="270.74948"
-       id="text796"
-       transform="translate(-80.795902,-19.751655)"><tspan
-         sodipodi:role="line"
-         id="tspan794"
-         x="954.45227"
-         y="270.74948"
-         style="font-weight:bold;font-size:32px;fill:#ff00ff">world-1986</tspan></text>
-    <ellipse
-       style="display:inline;fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stop-color:#000000"
-       id="path118"
-       cx="118.14709"
-       cy="83.946777"
-       rx="117.14709"
-       ry="79.984192" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:120%;font-family:'Noto Sans CJK JP';-inkscape-font-specification:'Noto Sans CJK JP';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:middle;white-space:normal;shape-padding:0;shape-margin:0;inline-size:0;display:inline;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:0.471001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
-       x="233.5435"
-       y="86.795044"
-       id="text945-3"
-       transform="translate(-116.06842,-11.888203)"><tspan
-         sodipodi:role="line"
-         id="tspan943-6"
-         x="233.5435"
-         y="86.795044"
-         style="font-weight:bold;font-size:32px;fill:#ff0000">命題</tspan><tspan
-         sodipodi:role="line"
-         x="233.5435"
-         y="125.19505"
-         id="tspan1013"
-         style="font-weight:bold;font-size:32px;fill:#ff0000">シンボル</tspan></text>
-    <ellipse
-       style="display:inline;fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stop-color:#000000"
-       id="path118-6"
-       cx="386.84879"
-       cy="83.946777"
-       rx="117.14709"
-       ry="79.984192" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:120%;font-family:'Noto Sans CJK JP';-inkscape-font-specification:'Noto Sans CJK JP';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:middle;white-space:normal;shape-padding:0;shape-margin:0;inline-size:0;display:inline;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:0.471001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
-       x="233.5435"
-       y="86.795044"
-       id="text945-3-2"
-       transform="translate(153.36527,-11.888203)"><tspan
-         sodipodi:role="line"
-         id="tspan943-6-7"
-         x="233.5435"
-         y="86.795044"
-         style="font-weight:bold;font-size:32px;fill:#0000ff">アクション</tspan><tspan
-         sodipodi:role="line"
-         x="233.5435"
-         y="125.19505"
-         id="tspan1013-3"
-         style="font-weight:bold;font-size:32px;fill:#0000ff">シンボル</tspan></text>
     <ellipse
        style="display:inline;fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stop-color:#000000"
        id="path118-6-6"
@@ -401,17 +371,40 @@
        x="233.5435"
        y="86.795044"
        id="text945-3-2-6"
-       transform="translate(-116.09243,159.83659)"><tspan
+       transform="translate(-116.09243,147.83659)"><tspan
          sodipodi:role="line"
          id="tspan943-6-7-1"
          x="233.5435"
          y="86.795044"
-         style="font-weight:bold;font-size:32px;fill:#008000">述語</tspan><tspan
+         style="font-weight:bold;font-size:32px;fill:#008000">Predicate</tspan><tspan
          sodipodi:role="line"
          x="233.5435"
          y="125.19505"
-         id="tspan1013-3-9"
-         style="font-weight:bold;font-size:32px;fill:#008000">シンボル</tspan></text>
+         id="tspan947-7-0-8"
+         style="font-weight:bold;font-size:32px;fill:#008000">symbols</tspan><tspan
+         sodipodi:role="line"
+         x="233.5435"
+         y="163.59505"
+         id="tspan1013-3-9" /></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Layer 4"
+     transform="translate(2.1826172e-7,-2.9625757)"
+     style="display:inline">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:100%;font-family:'Noto Sans CJK JP';-inkscape-font-specification:'Noto Sans CJK JP';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;shape-margin:0;inline-size:0;display:inline;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:0.471001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+       x="765.06006"
+       y="-75.328278"
+       id="text800"
+       transform="translate(26.785278,367.36302)"><tspan
+         sodipodi:role="line"
+         id="tspan798"
+         x="765.06006"
+         y="-75.328278"
+         style="font-weight:bold;font-size:32px;fill:#808000">A B C</tspan></text>
     <ellipse
        style="display:inline;fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stop-color:#000000"
        id="path118-6-2"
@@ -425,17 +418,40 @@
        x="233.5435"
        y="86.795044"
        id="text945-3-2-5"
-       transform="translate(153.36527,159.83659)"><tspan
+       transform="translate(153.36527,147.83659)"><tspan
          sodipodi:role="line"
          id="tspan943-6-7-9"
          x="233.5435"
          y="86.795044"
-         style="font-weight:bold;font-size:32px;fill:#808000">オブジェクト</tspan><tspan
+         style="font-weight:bold;font-size:32px;fill:#808000">Object</tspan><tspan
          sodipodi:role="line"
          x="233.5435"
          y="125.19505"
-         id="tspan1013-3-8"
-         style="font-weight:bold;font-size:32px;fill:#808000">シンボル</tspan></text>
+         id="tspan947-7-0-2"
+         style="font-weight:bold;font-size:32px;fill:#808000">symbols</tspan><tspan
+         sodipodi:role="line"
+         x="233.5435"
+         y="163.59505"
+         id="tspan1013-3-8" /></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="Layer 5"
+     transform="translate(2.1826172e-7,-2.9625757)"
+     style="display:inline">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:100%;font-family:'Noto Sans CJK JP';-inkscape-font-specification:'Noto Sans CJK JP';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;shape-margin:0;inline-size:0;display:inline;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:0.471001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+       x="954.45227"
+       y="270.74948"
+       id="text796"
+       transform="translate(-80.795902,-17.869131)"><tspan
+         sodipodi:role="line"
+         id="tspan794"
+         x="954.45227"
+         y="270.74948"
+         style="font-weight:bold;font-size:32px;fill:#ff00ff">world-1986</tspan></text>
     <ellipse
        style="display:inline;fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stop-color:#000000"
        id="path118-6-6-9"
@@ -449,41 +465,21 @@
        x="233.5435"
        y="86.795044"
        id="text945-3-2-6-1"
-       transform="translate(-115.38443,336.1569)"><tspan
+       transform="translate(-115.38443,324.1569)"><tspan
          sodipodi:role="line"
          id="tspan943-6-7-1-2"
          x="233.5435"
          y="86.795044"
-         style="font-weight:bold;font-size:32px;fill:#ff00ff">問題</tspan><tspan
+         style="font-weight:bold;font-size:32px;fill:#ff00ff">Problem</tspan><tspan
          sodipodi:role="line"
          x="233.5435"
          y="125.19505"
-         id="tspan1013-3-9-1"
-         style="font-weight:bold;font-size:32px;fill:#ff00ff">シンボル</tspan></text>
-    <ellipse
-       style="display:inline;fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stop-color:#000000"
-       id="path118-6-2-9"
-       cx="386.84879"
-       cy="434.20026"
-       rx="117.14709"
-       ry="79.984192" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:120%;font-family:'Noto Sans CJK JP';-inkscape-font-specification:'Noto Sans CJK JP';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:middle;white-space:normal;shape-padding:0;shape-margin:0;inline-size:0;display:inline;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:0.471001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
-       x="233.5435"
-       y="86.795044"
-       id="text945-3-2-5-4"
-       transform="translate(153.36527,336.1569)"><tspan
-         sodipodi:role="line"
-         id="tspan943-6-7-9-5"
-         x="233.5435"
-         y="86.795044"
-         style="font-weight:bold;font-size:32px;fill:#800080">ドメイン</tspan><tspan
+         id="tspan947-7-0-8-9"
+         style="font-weight:bold;font-size:32px;fill:#ff00ff">symbols</tspan><tspan
          sodipodi:role="line"
          x="233.5435"
-         y="125.19505"
-         id="tspan1013-3-8-6"
-         style="font-weight:bold;font-size:32px;fill:#800080">シンボル</tspan></text>
+         y="163.59505"
+         id="tspan1013-3-9-1" /></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -503,6 +499,34 @@
          x="836.80243"
          y="-27.327299"
          style="font-weight:bold;fill:#800080">blocksworld</tspan></text>
+    <ellipse
+       style="display:inline;fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stop-color:#000000"
+       id="path118-6-2-9"
+       cx="386.84879"
+       cy="434.20026"
+       rx="117.14709"
+       ry="79.984192" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;line-height:120%;font-family:'Noto Sans CJK JP';-inkscape-font-specification:'Noto Sans CJK JP';font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:center;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:middle;white-space:normal;shape-padding:0;shape-margin:0;inline-size:0;display:inline;vector-effect:none;fill:#000000;fill-opacity:1;stroke-width:0.471001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+       x="233.5435"
+       y="86.795044"
+       id="text945-3-2-5-4"
+       transform="translate(153.36527,324.1569)"><tspan
+         sodipodi:role="line"
+         id="tspan943-6-7-9-5"
+         x="233.5435"
+         y="86.795044"
+         style="font-weight:bold;font-size:32px;fill:#800080">Domain</tspan><tspan
+         sodipodi:role="line"
+         x="233.5435"
+         y="125.19505"
+         id="tspan947-7-0-2-0"
+         style="font-weight:bold;font-size:32px;fill:#800080">symbols</tspan><tspan
+         sodipodi:role="line"
+         x="233.5435"
+         y="163.59505"
+         id="tspan1013-3-8-6" /></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -527,16 +551,11 @@
        x="646.70618"
        y="480.32086"
        id="text474"
-       transform="translate(-63.31009,-34.312783)"><tspan
+       transform="translate(-115.31009,4.8124275)"><tspan
          sodipodi:role="line"
          id="tspan472"
          x="646.70618"
          y="480.32086"
-         style="font-weight:bold;font-size:37.3333px">自律エージェントは、これら全てを</tspan><tspan
-         sodipodi:role="line"
-         x="646.70618"
-         y="517.65417"
-         style="font-weight:bold;font-size:37.3333px"
-         id="tspan1">人に頼らず生成できなくてはいけない</tspan></text>
+         style="font-weight:bold;font-size:37.3333px">They all must be generated by the machines!</tspan></text>
   </g>
 </svg>

@@ -178,10 +178,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.76045758"
-     inkscape:cx="606.87146"
-     inkscape:cy="243.93208"
+     inkscape:cx="802.80612"
+     inkscape:cy="270.23204"
      inkscape:document-units="px"
-     inkscape:current-layer="layer3"
+     inkscape:current-layer="layer5"
      inkscape:window-width="1920"
      inkscape:window-height="997"
      inkscape:window-x="0"
@@ -238,17 +238,21 @@
        x="233.5435"
        y="86.795044"
        id="text945-3"
-       transform="translate(-63.54923,249.67763)"><tspan
+       transform="translate(-63.54923,237.67763)"><tspan
          sodipodi:role="line"
          id="tspan943-6"
          x="233.5435"
          y="86.795044"
-         style="font-weight:bold;font-size:32px;fill:#ff0000">命題</tspan><tspan
+         style="font-weight:bold;font-size:32px;fill:#ff0000">Propositional</tspan><tspan
          sodipodi:role="line"
          x="233.5435"
          y="125.19505"
-         id="tspan1013"
-         style="font-weight:bold;font-size:32px;fill:#ff0000">シンボル</tspan></text>
+         id="tspan947-7"
+         style="font-weight:bold;font-size:32px;fill:#ff0000">symbols</tspan><tspan
+         sodipodi:role="line"
+         x="233.5435"
+         y="163.59505"
+         id="tspan1013" /></text>
     <ellipse
        style="fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stop-color:#000000"
        id="path118-6"
@@ -262,17 +266,21 @@
        x="233.5435"
        y="86.795044"
        id="text945-3-2"
-       transform="translate(205.88446,249.67763)"><tspan
+       transform="translate(205.88446,237.67763)"><tspan
          sodipodi:role="line"
          id="tspan943-6-7"
          x="233.5435"
          y="86.795044"
-         style="font-weight:bold;font-size:32px;fill:#0000ff">アクション</tspan><tspan
+         style="font-weight:bold;font-size:32px;fill:#0000ff">Action</tspan><tspan
          sodipodi:role="line"
          x="233.5435"
          y="125.19505"
-         id="tspan1013-3"
-         style="font-weight:bold;font-size:32px;fill:#0000ff">シンボル</tspan></text>
+         id="tspan947-7-0"
+         style="font-weight:bold;font-size:32px;fill:#0000ff">symbols</tspan><tspan
+         sodipodi:role="line"
+         x="233.5435"
+         y="163.59505"
+         id="tspan1013-3" /></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot5385"
@@ -294,13 +302,13 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;line-height:1.25;font-family:'Noto Sans Mono';-inkscape-font-specification:'Noto Sans Mono';fill:#000000"> (<flowSpan
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Noto Sans Mono';-inkscape-font-specification:'Noto Sans Mono';fill:#800080"
    id="flowSpan446">:predicates (</flowSpan><flowSpan
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Noto Sans Mono';-inkscape-font-specification:'Noto Sans Mono';fill:#ff0000"
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Noto Sans Mono';-inkscape-font-specification:'Noto Sans Mono';fill:#ff0000"
    id="flowSpan428">handempty</flowSpan>)          ...)</flowPara><flowPara
          id="flowPara5397"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;line-height:1.25;font-family:'Noto Sans Mono';-inkscape-font-specification:'Noto Sans Mono';fill:#000000"> (<flowSpan
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Noto Sans Mono';-inkscape-font-specification:'Noto Sans Mono';fill:#800080"
    id="flowSpan448">:action</flowSpan> <flowSpan
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Noto Sans Mono';-inkscape-font-specification:'Noto Sans Mono';fill:#0000ff"
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Noto Sans Mono';-inkscape-font-specification:'Noto Sans Mono';fill:#0000ff"
    id="flowSpan436">pick-up</flowSpan></flowPara><flowPara
          id="flowPara5405"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;line-height:1.25;font-family:'Noto Sans Mono';-inkscape-font-specification:'Noto Sans Mono';fill:#000000">  <flowSpan
@@ -348,7 +356,7 @@
          id="tspan626"
          x="1041.2402"
          y="-82.89875">(<tspan
-   style="font-weight:normal;fill:#008000"
+   style="font-weight:bold;fill:#008000"
    id="tspan786">on</tspan> ?x ?y)</tspan></text>
     <ellipse
        style="display:inline;fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stop-color:#000000"
@@ -363,17 +371,21 @@
        x="233.5435"
        y="86.795044"
        id="text945-3-2-6"
-       transform="translate(-116.09243,159.83659)"><tspan
+       transform="translate(-116.09243,147.83659)"><tspan
          sodipodi:role="line"
          id="tspan943-6-7-1"
          x="233.5435"
          y="86.795044"
-         style="font-weight:bold;font-size:32px;fill:#008000">述語</tspan><tspan
+         style="font-weight:bold;font-size:32px;fill:#008000">Predicate</tspan><tspan
          sodipodi:role="line"
          x="233.5435"
          y="125.19505"
-         id="tspan1013-3-9"
-         style="font-weight:bold;font-size:32px;fill:#008000">シンボル</tspan></text>
+         id="tspan947-7-0-8"
+         style="font-weight:bold;font-size:32px;fill:#008000">symbols</tspan><tspan
+         sodipodi:role="line"
+         x="233.5435"
+         y="163.59505"
+         id="tspan1013-3-9" /></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -387,12 +399,12 @@
        x="765.06006"
        y="-75.328278"
        id="text800"
-       transform="translate(17.228108,366.45847)"><tspan
+       transform="translate(26.785278,370.22136)"><tspan
          sodipodi:role="line"
          id="tspan798"
          x="765.06006"
          y="-75.328278"
-         style="font-weight:normal;font-size:32px;fill:#808000">A B C</tspan></text>
+         style="font-weight:bold;font-size:32px;fill:#808000">A B C</tspan></text>
     <ellipse
        style="display:inline;fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stop-color:#000000"
        id="path118-6-2"
@@ -406,17 +418,21 @@
        x="233.5435"
        y="86.795044"
        id="text945-3-2-5"
-       transform="translate(153.36527,159.83659)"><tspan
+       transform="translate(153.36527,147.83659)"><tspan
          sodipodi:role="line"
          id="tspan943-6-7-9"
          x="233.5435"
          y="86.795044"
-         style="font-weight:bold;font-size:32px;fill:#808000">オブジェクト</tspan><tspan
+         style="font-weight:bold;font-size:32px;fill:#808000">Object</tspan><tspan
          sodipodi:role="line"
          x="233.5435"
          y="125.19505"
-         id="tspan1013-3-8"
-         style="font-weight:bold;font-size:32px;fill:#808000">シンボル</tspan></text>
+         id="tspan947-7-0-2"
+         style="font-weight:bold;font-size:32px;fill:#808000">symbols</tspan><tspan
+         sodipodi:role="line"
+         x="233.5435"
+         y="163.59505"
+         id="tspan1013-3-8" /></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -430,12 +446,12 @@
        x="954.45227"
        y="270.74948"
        id="text796"
-       transform="translate(-80.795902,-17.110263)"><tspan
+       transform="translate(-80.795902,-15.010793)"><tspan
          sodipodi:role="line"
          id="tspan794"
          x="954.45227"
          y="270.74948"
-         style="font-weight:normal;font-size:32px;fill:#ff00ff">world-1986</tspan></text>
+         style="font-weight:bold;font-size:32px;fill:#ff00ff">world-1986</tspan></text>
     <ellipse
        style="display:inline;fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stop-color:#000000"
        id="path118-6-6-9"
@@ -449,17 +465,21 @@
        x="233.5435"
        y="86.795044"
        id="text945-3-2-6-1"
-       transform="translate(-115.38443,336.1569)"><tspan
+       transform="translate(-115.38443,324.1569)"><tspan
          sodipodi:role="line"
          id="tspan943-6-7-1-2"
          x="233.5435"
          y="86.795044"
-         style="font-weight:bold;font-size:32px;fill:#ff00ff">問題</tspan><tspan
+         style="font-weight:bold;font-size:32px;fill:#ff00ff">Problem</tspan><tspan
          sodipodi:role="line"
          x="233.5435"
          y="125.19505"
-         id="tspan1013-3-9-1"
-         style="font-weight:bold;font-size:32px;fill:#ff00ff">シンボル</tspan></text>
+         id="tspan947-7-0-8-9"
+         style="font-weight:bold;font-size:32px;fill:#ff00ff">symbols</tspan><tspan
+         sodipodi:role="line"
+         x="233.5435"
+         y="163.59505"
+         id="tspan1013-3-9-1" /></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -492,17 +512,21 @@
        x="233.5435"
        y="86.795044"
        id="text945-3-2-5-4"
-       transform="translate(153.36527,336.1569)"><tspan
+       transform="translate(153.36527,324.1569)"><tspan
          sodipodi:role="line"
          id="tspan943-6-7-9-5"
          x="233.5435"
          y="86.795044"
-         style="font-weight:bold;font-size:32px;fill:#800080">ドメイン</tspan><tspan
+         style="font-weight:bold;font-size:32px;fill:#800080">Domain</tspan><tspan
          sodipodi:role="line"
          x="233.5435"
          y="125.19505"
-         id="tspan1013-3-8-6"
-         style="font-weight:bold;font-size:32px;fill:#800080">シンボル</tspan></text>
+         id="tspan947-7-0-2-0"
+         style="font-weight:bold;font-size:32px;fill:#800080">symbols</tspan><tspan
+         sodipodi:role="line"
+         x="233.5435"
+         y="163.59505"
+         id="tspan1013-3-8-6" /></text>
   </g>
   <g
      inkscape:groupmode="layer"
