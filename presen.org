@@ -2349,33 +2349,32 @@ $\text{UCB1-Power}_i = \frac{u_ia_i}{a_i+1} -u_i\sqrt{6n_i \log N}$
 # 
 # + 学習系の人は、記号系の人/タスクを見くびらないように
 
-* Final Words
+* Deep RL は *正しい* か?
+
++ 研究のやり方に問題があるように思われる
 
 #+begin_container-fluid
 #+begin_row-fluid
 #+begin_span5
 [[png:nesyarch/0b]]
 
-+ Deep RL?
-  + Repr. Learning
-  + Heuristic Learning
-  + Search Algorithm
++ Deep RL は *全部ごった煮*
+  + 表現学習
+  + ヒューリスティック
+  + 探索アルゴリズム
   + Active Learning
   + Contiual Learning
-
 #+end_span5
 #+begin_span7
-+ *Deep RL /sucks/*
-+ *Deep RL is /Pseudoscience/*
-  + Lack of reproducibility
-    + Insufficient seeds
-    + Leslie: 20 seeds minimum!
-  + */1 change affects N components/*
++ */1つの変更で全部が影響受ける/*
+  + なぜ性能良くなったのか、わからなくない?
++ */再現性の問題も、ある.../*
+  + Leslie Kaelbring: RLの評価は最低20シードないと認めない！
 + _/The science/_ as a *sane* researcher:
   + _/Split/_ the architecture into parts
   + _/Study each part individually/_
-  + _/Do correct mathematical modeling/_
+  + _/Correct mathematical modeling/_
+  + こういうアプローチに立ち返るのがいいと思います...
 #+end_span7
 #+end_row-fluid
 #+end_container-fluid
-
