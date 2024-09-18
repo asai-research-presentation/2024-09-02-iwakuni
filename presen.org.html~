@@ -1,0 +1,4749 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-09-18 Wed 00:41 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ニューロシンボリック Classical Planning</title>
+<meta name="author" content="Masataro Asai" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/layout.css" />
+<link rel="stylesheet" type="text/css" href="css/default.css" />
+<script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.loupe.min.js"></script>
+<script type="text/javascript" src="js/jgestures/jgestures.min.js"></script>
+<script type="text/javascript" src="js/code.js"></script>
+<script type="text/javascript" src="js/mathjaxconf.js" defer></script>
+<script type="text/javascript" src="MathJax/es5/tex-chtml.js" defer></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:500,900">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:500,900">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">ニューロシンボリック Classical Planning</h1>
+<p>
+\[
+\def\ceil#1{\lceil #1 \rceil}
+\def\floor#1{\lfloor #1 \rfloor}
+\def\1{\mathbf{1}}
+\def\0{\mathbf{0}}
+\newcommand{\train}{\mathcal{D}}
+\newcommand{\valid}{\mathcal{D_{\mathrm{valid}}}}
+\newcommand{\test}{\mathcal{D_{\mathrm{test}}}}
+\def\eps{{\epsilon}}
+\def\ralpha{{\text{\alpha}}}
+\def\rbeta{{\text{\beta}}}
+\def\rchi{{\text{\chi}}}
+\def\rdelta{{\text{\delta}}}
+\def\reta{{\text{\eta}}}
+\def\repsilon{{\text{\epsilon}}}
+\def\rfoo{{\text{\foo}}}
+\def\rgamma{{\text{\gamma}}}
+\def\riota{{\text{\iota}}}
+\def\rkappa{{\text{\kappa}}}
+\def\rlambda{{\text{\lambda}}}
+\def\rmu{{\text{\mu}}}
+\def\rnu{{\text{\nu}}}
+\def\romega{{\text{\omega}}}
+\def\rpi{{\text{\pi}}}
+\def\rrho{{\text{\rho}}}
+\def\rsigma{{\text{\sigma}}}
+\def\rtau{{\text{\tau}}}
+\def\rtheta{{\text{\theta}}}
+\def\rupsilon{{\text{\upsilon}}}
+\def\rxi{{\text{\xi}}}
+\def\rzeta{{\text{\zeta}}}
+\def\ra{{\textnormal{a}}}
+\def\rb{{\textnormal{b}}}
+\def\rc{{\textnormal{c}}}
+\def\rd{{\textnormal{d}}}
+\def\re{{\textnormal{e}}}
+\def\rf{{\textnormal{f}}}
+\def\rg{{\textnormal{g}}}
+\def\rh{{\textnormal{h}}}
+\def\ri{{\textnormal{i}}}
+\def\rj{{\textnormal{j}}}
+\def\rk{{\textnormal{k}}}
+\def\rl{{\textnormal{l}}}
+\def\rn{{\textnormal{n}}}
+\def\ro{{\textnormal{o}}}
+\def\rp{{\textnormal{p}}}
+\def\rq{{\textnormal{q}}}
+\def\rr{{\textnormal{r}}}
+\def\rs{{\textnormal{s}}}
+\def\rt{{\textnormal{t}}}
+\def\ru{{\textnormal{u}}}
+\def\rv{{\textnormal{v}}}
+\def\rw{{\textnormal{w}}}
+\def\rx{{\textnormal{x}}}
+\def\ry{{\textnormal{y}}}
+\def\rz{{\textnormal{z}}}
+\def\rA{{\textnormal{A}}}
+\def\rB{{\textnormal{B}}}
+\def\rC{{\textnormal{C}}}
+\def\rD{{\textnormal{D}}}
+\def\rE{{\textnormal{E}}}
+\def\rF{{\textnormal{F}}}
+\def\rG{{\textnormal{G}}}
+\def\rH{{\textnormal{H}}}
+\def\rI{{\textnormal{I}}}
+\def\rJ{{\textnormal{J}}}
+\def\rK{{\textnormal{K}}}
+\def\rL{{\textnormal{L}}}
+\def\rN{{\textnormal{N}}}
+\def\rO{{\textnormal{O}}}
+\def\rP{{\textnormal{P}}}
+\def\rQ{{\textnormal{Q}}}
+\def\rR{{\textnormal{R}}}
+\def\rS{{\textnormal{S}}}
+\def\rT{{\textnormal{T}}}
+\def\rU{{\textnormal{U}}}
+\def\rV{{\textnormal{V}}}
+\def\rW{{\textnormal{W}}}
+\def\rX{{\textnormal{X}}}
+\def\rY{{\textnormal{Y}}}
+\def\rZ{{\textnormal{Z}}}
+\def\rvalpha{{\mathbf{\alpha}}}
+\def\rvbeta{{\mathbf{\beta}}}
+\def\rvchi{{\mathbf{\chi}}}
+\def\rvdelta{{\mathbf{\delta}}}
+\def\rveta{{\mathbf{\eta}}}
+\def\rvepsilon{{\mathbf{\epsilon}}}
+\def\rvfoo{{\mathbf{\foo}}}
+\def\rvgamma{{\mathbf{\gamma}}}
+\def\rviota{{\mathbf{\iota}}}
+\def\rvkappa{{\mathbf{\kappa}}}
+\def\rvlambda{{\mathbf{\lambda}}}
+\def\rvmu{{\mathbf{\mu}}}
+\def\rvnu{{\mathbf{\nu}}}
+\def\rvomega{{\mathbf{\omega}}}
+\def\rvpi{{\mathbf{\pi}}}
+\def\rvrho{{\mathbf{\rho}}}
+\def\rvsigma{{\mathbf{\sigma}}}
+\def\rvtau{{\mathbf{\tau}}}
+\def\rvtheta{{\mathbf{\theta}}}
+\def\rvupsilon{{\mathbf{\upsilon}}}
+\def\rvxi{{\mathbf{\xi}}}
+\def\rvzeta{{\mathbf{\zeta}}}
+\def\rva{{\mathbf{a}}}
+\def\rvb{{\mathbf{b}}}
+\def\rvc{{\mathbf{c}}}
+\def\rvd{{\mathbf{d}}}
+\def\rve{{\mathbf{e}}}
+\def\rvf{{\mathbf{f}}}
+\def\rvg{{\mathbf{g}}}
+\def\rvh{{\mathbf{h}}}
+\def\rvu{{\mathbf{i}}}
+\def\rvj{{\mathbf{j}}}
+\def\rvk{{\mathbf{k}}}
+\def\rvl{{\mathbf{l}}}
+\def\rvm{{\mathbf{m}}}
+\def\rvn{{\mathbf{n}}}
+\def\rvo{{\mathbf{o}}}
+\def\rvp{{\mathbf{p}}}
+\def\rvq{{\mathbf{q}}}
+\def\rvr{{\mathbf{r}}}
+\def\rvs{{\mathbf{s}}}
+\def\rvt{{\mathbf{t}}}
+\def\rvu{{\mathbf{u}}}
+\def\rvv{{\mathbf{v}}}
+\def\rvw{{\mathbf{w}}}
+\def\rvx{{\mathbf{x}}}
+\def\rvy{{\mathbf{y}}}
+\def\rvz{{\mathbf{z}}}
+\def\ervalpha{{\text{\alpha}}}
+\def\ervbeta{{\text{\beta}}}
+\def\ervchi{{\text{\chi}}}
+\def\ervdelta{{\text{\delta}}}
+\def\erveta{{\text{\eta}}}
+\def\ervepsilon{{\text{\epsilon}}}
+\def\ervfoo{{\text{\foo}}}
+\def\ervgamma{{\text{\gamma}}}
+\def\erviota{{\text{\iota}}}
+\def\ervkappa{{\text{\kappa}}}
+\def\ervlambda{{\text{\lambda}}}
+\def\ervmu{{\text{\mu}}}
+\def\ervnu{{\text{\nu}}}
+\def\ervomega{{\text{\omega}}}
+\def\ervpi{{\text{\pi}}}
+\def\ervrho{{\text{\rho}}}
+\def\ervsigma{{\text{\sigma}}}
+\def\ervtau{{\text{\tau}}}
+\def\ervtheta{{\text{\theta}}}
+\def\ervupsilon{{\text{\upsilon}}}
+\def\ervxi{{\text{\xi}}}
+\def\ervzeta{{\text{\zeta}}}
+\def\erva{{\textnormal{a}}}
+\def\ervb{{\textnormal{b}}}
+\def\ervc{{\textnormal{c}}}
+\def\ervd{{\textnormal{d}}}
+\def\erve{{\textnormal{e}}}
+\def\ervf{{\textnormal{f}}}
+\def\ervg{{\textnormal{g}}}
+\def\ervh{{\textnormal{h}}}
+\def\ervi{{\textnormal{i}}}
+\def\ervj{{\textnormal{j}}}
+\def\ervk{{\textnormal{k}}}
+\def\ervl{{\textnormal{l}}}
+\def\ervm{{\textnormal{m}}}
+\def\ervn{{\textnormal{n}}}
+\def\ervo{{\textnormal{o}}}
+\def\ervp{{\textnormal{p}}}
+\def\ervq{{\textnormal{q}}}
+\def\ervr{{\textnormal{r}}}
+\def\ervs{{\textnormal{s}}}
+\def\ervt{{\textnormal{t}}}
+\def\ervu{{\textnormal{u}}}
+\def\ervv{{\textnormal{v}}}
+\def\ervw{{\textnormal{w}}}
+\def\ervx{{\textnormal{x}}}
+\def\ervy{{\textnormal{y}}}
+\def\ervz{{\textnormal{z}}}
+\def\rmA{{\mathbf{A}}}
+\def\rmB{{\mathbf{B}}}
+\def\rmC{{\mathbf{C}}}
+\def\rmD{{\mathbf{D}}}
+\def\rmE{{\mathbf{E}}}
+\def\rmF{{\mathbf{F}}}
+\def\rmG{{\mathbf{G}}}
+\def\rmH{{\mathbf{H}}}
+\def\rmI{{\mathbf{I}}}
+\def\rmJ{{\mathbf{J}}}
+\def\rmK{{\mathbf{K}}}
+\def\rmL{{\mathbf{L}}}
+\def\rmM{{\mathbf{M}}}
+\def\rmN{{\mathbf{N}}}
+\def\rmO{{\mathbf{O}}}
+\def\rmP{{\mathbf{P}}}
+\def\rmQ{{\mathbf{Q}}}
+\def\rmR{{\mathbf{R}}}
+\def\rmS{{\mathbf{S}}}
+\def\rmT{{\mathbf{T}}}
+\def\rmU{{\mathbf{U}}}
+\def\rmV{{\mathbf{V}}}
+\def\rmW{{\mathbf{W}}}
+\def\rmX{{\mathbf{X}}}
+\def\rmY{{\mathbf{Y}}}
+\def\rmZ{{\mathbf{Z}}}
+\def\ermA{{\textnormal{A}}}
+\def\ermB{{\textnormal{B}}}
+\def\ermC{{\textnormal{C}}}
+\def\ermD{{\textnormal{D}}}
+\def\ermE{{\textnormal{E}}}
+\def\ermF{{\textnormal{F}}}
+\def\ermG{{\textnormal{G}}}
+\def\ermH{{\textnormal{H}}}
+\def\ermI{{\textnormal{I}}}
+\def\ermJ{{\textnormal{J}}}
+\def\ermK{{\textnormal{K}}}
+\def\ermL{{\textnormal{L}}}
+\def\ermM{{\textnormal{M}}}
+\def\ermN{{\textnormal{N}}}
+\def\ermO{{\textnormal{O}}}
+\def\ermP{{\textnormal{P}}}
+\def\ermQ{{\textnormal{Q}}}
+\def\ermR{{\textnormal{R}}}
+\def\ermS{{\textnormal{S}}}
+\def\ermT{{\textnormal{T}}}
+\def\ermU{{\textnormal{U}}}
+\def\ermV{{\textnormal{V}}}
+\def\ermW{{\textnormal{W}}}
+\def\ermX{{\textnormal{X}}}
+\def\ermY{{\textnormal{Y}}}
+\def\ermZ{{\textnormal{Z}}}
+\def\vzero{{\mathbf{0}}}
+\def\vone{{\mathbf{1}}}
+\def\valpha{{\mathbf{\alpha}}}
+\def\vbeta{{\mathbf{\beta}}}
+\def\vchi{{\mathbf{\chi}}}
+\def\vdelta{{\mathbf{\delta}}}
+\def\veta{{\mathbf{\eta}}}
+\def\vepsilon{{\mathbf{\epsilon}}}
+\def\vfoo{{\mathbf{\foo}}}
+\def\vgamma{{\mathbf{\gamma}}}
+\def\viota{{\mathbf{\iota}}}
+\def\vkappa{{\mathbf{\kappa}}}
+\def\vlambda{{\mathbf{\lambda}}}
+\def\vmu{{\mathbf{\mu}}}
+\def\vnu{{\mathbf{\nu}}}
+\def\vomega{{\mathbf{\omega}}}
+\def\vpi{{\mathbf{\pi}}}
+\def\vrho{{\mathbf{\rho}}}
+\def\vsigma{{\mathbf{\sigma}}}
+\def\vtau{{\mathbf{\tau}}}
+\def\vtheta{{\mathbf{\theta}}}
+\def\vupsilon{{\mathbf{\upsilon}}}
+\def\vxi{{\mathbf{\xi}}}
+\def\vzeta{{\mathbf{\zeta}}}
+\def\va{{\mathbf{a}}}
+\def\vb{{\mathbf{b}}}
+\def\vc{{\mathbf{c}}}
+\def\vd{{\mathbf{d}}}
+\def\ve{{\mathbf{e}}}
+\def\vf{{\mathbf{f}}}
+\def\vg{{\mathbf{g}}}
+\def\vh{{\mathbf{h}}}
+\def\vi{{\mathbf{i}}}
+\def\vj{{\mathbf{j}}}
+\def\vk{{\mathbf{k}}}
+\def\vl{{\mathbf{l}}}
+\def\vm{{\mathbf{m}}}
+\def\vn{{\mathbf{n}}}
+\def\vo{{\mathbf{o}}}
+\def\vp{{\mathbf{p}}}
+\def\vq{{\mathbf{q}}}
+\def\vr{{\mathbf{r}}}
+\def\vs{{\mathbf{s}}}
+\def\vt{{\mathbf{t}}}
+\def\vu{{\mathbf{u}}}
+\def\vv{{\mathbf{v}}}
+\def\vw{{\mathbf{w}}}
+\def\vx{{\mathbf{x}}}
+\def\vy{{\mathbf{y}}}
+\def\vz{{\mathbf{z}}}
+\def\evalpha{{{\alpha}}}
+\def\evbeta{{{\beta}}}
+\def\evchi{{{\chi}}}
+\def\evdelta{{{\delta}}}
+\def\eveta{{{\eta}}}
+\def\evepsilon{{{\epsilon}}}
+\def\evfoo{{{\foo}}}
+\def\evgamma{{{\gamma}}}
+\def\eviota{{{\iota}}}
+\def\evkappa{{{\kappa}}}
+\def\evlambda{{{\lambda}}}
+\def\evmu{{{\mu}}}
+\def\evnu{{{\nu}}}
+\def\evomega{{{\omega}}}
+\def\evpi{{{\pi}}}
+\def\evrho{{{\rho}}}
+\def\evsigma{{{\sigma}}}
+\def\evtau{{{\tau}}}
+\def\evtheta{{{\theta}}}
+\def\evupsilon{{{\upsilon}}}
+\def\evxi{{{\xi}}}
+\def\evzeta{{{\zeta}}}
+\def\eva{{a}}
+\def\evb{{b}}
+\def\evc{{c}}
+\def\evd{{d}}
+\def\eve{{e}}
+\def\evf{{f}}
+\def\evg{{g}}
+\def\evh{{h}}
+\def\evi{{i}}
+\def\evj{{j}}
+\def\evk{{k}}
+\def\evl{{l}}
+\def\evm{{m}}
+\def\evn{{n}}
+\def\evo{{o}}
+\def\evp{{p}}
+\def\evq{{q}}
+\def\evr{{r}}
+\def\evs{{s}}
+\def\evt{{t}}
+\def\evu{{u}}
+\def\evv{{v}}
+\def\evw{{w}}
+\def\evx{{x}}
+\def\evy{{y}}
+\def\evz{{z}}
+\def\mA{{\mathbf{A}}}
+\def\mB{{\mathbf{B}}}
+\def\mC{{\mathbf{C}}}
+\def\mD{{\mathbf{D}}}
+\def\mE{{\mathbf{E}}}
+\def\mF{{\mathbf{F}}}
+\def\mG{{\mathbf{G}}}
+\def\mH{{\mathbf{H}}}
+\def\mI{{\mathbf{I}}}
+\def\mJ{{\mathbf{J}}}
+\def\mK{{\mathbf{K}}}
+\def\mL{{\mathbf{L}}}
+\def\mM{{\mathbf{M}}}
+\def\mN{{\mathbf{N}}}
+\def\mO{{\mathbf{O}}}
+\def\mP{{\mathbf{P}}}
+\def\mQ{{\mathbf{Q}}}
+\def\mR{{\mathbf{R}}}
+\def\mS{{\mathbf{S}}}
+\def\mT{{\mathbf{T}}}
+\def\mU{{\mathbf{U}}}
+\def\mV{{\mathbf{V}}}
+\def\mW{{\mathbf{W}}}
+\def\mX{{\mathbf{X}}}
+\def\mY{{\mathbf{Y}}}
+\def\mZ{{\mathbf{Z}}}
+\def\mBeta{{\mathbf{\beta}}}
+\def\mPhi{{\mathbf{\Phi}}}
+\def\mLambda{{\mathbf{\Lambda}}}
+\def\mSigma{{\mathbf{\Sigma}}}
+\def\gA{{\mathcal{A}}}
+\def\gB{{\mathcal{B}}}
+\def\gC{{\mathcal{C}}}
+\def\gD{{\mathcal{D}}}
+\def\gE{{\mathcal{E}}}
+\def\gF{{\mathcal{F}}}
+\def\gG{{\mathcal{G}}}
+\def\gH{{\mathcal{H}}}
+\def\gI{{\mathcal{I}}}
+\def\gJ{{\mathcal{J}}}
+\def\gK{{\mathcal{K}}}
+\def\gL{{\mathcal{L}}}
+\def\gM{{\mathcal{M}}}
+\def\gN{{\mathcal{N}}}
+\def\gO{{\mathcal{O}}}
+\def\gP{{\mathcal{P}}}
+\def\gQ{{\mathcal{Q}}}
+\def\gR{{\mathcal{R}}}
+\def\gS{{\mathcal{S}}}
+\def\gT{{\mathcal{T}}}
+\def\gU{{\mathcal{U}}}
+\def\gV{{\mathcal{V}}}
+\def\gW{{\mathcal{W}}}
+\def\gX{{\mathcal{X}}}
+\def\gY{{\mathcal{Y}}}
+\def\gZ{{\mathcal{Z}}}
+\def\sA{{\mathbb{A}}}
+\def\sB{{\mathbb{B}}}
+\def\sC{{\mathbb{C}}}
+\def\sD{{\mathbb{D}}}
+\def\sF{{\mathbb{F}}}
+\def\sG{{\mathbb{G}}}
+\def\sH{{\mathbb{H}}}
+\def\sI{{\mathbb{I}}}
+\def\sJ{{\mathbb{J}}}
+\def\sK{{\mathbb{K}}}
+\def\sL{{\mathbb{L}}}
+\def\sM{{\mathbb{M}}}
+\def\sN{{\mathbb{N}}}
+\def\sO{{\mathbb{O}}}
+\def\sP{{\mathbb{P}}}
+\def\sQ{{\mathbb{Q}}}
+\def\sR{{\mathbb{R}}}
+\def\sS{{\mathbb{S}}}
+\def\sT{{\mathbb{T}}}
+\def\sU{{\mathbb{U}}}
+\def\sV{{\mathbb{V}}}
+\def\sW{{\mathbb{W}}}
+\def\sX{{\mathbb{X}}}
+\def\sY{{\mathbb{Y}}}
+\def\sZ{{\mathbb{Z}}}
+\def\emLambda{{\Lambda}}
+\def\emA{{A}}
+\def\emB{{B}}
+\def\emC{{C}}
+\def\emD{{D}}
+\def\emE{{E}}
+\def\emF{{F}}
+\def\emG{{G}}
+\def\emH{{H}}
+\def\emI{{I}}
+\def\emJ{{J}}
+\def\emK{{K}}
+\def\emL{{L}}
+\def\emM{{M}}
+\def\emN{{N}}
+\def\emO{{O}}
+\def\emP{{P}}
+\def\emQ{{Q}}
+\def\emR{{R}}
+\def\emS{{S}}
+\def\emT{{T}}
+\def\emU{{U}}
+\def\emV{{V}}
+\def\emW{{W}}
+\def\emX{{X}}
+\def\emY{{Y}}
+\def\emZ{{Z}}
+\def\emSigma{{\Sigma}}
+\newcommand{\pdata}{p_{\mathrm{data}}}
+\newcommand{\ptrain}{\hat{p}_{\mathrm{data}}}
+\newcommand{\Ptrain}{\hat{P}_{\mathrm{data}}}
+\newcommand{\pmodel}{p_{\mathrm{model}}}
+\newcommand{\Pmodel}{P_{\mathrm{model}}}
+\newcommand{\ptildemodel}{\tilde{p}_{\mathrm{model}}}
+\newcommand{\pencode}{p_{\mathrm{encoder}}}
+\newcommand{\pdecode}{p_{\mathrm{decoder}}}
+\newcommand{\precons}{p_{\mathrm{reconstruct}}}
+\def\A{{\mathcal{A}}}
+\def\B{{\mathbb{B}}}
+\def\C{{\mathcal{C}}}
+\def\D{{\mathcal{D}}}
+\def\E{{\mathbb{E}}}
+\def\F{{\mathcal{F}}}
+\def\G{{\mathcal{G}}}
+\def\H{{\mathcal{H}}}
+\def\I{{\mathcal{I}}}
+\def\J{{\mathcal{J}}}
+\def\K{{\mathcal{K}}}
+\def\L{{\mathcal{L}}}
+\def\M{{\mathcal{M}}}
+\def\N{{\mathcal{N}}}
+\def\O{{\mathcal{O}}}
+\def\P{{\mathcal{P}}}
+\def\Q{{\mathbb{Q}}}
+\def\R{{\mathbb{R}}}
+\def\S{{\mathcal{S}}}
+\def\T{{\mathcal{T}}}
+\def\U{{\mathcal{U}}}
+\def\V{{\mathcal{V}}}
+\def\W{{\mathcal{W}}}
+\def\X{{\mathcal{X}}}
+\def\Y{{\mathcal{Y}}}
+\def\Z{{\mathbb{Z}}}
+\def\ealpha{{\bar{\alpha}}}
+\def\ebeta{{\bar{\beta}}}
+\def\echi{{\bar{\chi}}}
+\def\edelta{{\bar{\delta}}}
+\def\eeta{{\bar{\eta}}}
+\def\eepsilon{{\bar{\epsilon}}}
+\def\efoo{{\bar{\foo}}}
+\def\egamma{{\bar{\gamma}}}
+\def\eiota{{\bar{\iota}}}
+\def\ekappa{{\bar{\kappa}}}
+\def\elambda{{\bar{\lambda}}}
+\def\emu{{\bar{\mu}}}
+\def\enu{{\bar{\nu}}}
+\def\eomega{{\bar{\omega}}}
+\def\epi{{\bar{\pi}}}
+\def\erho{{\bar{\rho}}}
+\def\esigma{{\bar{\sigma}}}
+\def\etau{{\bar{\tau}}}
+\def\etheta{{\bar{\theta}}}
+\def\eupsilon{{\bar{\upsilon}}}
+\def\exi{{\bar{\xi}}}
+\def\ezeta{{\bar{\zeta}}}
+\def\ea{{\bar{a}}}
+\def\eb{{\bar{b}}}
+\def\ec{{\bar{c}}}
+\def\ed{{\bar{d}}}
+\def\ee{{\bar{e}}}
+\def\ef{{\bar{f}}}
+\def\eg{{\bar{g}}}
+\def\eh{{\bar{h}}}
+\def\ei{{\bar{i}}}
+\def\ej{{\bar{j}}}
+\def\ek{{\bar{k}}}
+\def\el{{\bar{l}}}
+\def\en{{\bar{n}}}
+\def\eo{{\bar{o}}}
+\def\ep{{\bar{p}}}
+\def\eq{{\bar{q}}}
+\def\er{{\bar{r}}}
+\def\es{{\bar{s}}}
+\def\et{{\bar{t}}}
+\def\eu{{\bar{u}}}
+\def\ev{{\bar{v}}}
+\def\ew{{\bar{w}}}
+\def\ey{{\bar{y}}}
+\def\ez{{\bar{z}}}
+\newcommand{\emp}{\tilde{p}}
+\newcommand{\lr}{\alpha}
+\newcommand{\reg}{\lambda}
+\newcommand{\rect}{\mathrm{rectifier}}
+\newcommand{\softmax}{\mathrm{softmax}}
+\newcommand{\sigmoid}{\mathrm{sigmoid}}
+\newcommand{\softplus}{\zeta}
+\newcommand{\KL}{D_{\mathrm{KL}}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\standarderror}{\mathrm{SE}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\normlzero}{L^0}
+\newcommand{\normlone}{L^1}
+\newcommand{\normltwo}{L^2}
+\newcommand{\normlp}{L^p}
+\newcommand{\normmax}{L^\infty}
+\newcommand{\parents}{Pa} % See usage in notation.tex. Chosen to match Daphne's book.
+\def\Mid{\mathrel{\|}}
+\newcommand{\union}{\cup}
+\newcommand{\intersection}{\cap}
+\newcommand{\brackets}[1]{{\left&lt;#1\right&gt;}}
+\newcommand{\braces}[1]{{\left\{#1\right\}}}
+\newcommand{\parens}[1]{{\left(#1\right)}}
+\newcommand{\bars}[1]{{\left|#1\right|}}
+\newcommand{\then}{\therefore \qquad}
+\newcommand{\from}{\leftarrow}
+\newcommand{\then}{\Rightarrow}
+\newcommand{\when}{\Leftarrow}
+\newcommand{\iff}{\Leftrightarrow}
+\def\qed{\hfill $\Box$}
+\newcommand{\erf}{\mathsf{erf}}
+\newcommand{\cerf}{\mathsf{cerf}}
+\newcommand{\erfi}{\mathsf{erfi}}
+\newcommand{\cerfi}{\mathsf{cerfi}}
+\newcommand{\supp}{\mathsf{supp}} %support
+\newcommand{\elbo}{\mathsf{elbo}}
+\newcommand{\iid}{i.i.d.\xspace}
+\newcommand{\bern}{\text{\small Bernoulli}}
+\newcommand{\cat}{\mathbf{Cat}} %categorical
+\newcommand{\gsdist}{\mathbf{GS}}
+\newcommand{\dir}{\mathbf{Dir}} %dirichlet
+\newcommand{\bin}{\mathbf{Bin}} %binomial
+\newcommand{\invchi}{\mathrm{Inv}\chi^2} %scaled inverse chi^2
+\newcommand{\pareto}{\mathrm{Pa}} %pareto
+\newcommand{\gumbel}{\mathrm{Gumbel}} %pareto
+\newcommand{\gp}{\mathrm{GP}} %generalized pareto
+\newcommand{\lomax}{\mathrm{Lomax}}
+\newcommand{\ipareto}{\mathrm{iPa}}
+\newcommand{\power}{\mathrm{Pow}}
+\newcommand{\logpower}{\mathrm{LogPow}}
+\newcommand{\Exp}{\mathrm{Exp}}
+\newcommand{\EVD}{\mathrm{EVD}}
+\]
+</p>
+<div class="outline-text-1" id="org5ef5caa">
+<div class="org-center">
+<p>
+
+</p>
+
+
+
+<div class="larger" id="orgf4167bd">
+<p>
+Masataro Asai
+</p>
+
+<p>
+(MIT-IBM Watson AI Lab, IBM Research, Cambridge)
+</p>
+
+</div>
+
+
+
+
+<div id="orgcf61eb4" class="figure">
+<p><img src="img/MIT-IBM.png" alt="MIT-IBM.png" />
+</p>
+</div>
+</div>
+
+<div class="org-center">
+<p>
+質問はZoomに書き込み
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-org4923a8a" class="outline-2">
+<h2 id="org4923a8a"><span class="section-number-2">1.</span> Part 1:</h2>
+<div class="outline-text-2" id="text-1">
+<div class="xlarge" id="orgd786ac7">
+<div class="org-center">
+<p>
+記号接地と
+</p>
+
+<p>
+グラフィカルモデル
+</p>
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org774f32b" class="outline-2">
+<h2 id="org774f32b"><span class="section-number-2">2.</span> 火星に取り残された! うわ やっべ どうしよう?</h2>
+<div class="outline-text-2" id="text-2">
+
+<div id="org13c51fc" class="figure">
+<p><img src="img/mars/mars.png" alt="mars.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org87dd997" class="outline-2">
+<h2 id="org87dd997"><span class="section-number-2">3.</span> どっちの「知性」がいいですか?</h2>
+<div class="outline-text-2" id="text-3">
+<div class="container-fluid" id="org15fc12d">
+<div class="row-fluid" id="orgd5b45de">
+<div class="span3" id="org66aa1e1">
+<p>
+
+</p>
+
+
+<div id="org02e3457" class="figure">
+<p><img src="img/mars/mars.png" alt="mars.png" />
+</p>
+</div>
+
+</div>
+<div class="span4" id="orgd360a2e">
+<div class="org-center">
+<p>
+<b>経験に基づく勘だけ</b> でどうにかなる?
+</p>
+
+<p>
+"考えるな、感じろ" でうまく行きますか?
+</p>
+
+
+<div id="orgc9eb217" class="figure">
+<p><img src="img/static/yoda.gif" alt="yoda.gif" />
+</p>
+</div>
+
+<p>
+<i>Reflex (反射) agent</i>
+</p>
+</div>
+
+</div>
+<div class="span5" id="org9dc4887">
+<ul class="org-ul">
+<li><div class="org-center">
+<p>
+ちょっと <b>頭を使って</b> 臨機応変に対応しますか?
+</p>
+
+
+<div id="org22e087a" class="figure">
+<p><img src="img/static/mars/yoda-hmph.gif" alt="yoda-hmph.gif" />
+</p>
+</div>
+
+<p>
+<span class="underline"><i>Deliberative (熟考) agent</i></span>
+</p>
+</div></li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="org-center">
+<ul class="org-ul">
+<li><p>
+→ <span class="underline">私がやりたいのは <b>熟考エージェント</b></span>
+</p>
+
+<p>
+しかも、 <span class="underline">生のセンサー入力(画像)を直接使えるやつ</span>
+</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org648d494" class="outline-2">
+<h2 id="org648d494"><span class="section-number-2">4.</span> 古典プランナ (古典自動計画ソルバ): <br> <b>8パズルをミリ秒単位で解ける.</b></h2>
+<div class="outline-text-2" id="text-4">
+<p>
+記号的探索・推論システムは爆速
+</p>
+
+<div class="container-fluid" id="orgadaa80f">
+<div class="row-fluid" id="org220139c">
+<div class="span2" id="orgd08515a">
+<p>
+
+</p>
+
+</div>
+<div class="span4" id="orgcb817f5">
+
+<div id="orgd27a62d" class="figure">
+<p><img src="img/8puzzle-standard.png" alt="8puzzle-standard.png" />
+</p>
+</div>
+
+</div>
+<div class="span4" id="org1fe2e97">
+
+<div id="org64f5e71" class="figure">
+<p><img src="img/8puzzle-standard-goal.png" alt="8puzzle-standard-goal.png" />
+</p>
+</div>
+
+</div>
+<div class="span2" id="org9a4b3d6">
+
+<div id="org33ec7bc" class="figure">
+<p><img src="img/static/8puzzle.gif" alt="8puzzle.gif" />
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<p>
+<i>でも PDDL があるときにしか 適用不可能.</i>
+</p>
+
+<div class="container-fluid" id="org2383c5a">
+<div class="row-fluid" id="orgce29445">
+<div class="span12" id="orga8b2191">
+<div class="org-src-container">
+<pre class="src src-scheme">(<span style="color: #483d8b;">:action</span>       move-up ...
+ <span style="color: #483d8b;">:precondition</span> (<span style="color: #a020f0;">and</span>      (empty ?x ?y-old) ...)
+ <span style="color: #483d8b;">:effects</span>      (<span style="color: #a020f0;">and</span> (not (empty ?x ?y-old))...))
+</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<p>
+PDDL : Planning Domain Description Language
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1ca5c37" class="outline-2">
+<h2 id="org1ca5c37"><span class="section-number-2">5.</span> 弱点: <b><i>画像ベース入力</i></b> になると適用不可能</h2>
+<div class="outline-text-2" id="text-5">
+<div class="container-fluid" id="orgf9ac7af">
+<div class="row-fluid" id="org23fb21c">
+<div class="span8" id="orgf36cdba">
+
+<div id="orgea6ac6f" class="figure">
+<p><img src="img/static/puzzle.jpg" alt="puzzle.jpg" />
+</p>
+</div>
+
+</div>
+<div class="span4" id="org41131e3">
+<ul class="org-ul">
+<li><div class="org-center">
+<p>
+<b>なぜなら</b>
+</p>
+
+<p>
+<b>プランナは</b>
+</p>
+
+<p>
+<b>実行するのに</b>
+</p>
+
+<div class="larger" id="org5a9484e">
+<p>
+<b><i>PDDL</i></b>
+</p>
+
+<p>
+<b><i>モデルが</i></b>
+</p>
+
+<p>
+<b><i>必要</i>!</b>
+</p>
+
+</div>
+</div></li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<ul class="org-ul">
+<li><p>
+<b>Latplan (AAAI18, ICAPS19, IJCAI20, JAIR 22)</b> はこの問題を解決
+</p>
+
+<p>
+<b><i>画像に対する事前知識なし</i></b> (画像に対するアノテーションなど)
+</p>
+
+<p>
+　 <b><i>人に由来するラベル・記号は一切なし</i></b> : "タイルが9つある", "動く"
+</p></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6cbd344" class="outline-2">
+<h2 id="org6cbd344"><span class="section-number-2">6.</span> Latplan の目標: <b><i>知識獲得ボトルネックの解消</i></b></h2>
+<div class="outline-text-2" id="text-6">
+<div class="container-fluid" id="orgdfbdcfc">
+<div class="row-fluid" id="org388b19b">
+<div class="span4" id="orgebb5657">
+<p>
+
+</p>
+
+<div class="alignright" id="orgfac4e34">
+<p>
+<b>状態遷移の観測データ</b>
+</p>
+
+</div>
+
+
+<div id="org847e27f" class="figure">
+<p><img src="img/overview/1.png" alt="1.png" />
+</p>
+</div>
+
+</div>
+<div class="span1" id="orgb42d757">
+<p>
+
+</p>
+
+
+
+
+
+
+<p>
+→
+</p>
+
+</div>
+<div class="span7" id="orgdd18eaf">
+<div class="org-center">
+<p>
+<b>PDDL Model</b>
+</p>
+</div>
+<div class="org-src-container">
+<pre class="src src-scheme">(<span style="color: #483d8b;">:action</span>       move-up
+ <span style="color: #483d8b;">:precondition</span>
+ (<span style="color: #a020f0;">and</span>      (empty ?x ?y-old) ...)
+ <span style="color: #483d8b;">:effects</span>
+ (<span style="color: #a020f0;">and</span> (not (empty ?x ?y-old))...))
+</pre>
+</div>
+
+</div>
+
+</div>
+
+<div class="row-fluid" id="org6fe1cd5">
+<div class="span12" id="org2e1ff9d">
+<ul class="org-ul">
+<li>Latplan が自動化すべき作業は <b>2つ</b> あり、これらは別のタスク:</li>
+</ul>
+
+</div>
+
+</div>
+<div class="row-fluid" id="orga0d08a7">
+<div class="span6" id="org3345b67">
+<ul class="org-ul">
+<li><p>
+<b>1. 記号生成:</b>
+</p>
+
+<div class="org-center">
+<div class="larger" id="orgd6ebf4b">
+<p>
+<b><i>シンボル</i> = PDDL内で使われる語彙</b>
+</p>
+
+</div>
+</div></li>
+
+<li><div class="smaller" id="orge37ac1c">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Types</th>
+<th scope="col" class="org-left">Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">オブジェクト</td>
+<td class="org-left"><b>panel<sub>7</sub></b>, <b>x<sub>0</sub></b>, <b>y<sub>0</sub></b> &#x2026;</td>
+</tr>
+
+<tr>
+<td class="org-left">述語</td>
+<td class="org-left">(<b>empty</b> ?x ?y)</td>
+</tr>
+
+<tr>
+<td class="org-left">命題</td>
+<td class="org-left"><b>p<sub>28</sub></b> = (empty x<sub>0</sub> y<sub>0</sub>)</td>
+</tr>
+
+<tr>
+<td class="org-left">アクション</td>
+<td class="org-left">(<b>slide-up</b> panel<sub>7</sub> x<sub>0</sub> y<sub>1</sub>)</td>
+</tr>
+</tbody>
+</table>
+
+</div></li>
+</ul>
+
+</div>
+<div class="span6" id="orgc350dde">
+<ul class="org-ul">
+<li><p>
+<b>2. アクションモデル獲得:</b>
+</p>
+
+<div class="org-center">
+<div class="larger" id="orge797399">
+<p>
+<b><i>状態遷移ルールを</i></b>
+</p>
+
+<p>
+<b><i>シンボルを用いて</i></b>
+</p>
+
+<p>
+<b><i>表現すること</i></b>
+</p>
+
+</div>
+</div></li>
+
+<li><div class="org-center">
+<p>
+<b>When</b> <i>Empty(x, y<sub>old</sub>) ∧ &#x2026;</i> ;
+</p>
+
+<p>
+<b>Then</b> <i>¬Empty(x,y<sub>old</sub>) ∧</i> &#x2026;
+</p>
+</div></li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3b5d600" class="outline-2">
+<h2 id="org3b5d600"><span class="section-number-2">7.</span> Latplan は PDDL を自動生成 (IJCAI20, JAIR22)</h2>
+<div class="outline-text-2" id="text-7">
+
+<div id="org90f828c" class="figure">
+<p><img src="img/15puzzle-with-pddl/2.png" alt="2.png" />
+</p>
+</div>
+
+<p>
+
+</p>
+
+<p>
+
+</p>
+
+<p>
+
+</p>
+
+<p>
+
+</p>
+</div>
+
+<div id="outline-container-orgf9348e4" class="outline-3">
+<h3 id="orgf9348e4"><span class="section-number-3">7.1.</span> Latplan は PDDL を自動生成 (IJCAI20, JAIR22)</h3>
+<div class="outline-text-3" id="text-7-1">
+
+<div id="org3eeab4b" class="figure">
+<p><img src="img/15puzzle-with-pddl/1.png" alt="1.png" />
+</p>
+</div>
+
+<p>
+
+</p>
+
+<p>
+
+</p>
+
+<p>
+
+</p>
+
+<p>
+
+</p>
+</div>
+</div>
+
+<div id="outline-container-org47403e8" class="outline-3">
+<h3 id="org47403e8"><span class="section-number-3">7.2.</span> Latplan は PDDL を自動生成 (IJCAI20, JAIR22)</h3>
+<div class="outline-text-3" id="text-7-2">
+
+<div id="org0141acf" class="figure">
+<p><img src="img/15puzzle-with-pddl/0.png" alt="0.png" />
+</p>
+</div>
+
+<div class="org-center">
+<ul class="org-ul">
+<li><p>
+Latplan が生成・接地するシンボルは すべて <b>無名シンボル</b> (<code>gensym</code>)
+</p>
+
+<p>
+<b>人間の使う 自然言語シンボル</b> は扱わない
+</p></li>
+
+<li><p>
+自然言語シンボルへの接地は <b>寄生的</b> 記号接地(*) とよばれる
+</p>
+
+<p>
+<b>理由:</b> 人間の作った世界の離散化に依存しているから (例: <b>虹🌈は7色?</b>)
+</p>
+
+<div class="note" id="orgbd66599">
+<p>
+(*) Taddeo, Mariarosaria, and Luciano Floridi. "Solving the symbol grounding problem: a critical review of fifteen years of research." Journal of Experimental &amp; Theoretical Artificial Intelligence 17.4 (2005): 419-445.
+</p>
+
+</div></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org3959702" class="outline-2">
+<h2 id="org3959702"><span class="section-number-2">8.</span> Latplan が解けるパズル/プランニング問題の例</h2>
+<div class="outline-text-2" id="text-8">
+
+<div id="org1122066" class="figure">
+<p><img src="img/static/experiment/init-goal.png" alt="init-goal.png" />
+</p>
+</div>
+
+<p>
+8-puzzle, 15-puzzle, Lights-Out, Twisted Lights-out, <b>Blocksworld</b>, Sokoban
+</p>
+</div>
+
+<div id="outline-container-org4b9f7bb" class="outline-3">
+<h3 id="org4b9f7bb"><span class="section-number-3">8.1.</span> 成功率 (1ドメインあたり40タスク)</h3>
+<div class="outline-text-3" id="text-8-1">
+
+<div id="org3a61ff8" class="figure">
+<p><img src="img/success.png" alt="success.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org752b5b0" class="outline-3">
+<h3 id="org752b5b0"><span class="section-number-3">8.2.</span> 成功例 / 失敗例</h3>
+<div class="outline-text-3" id="text-8-2">
+
+<div id="org1b83b48" class="figure">
+<p><img src="img/static/experiment/blocks-example.png" alt="blocks-example.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf6bbd63" class="outline-2">
+<h2 id="orgf6bbd63"><span class="section-number-2">9.</span> このシステムの肝: <b>生成モデリング</b> + <br> <span class="underline"><i>ちゃんと古典プランニングのことを勉強すること</i></span></h2>
+<div class="outline-text-2" id="text-9">
+<ul class="org-ul">
+<li>Latplan は <b>PDDLと互換性のあるアクションモデルを画像から学習する</b>.</li>
+<li><b>「PDDLと互換性がある」ってどういう意味 ?</b></li>
+</ul>
+
+<ul class="org-ul">
+<li>アクション: $a=\text{Eat}(\text{pizza🍕})$</li>
+<li>前提条件: $\text{pre}(a)=\lnot \text{full}() \land \text{have}(\text{pizza🍕})$ &#x2014; 空腹かつピザがある</li>
+<li>効果: <b>削除効果:</b> $\text{del}(a)=\{\text{have}(\text{pizza🍕}) \}$ &#x2014; ピザはなくなって</li>
+<li>効果: <b>追加効果:</b> $\text{add}(a)=\{\text{full}() \}$ &#x2014; 満腹になる</li>
+</ul>
+
+<ul class="org-ul">
+<li><blockquote>
+<p>
+<span class="underline"><i>状態遷移ルール:</i></span> $z_{t+1} = (z_t \setminus \text{del}(a)\ )\ \cup\ \text{add}(a)$
+</p>
+</blockquote>
+
+<p>
+効果 $\text{del}(a), \text{add}(a)$ は <b>$z_t$ に依存しない</b>.
+</p></li>
+
+<li><p>
+<b><i>よくある世界モデル</i></b> は <b>そこをわかってない！</b> (自動計画の人がいない)
+</p>
+<blockquote>
+<p>
+<b><i>よくある世界モデル:</i></b> $z_{t+1} = \text{なぞのニューラルネット}(z_t, a)$
+</p>
+</blockquote></li>
+
+<li><div class="larger" id="orgaaca631">
+<div class="org-center">
+<p>
+PDDLに変換できない → <b><i>高速なソルバを使えない</i></b>
+</p>
+</div>
+
+</div></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org75335df" class="outline-2">
+<h2 id="org75335df"><span class="section-number-2">10.</span> 高速ソルバのためにPDDL記号モデルを学習 <br> →言語の制約を <b><i>NNモデルに埋め込まないといけない</i></b></h2>
+<div class="outline-text-2" id="text-10">
+<ul class="org-ul">
+<li><b>PDDLでは、アクションの効果と状態 $z_t$ は独立している.</b></li>
+</ul>
+
+<div class="org-center">
+<ul class="org-ul">
+<li>→ $z_t$ と独立な変数 <b>e</b> を導入する必要あり。</li>
+
+<li><p>
+
+</p>
+
+
+<div id="orgf09a484" class="figure">
+<p><img src="img/space-ae/graphical-model-csae.png" alt="graphical-model-csae.png" />
+</p>
+</div></li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><p>
+これを <b>離散的隠れ変数</b> (Gumbel-Softmax) + <b>変分学習</b> で訓練。
+</p>
+
+<p>
+グラフィカルモデルが数学的根拠を与える
+</p></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org22a86f7" class="outline-2">
+<h2 id="org22a86f7"><span class="section-number-2">11.</span> 離散表現学習: Gumbel-Softmax VAE ほか</h2>
+<div class="outline-text-2" id="text-11">
+
+<div id="orge276f06" class="figure">
+<p><img src="img/sae/state-ae-before.png" alt="state-ae-before.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3472826" class="outline-3">
+<h3 id="org3472826"><span class="section-number-3">11.1.</span> 離散表現学習: Gumbel-Softmax VAE ほか</h3>
+<div class="outline-text-3" id="text-11-1">
+
+<div id="orgd647bf4" class="figure">
+<p><img src="img/sae/state-ae.png" alt="state-ae.png" />
+</p>
+</div>
+
+<ul class="org-ul">
+<li><p>
+2017年ぐらい以降、多数の手法が考案されている
+</p>
+
+<p>
+(REBAR, RELAX, VQVAE, SQVAE, &#x2026;)
+</p>
+
+<ul class="org-ul">
+<li><div class="alignright" id="org767f55d">
+<p>
+ニューロシンボリックをするなら要チェック!
+</p>
+
+</div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org45e6f38" class="outline-2">
+<h2 id="org45e6f38"><span class="section-number-2">12.</span> <i>シンボル</i> は一種類だけではない</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+<b><i>命題シンボル</i></b> (handempty, &#x2026;) vs. <span class="underline"><i>アクションシンボル</i></span> (pickup,&#x2026;).
+</p>
+
+<div class="container-fluid" id="org20c9447">
+<div class="row-fluid" id="org05bec68">
+<div class="span4" id="orga4a39a4">
+
+<div id="orgc7b4e58" class="figure">
+<p><img src="img/space-ae/graphical-model-csae-only.png" alt="graphical-model-csae-only.png" />
+</p>
+</div>
+
+</div>
+<div class="span8" id="orgf48d9fd">
+<div class="org-center">
+<ul class="org-ul">
+<li><div class="larger" id="orge56a2a6">
+<p>
+これらは <b>別の名前空間に存在する</b>.
+</p>
+
+</div>
+
+<p>
+
+</p>
+
+<p>
+自然言語シンボルも同様:
+</p>
+
+<p>
+　 I <b><i>like</i></b> an apple : 動詞
+</p>
+
+<p>
+　 Thanks for the <b><i>like</i></b> on Facebook! : 名詞
+</p>
+
+<p>
+Common Lisp (Lisp-2) vs. Scheme (Lisp-1)
+</p></li>
+</ul>
+</div>
+
+<div class="larger" id="orgd7cdde8">
+<div class="alignright" id="org8f375b6">
+<ul class="org-ul">
+<li><p>
+→ <b>別の名前空間</b> にあるシンボルは
+</p>
+
+<p>
+<b>別の言語制約が必要。</b>
+</p></li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6b27865" class="outline-2">
+<h2 id="org6b27865"><span class="section-number-2">13.</span> PDDL: 6つの名前空間, 6つのメカニズム</h2>
+<div class="outline-text-2" id="text-13">
+
+<div id="orgc63e43d" class="figure">
+<p><img src="img/namespace/1.png" alt="1.png" />
+</p>
+</div>
+
+<p>
+
+</p>
+
+<p>
+
+</p>
+
+<p>
+
+</p>
+
+<p>
+
+</p>
+</div>
+
+<div id="outline-container-org60b4edf" class="outline-3">
+<h3 id="org60b4edf"><span class="section-number-3">13.1.</span> PDDL: 6つの名前空間, 6つのメカニズム</h3>
+<div class="outline-text-3" id="text-13-1">
+
+<div id="org7d54a02" class="figure">
+<p><img src="img/namespace/2.png" alt="2.png" />
+</p>
+</div>
+
+<p>
+
+</p>
+
+<p>
+
+</p>
+
+<p>
+
+</p>
+
+<p>
+
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0df3644" class="outline-3">
+<h3 id="org0df3644"><span class="section-number-3">13.2.</span> PDDL: 6つの名前空間, 6つのメカニズム</h3>
+<div class="outline-text-3" id="text-13-2">
+
+<div id="org0326d79" class="figure">
+<p><img src="img/namespace/3.png" alt="3.png" />
+</p>
+</div>
+
+<p>
+
+</p>
+
+<p>
+
+</p>
+
+<p>
+
+</p>
+
+<p>
+
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd0cc697" class="outline-3">
+<h3 id="orgd0cc697"><span class="section-number-3">13.3.</span> PDDL: 6つの名前空間, 6つのメカニズム</h3>
+<div class="outline-text-3" id="text-13-3">
+
+<div id="org931e7c9" class="figure">
+<p><img src="img/namespace/4.png" alt="4.png" />
+</p>
+</div>
+
+<p>
+<b>問題シンボル:</b> 「マリオのステージを表すシンボル」→ 別の状態空間を生成
+</p>
+
+<p>
+　Stage 1-1, Stage 1-2, &#x2026;
+</p>
+
+<p>
+
+</p>
+
+<p>
+
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge629a01" class="outline-3">
+<h3 id="orge629a01"><span class="section-number-3">13.4.</span> PDDL: 6つの名前空間, 6つのメカニズム</h3>
+<div class="outline-text-3" id="text-13-4">
+
+<div id="org594cfd9" class="figure">
+<p><img src="img/namespace/5.png" alt="5.png" />
+</p>
+</div>
+
+<p>
+<b>問題シンボル:</b> 「マリオのステージを表すシンボル」→ 別の状態空間を生成
+</p>
+
+<p>
+　Stage 1-1, Stage 1-2, &#x2026;
+</p>
+
+<p>
+<b>ドメインシンボル:</b> 「別のゲームを表すシンボル」 → 別のアクションを生成
+</p>
+
+<p>
+　マリオ、ゼルダ、ドンキーコング、F-Zero &#x2026;
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb9359fb" class="outline-3">
+<h3 id="orgb9359fb"><span class="section-number-3">13.5.</span> PDDL: 6つの名前空間, 6つのメカニズム</h3>
+<div class="outline-text-3" id="text-13-5">
+
+<div id="org35bad17" class="figure">
+<p><img src="img/namespace/6.png" alt="6.png" />
+</p>
+</div>
+
+<p>
+<b>問題シンボル:</b> 「マリオのステージを表すシンボル」→ 別の状態空間を生成
+</p>
+
+<p>
+　Stage 1-1, Stage 1-2, &#x2026;
+</p>
+
+<p>
+<b>ドメインシンボル:</b> 「別のゲームを表すシンボル」 → 別のアクションを生成
+</p>
+
+<p>
+　マリオ、ゼルダ、ドンキーコング、F-Zero &#x2026;
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgb0c6694" class="outline-2">
+<h2 id="orgb0c6694"><span class="section-number-2">14.</span> 実際 Latplan を述語論理に拡張可 (ICLR2021 workshop)</h2>
+<div class="outline-text-2" id="text-14">
+<p>
+<b>Latplan/FOSAE++</b> : 画像内の異なるオブジェクトに使えるアクションを学習
+</p>
+
+<div class="container-fluid" id="orgee175c2">
+<div class="row-fluid" id="orga7eeccb">
+<div class="span4" id="org8c51830">
+
+<div id="org1a4a4c1" class="figure">
+<p><img src="img/graphical-model-fosae++-nopatch2.png" alt="graphical-model-fosae++-nopatch2.png" />
+</p>
+</div>
+
+</div>
+<div class="span8" id="org6d1b8d8">
+
+<div id="orgc0097b3" class="figure">
+<p><img src="img/blocks-wide.png" alt="blocks-wide.png" />
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<ul class="org-ul">
+<li><b>追加制約:</b> Successor State Axiom (<b>非束縛変数の禁止</b> [Reiter, 1991])</li>
+
+<li>アクション: $a=\text{Eat}(\text{pizza}🍕)$ : 引数 $\text{pizza}🍕$</li>
+<li><div class="org-center">
+<p>
+<b>効果:</b> <b><i>発表(フロム, アーマードコアの新作)</i></b>
+</p>
+</div></li>
+<li><div class="alignright" id="org64dcc99">
+<p>
+↑ $\text{pizza}🍕$ を使わないので禁止
+</p>
+
+</div></li>
+
+<li><div class="larger" id="org7d19a2a">
+<div class="org-center">
+<p>
+新たな制約が <b>述語シンボル</b> のグラウンディングを可能にした
+</p>
+</div>
+
+</div></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org5ca7e46" class="outline-2">
+<h2 id="org5ca7e46"><span class="section-number-2">15.</span> Extending the generative model (unpublished)</h2>
+<div class="outline-text-2" id="text-15">
+<div class="container-fluid" id="orga982cbc">
+<div class="row-fluid" id="org2a13eb2">
+<div class="span4" id="org8eae2e1">
+<div class="org-center">
+<ul class="org-ul">
+<li><p>
+Lifted actions,
+</p>
+
+<p>
+Parameters <b>x</b>
+</p>
+
+
+<div id="org9040cb5" class="figure">
+<p><img src="img/space-ae/graphical-model-fosae.png" alt="graphical-model-fosae.png" />
+</p>
+</div>
+
+<p>
+Predicates, too.
+</p>
+
+<p>
+<b>Compatible with First Order Logic.</b>
+</p></li>
+</ul>
+</div>
+
+</div>
+<div class="span4" id="org3cf5083">
+<div class="org-center">
+<ul class="org-ul">
+<li><p>
+Temporal actions,
+</p>
+
+<p>
+Action durations <b>d</b>
+</p>
+
+
+<div id="org9daff12" class="figure">
+<p><img src="img/space-ae/graphical-model-time.png" alt="graphical-model-time.png" />
+</p>
+</div>
+
+<p>
+<b>Compatible with LTL.</b>
+</p></li>
+</ul>
+</div>
+
+</div>
+<div class="span4" id="org11cba1e">
+<div class="org-center">
+<ul class="org-ul">
+<li><p>
+Domain symbol <b>D</b>,
+</p>
+
+<p>
+Problem symbol <b>P</b>
+</p>
+
+
+<div id="orgcd9a189" class="figure">
+<p><img src="img/space-ae/graphical-model-domain.png" alt="graphical-model-domain.png" />
+</p>
+</div>
+
+<p>
+Allows mixed-domain training?
+</p></li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org90660d2" class="outline-2">
+<h2 id="org90660d2"><span class="section-number-2">16.</span> Part 1: Conclusion</h2>
+<div class="outline-text-2" id="text-16">
+<div class="container-fluid" id="org008d101">
+<div class="row-fluid" id="org9c61c49">
+<div class="span7" id="org36e0913">
+<div class="org-center">
+<ul class="org-ul">
+<li><p>
+<b>Goal: 理性的な実世界エージェント</b>
+</p>
+
+
+<div id="org721735e" class="figure">
+<p><img src="img/static/mars/yoda-hmph.gif" alt="yoda-hmph.gif" />
+</p>
+</div></li>
+</ul>
+</div>
+
+</div>
+<div class="span5" id="org1179f85">
+<div class="org-center">
+<ul class="org-ul">
+<li><p>
+<b>Latplan</b> で記号接地
+</p>
+
+
+<div id="orgf644930" class="figure">
+<p><img src="img/static/puzzle.jpg" alt="puzzle.jpg" />
+</p>
+</div></li>
+</ul>
+</div>
+
+</div>
+
+</div>
+<div class="row-fluid" id="org17e7355">
+<div class="span7" id="org1e0e9ba">
+<div class="org-center">
+<ul class="org-ul">
+<li><p>
+異なるシンボルは  <b>別々の制約が必要</b>
+</p>
+
+
+<div id="orgb81b289" class="figure">
+<p><img src="img/namespace/6.png" alt="6.png" />
+</p>
+</div></li>
+</ul>
+</div>
+
+</div>
+<div class="span5" id="orgd04997e">
+<div class="org-center">
+<ul class="org-ul">
+<li><p>
+生成モデルによって
+</p>
+
+<p>
+<b>制約を精緻に記述可能</b>
+</p>
+
+
+<div id="org04582f0" class="figure">
+<p><img src="img/space-ae/graphical-model-csae.png" alt="graphical-model-csae.png" />
+</p>
+</div></li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<ul class="org-ul">
+<li>記号接地するなら <b>対象言語を <i>ちゃんと</i> 理解して <i>正しく</i> モデル化しよう!</b></li>
+</ul>
+
+
+<div class="org-center">
+<p>
+質問: 2つまで
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7df92a5" class="outline-2">
+<h2 id="org7df92a5"><span class="section-number-2">17.</span> Part 2:</h2>
+<div class="outline-text-2" id="text-17">
+<div class="xlarge" id="org0f301fb">
+<p>
+理性的な実世界エージェントの
+</p>
+<div class="org-center">
+<p>
+<b><i>アーキテクチャ</i></b>
+</p>
+</div>
+<div class="alignright" id="org5d96a6f">
+<p>
+を考える
+</p>
+
+</div>
+
+</div>
+
+<div class="alignright" id="orgc093c7d">
+<ul class="org-ul">
+<li>→ <b>表現学習以外</b> の プランニング+機械学習</li>
+</ul>
+
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgccf2f65" class="outline-2">
+<h2 id="orgccf2f65"><span class="section-number-2">18.</span> 理性的な実世界エージェントのアーキテクチャ</h2>
+<div class="outline-text-2" id="text-18">
+<div class="container-fluid" id="org8d2d35f">
+<div class="row-fluid" id="org6ef9291">
+<div class="span3" id="org8ed37e2">
+
+<div id="orgb533e0a" class="figure">
+<p><img src="img/static/mars/yoda-hmph.gif" alt="yoda-hmph.gif" />
+</p>
+</div>
+
+</div>
+<div class="span9" id="org3dd2d74">
+
+<div id="orgc529bdf" class="figure">
+<p><img src="img/nesyarch/6.png" alt="6.png" />
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div id="outline-container-org8076b46" class="outline-3">
+<h3 id="org8076b46"><span class="section-number-3">18.1.</span> 理性的な実世界エージェントのアーキテクチャ</h3>
+<div class="outline-text-3" id="text-18-1">
+<div class="container-fluid" id="org03abc8d">
+<div class="row-fluid" id="orgbd4ab3b">
+<div class="span3" id="org1cea244">
+
+<div id="org54e4590" class="figure">
+<p><img src="img/static/mars/yoda-hmph.gif" alt="yoda-hmph.gif" />
+</p>
+</div>
+
+</div>
+<div class="span9" id="orgcac41c7">
+
+<div id="org12ed484" class="figure">
+<p><img src="img/nesyarch/5.png" alt="5.png" />
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org64aabae" class="outline-3">
+<h3 id="org64aabae"><span class="section-number-3">18.2.</span> 理性的な実世界エージェントのアーキテクチャ</h3>
+<div class="outline-text-3" id="text-18-2">
+<div class="container-fluid" id="org4bf0d0b">
+<div class="row-fluid" id="orgdc16a65">
+<div class="span3" id="org34ec122">
+
+<div id="orga92f623" class="figure">
+<p><img src="img/static/mars/yoda-hmph.gif" alt="yoda-hmph.gif" />
+</p>
+</div>
+
+</div>
+<div class="span9" id="orgedd77d9">
+
+<div id="org7ec62c0" class="figure">
+<p><img src="img/nesyarch/4.png" alt="4.png" />
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8059aba" class="outline-3">
+<h3 id="org8059aba"><span class="section-number-3">18.3.</span> 理性的な実世界エージェントのアーキテクチャ</h3>
+<div class="outline-text-3" id="text-18-3">
+<div class="container-fluid" id="org17ff560">
+<div class="row-fluid" id="orgde2bd07">
+<div class="span3" id="org88c00d3">
+
+<div id="org9ccb69f" class="figure">
+<p><img src="img/static/mars/yoda-hmph.gif" alt="yoda-hmph.gif" />
+</p>
+</div>
+
+</div>
+<div class="span9" id="orga348e56">
+
+<div id="org52a49e9" class="figure">
+<p><img src="img/nesyarch/3.png" alt="3.png" />
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd4d50ac" class="outline-3">
+<h3 id="orgd4d50ac"><span class="section-number-3">18.4.</span> 理性的な実世界エージェントのアーキテクチャ</h3>
+<div class="outline-text-3" id="text-18-4">
+<div class="container-fluid" id="org3b93ae6">
+<div class="row-fluid" id="org6da8e98">
+<div class="span3" id="org1157343">
+
+<div id="orgfb02af0" class="figure">
+<p><img src="img/static/mars/yoda-hmph.gif" alt="yoda-hmph.gif" />
+</p>
+</div>
+
+</div>
+<div class="span9" id="orgd4a0c93">
+
+<div id="orgc1f380c" class="figure">
+<p><img src="img/nesyarch/2.png" alt="2.png" />
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf69e61b" class="outline-3">
+<h3 id="orgf69e61b"><span class="section-number-3">18.5.</span> 理性的な実世界エージェントのアーキテクチャ</h3>
+<div class="outline-text-3" id="text-18-5">
+<div class="container-fluid" id="org64e8aab">
+<div class="row-fluid" id="org1be1e7f">
+<div class="span3" id="org154bdcf">
+
+<div id="orge31cc75" class="figure">
+<p><img src="img/static/mars/yoda-hmph.gif" alt="yoda-hmph.gif" />
+</p>
+</div>
+
+</div>
+<div class="span9" id="orge1ab21a">
+
+<div id="org70adf55" class="figure">
+<p><img src="img/nesyarch/1.png" alt="1.png" />
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5c53345" class="outline-3">
+<h3 id="org5c53345"><span class="section-number-3">18.6.</span> 理性的な実世界エージェントのアーキテクチャ</h3>
+<div class="outline-text-3" id="text-18-6">
+<div class="container-fluid" id="org8a40147">
+<div class="row-fluid" id="orge6fc817">
+<div class="span3" id="org90bdcb1">
+
+<div id="org07bb748" class="figure">
+<p><img src="img/static/mars/yoda-hmph.gif" alt="yoda-hmph.gif" />
+</p>
+</div>
+
+</div>
+<div class="span9" id="orgf9ed60b">
+
+<div id="orgdedb39f" class="figure">
+<p><img src="img/nesyarch/0.png" alt="0.png" />
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3173560" class="outline-3">
+<h3 id="org3173560"><span class="section-number-3">18.7.</span> 理性的な実世界エージェントのアーキテクチャ</h3>
+<div class="outline-text-3" id="text-18-7">
+<div class="container-fluid" id="org5158fab">
+<div class="row-fluid" id="orgf3ca27d">
+<div class="span3" id="orga192877">
+
+<div id="org31b295c" class="figure">
+<p><img src="img/static/mars/yoda-hmph.gif" alt="yoda-hmph.gif" />
+</p>
+</div>
+
+</div>
+<div class="span9" id="orgce4c10e">
+
+<div id="org22a36ef" class="figure">
+<p><img src="img/nesyarch/0a.png" alt="0a.png" />
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org57fa50f" class="outline-2">
+<h2 id="org57fa50f"><span class="section-number-2">19.</span> 探索ヒューリスティクスの学習:</h2>
+<div class="outline-text-2" id="text-19">
+<div class="container-fluid" id="org4e97a4d">
+<div class="row-fluid" id="org7c9f0d9">
+<div class="span6" id="org4ed63e0">
+<div class="xlarge" id="org144d04e">
+<div class="org-center">
+<p>
+RL
+</p>
+
+<p>
+(ICAPS 2022)
+</p>
+</div>
+
+</div>
+
+</div>
+<div class="span6" id="org224f661">
+<div class="xlarge" id="org7dbe9ce">
+<div class="org-center">
+<p>
+SL
+</p>
+
+<p>
+(IJCAI 2024)
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org934a5aa" class="outline-2">
+<h2 id="org934a5aa"><span class="section-number-2">20.</span> ICAPS22</h2>
+<div class="outline-text-2" id="text-20">
+
+<div id="orgd38f900" class="figure">
+<p><img src="img/pddlrl/title.png" alt="title.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4eac7b2" class="outline-2">
+<h2 id="org4eac7b2"><span class="section-number-2">21.</span> Value function learning</h2>
+<div class="outline-text-2" id="text-21">
+<p>
+SGD Loss function:
+</p>
+
+<p>
+\[
+\frac{1}{|B|}\sum_{s\in B} \frac{1}{2}\left| V(s) - \mathbb{E}_{a\in A} [Q(a, s)] \right|^2
+\]
+</p>
+
+<p>
+$B$: batches in the experience replay
+</p>
+
+<div class="larger" id="orgfea921e">
+<p>
+Research Questions:
+</p>
+<div class="org-center">
+<ul class="org-ul">
+<li><b>Q: RLだけで 古典プランニングを解けるか?</b> (A: <b>不可</b>)</li>
+
+<li><b>Q: RLだけで プランニングを高速化できるか?</b> (A: <b>不可</b>)</li>
+
+<li><b>Q: プランニングの道具と適切に組み合わせれば?</b> <b><i>(A: 可)</i></b></li>
+</ul>
+</div>
+<div class="alignright" id="orgd723beb">
+<ul class="org-ul">
+<li>Lessons learned: <b>古典プランニングを甘く見るな</b></li>
+</ul>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org2ab589b" class="outline-2">
+<h2 id="org2ab589b"><span class="section-number-2">22.</span> Why Classical Plannning is difficult for RL?</h2>
+<div class="outline-text-2" id="text-22">
+<p>
+Rewards in Classical Planning:
+</p>
+
+<div class="org-center">
+<div class="larger" id="org9ae0be1">
+<ul class="org-ul">
+<li><p>
+$r(s,a,s') = \left\{\begin{array}{ll} 1 &amp; \text{if}\ s' \ \text{is a goal}, \\ 0 &amp; \text{otherwise}. \end{array}\right.$
+</p>
+
+<p>
+<b>This is extremely sparse.</b>
+</p></li>
+</ul>
+
+</div>
+</div>
+
+<ul class="org-ul">
+<li><b><i>Any non-goal states</i></b> are <b>equally <i>worthless</i></b>
+
+<ul class="org-ul">
+<li><b>No guidance</b> for RL until a goal,</li>
+
+<li>which is <b>difficult to find</b> in the first place!</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd912f24" class="outline-2">
+<h2 id="orgd912f24"><span class="section-number-2">23.</span> Potential-Based <b><i>Reward Shaping</i></b> (PBRS) <br> for Sparse Rewards</h2>
+<div class="outline-text-2" id="text-23">
+<p>
+Given a <b>potential function</b> $\phi(s)$, <b><i>redefine rewards</i></b> as:
+</p>
+
+\begin{align}
+\hat{r}(s, a, s') &amp;= r(s, a, s') + \gamma \phi(s') - \phi(s). \label{eq:shaping1}
+\end{align}
+
+<ul class="org-ul">
+<li><p>
+<b><i>Important:</i></b> PBRS <b>preserves</b> the optimal value function
+</p>
+
+  \begin{align}
+  V^*_\gamma(s) &amp;= \hat{V}^*_\gamma(s) + \phi(s). \label{eq:shaping2}
+  \end{align}
+
+<div class="alignright" id="orgba3089a">
+<div class="larger" id="org0013129">
+<p>
+= <b>learning the residual from $\phi(s)$</b>
+</p>
+
+</div>
+
+</div></li>
+</ul>
+
+<div class="note" id="org82eb3b6">
+<p>
+Ng, Harada, Russell. "Policy invariance under reward transformations: Theory and application to reward shaping." ICML. Vol. 99. 1999.
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org074b153" class="outline-2">
+<h2 id="org074b153"><span class="section-number-2">24.</span> Heuristic Function $h(s)$ in classical planning</h2>
+<div class="outline-text-2" id="text-24">
+<ul class="org-ul">
+<li><b>Distance estimate</b>
+<ul class="org-ul">
+<li>$h(s)=5 \quad \longleftrightarrow \quad s - s_1 - s_2 - s_3 - s_4 - \text{goal}$ (おおよそ)</li>
+<li><p>
+Many implementations: $h^{\text{add}}$, $h^{\text{FF}}$, $h^{\text{CEA}}$, &#x2026;
+</p>
+
+<div class="smaller" id="org780b0cf">
+<p>
+(Bonet&amp;Geffner 01, Hoffmann 01, Helmert 08) もっと新しいのもある
+</p>
+
+</div></li>
+</ul></li>
+</ul>
+
+<div class="xlarge" id="org86b102b">
+<ul class="org-ul">
+<li><b>Heuristics satisfies the PBRS requirements</b></li>
+
+<li><div class="alignright" id="org227ba11">
+<p>
+<b><i>Let's use $h(s)$ for PBRS!</i></b>
+</p>
+
+</div></li>
+</ul>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0c941e9" class="outline-2">
+<h2 id="org0c941e9"><span class="section-number-2">25.</span> Issue 1: <b><i>Discounting</i></b></h2>
+<div class="outline-text-2" id="text-25">
+<div class="larger" id="orgeeaf1bd">
+<p>
+<b>RL : <i>discounted rewards</i></b> ↔ <b>Planning :</b> <span class="underline"><i>undiscounted costs</i></span>
+</p>
+
+</div>
+
+<p>
+
+</p>
+
+<p>
+Our solution:
+</p>
+
+<ul class="org-ul">
+<li><b>Training</b> : Convert $h(s)\rightarrow h_{\gamma}(s)$ : <b><i>discounting</i></b> $h(s)$ for PBRS</li>
+
+<li>\begin{align}
+  \phi(s) &amp;= h_\gamma(s) = \sum_{t=1}^{h(s)} \gamma^t\cdot 1 = \dfrac{1 - \gamma^{h(s)}}{1 - \gamma}.
+  \end{align}</li>
+</ul>
+
+
+<ul class="org-ul">
+<li><b>Planning</b> : Convert $V_{\gamma}(s)\rightarrow V(s)$ : <span class="underline"><i>undiscounting</i></span> a learned $V_{\gamma}(s)$</li>
+
+<li>\begin{align}
+  V_\gamma(s) = \dfrac{1 - \gamma^{V(s)}}{1 - \gamma}
+  &amp;\Leftrightarrow
+  V(s) = \log_\gamma (1 - (1 - \gamma)V_\gamma(s)).
+  \end{align}</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge64fa58" class="outline-2">
+<h2 id="orge64fa58"><span class="section-number-2">26.</span> Issue 2: Handling <b><i>First-Order Logic Input</i></b></h2>
+<div class="outline-text-2" id="text-26">
+<p>
+Our solution: <b>Neural Logic Machine (NLM)</b> [Dong et. al. ICLR 2019]
+</p>
+
+
+<div id="orgdd6e6c8" class="figure">
+<p><img src="img/pddlrl/nlm6.png" alt="nlm6.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd007088" class="outline-3">
+<h3 id="orgd007088"><span class="section-number-3">26.1.</span> Issue 2: Handling <b><i>First-Order Logic Input</i></b></h3>
+<div class="outline-text-3" id="text-26-1">
+<p>
+Our solution: <b>Neural Logic Machine (NLM)</b> [Dong et. al. ICLR 2019]
+</p>
+
+
+<div id="orga29f685" class="figure">
+<p><img src="img/pddlrl/nlm5.png" alt="nlm5.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org29426c1" class="outline-3">
+<h3 id="org29426c1"><span class="section-number-3">26.2.</span> Issue 2: Handling <b><i>First-Order Logic Input</i></b></h3>
+<div class="outline-text-3" id="text-26-2">
+<p>
+Our solution: <b>Neural Logic Machine (NLM)</b> [Dong et. al. ICLR 2019]
+</p>
+
+
+<div id="orgdb928f1" class="figure">
+<p><img src="img/pddlrl/nlm4.png" alt="nlm4.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org458adae" class="outline-3">
+<h3 id="org458adae"><span class="section-number-3">26.3.</span> Issue 2: Handling <b><i>First-Order Logic Input</i></b></h3>
+<div class="outline-text-3" id="text-26-3">
+<p>
+Our solution: <b>Neural Logic Machine (NLM)</b> [Dong et. al. ICLR 2019]
+</p>
+
+
+<div id="orgbf3523f" class="figure">
+<p><img src="img/pddlrl/nlm3.png" alt="nlm3.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org59847fe" class="outline-3">
+<h3 id="org59847fe"><span class="section-number-3">26.4.</span> Issue 2: Handling <b><i>First-Order Logic Input</i></b></h3>
+<div class="outline-text-3" id="text-26-4">
+<p>
+Our solution: <b>Neural Logic Machine (NLM)</b> [Dong et. al. ICLR 2019]
+</p>
+
+
+<div id="org0d23bf6" class="figure">
+<p><img src="img/pddlrl/nlm2.png" alt="nlm2.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfd4e9a8" class="outline-3">
+<h3 id="orgfd4e9a8"><span class="section-number-3">26.5.</span> Issue 2: Handling <b><i>First-Order Logic Input</i></b></h3>
+<div class="outline-text-3" id="text-26-5">
+<p>
+Our solution: <b>Neural Logic Machine (NLM)</b> [Dong et. al. ICLR 2019]
+</p>
+
+
+<div id="orgbdecf8c" class="figure">
+<p><img src="img/pddlrl/nlm1.png" alt="nlm1.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org551992a" class="outline-3">
+<h3 id="org551992a"><span class="section-number-3">26.6.</span> Issue 2: Handling <b><i>First-Order Logic Input</i></b></h3>
+<div class="outline-text-3" id="text-26-6">
+<p>
+Our solution: <b>Neural Logic Machine (NLM)</b> [Dong et. al. ICLR 2019]
+</p>
+
+
+<div id="org863b0b8" class="figure">
+<p><img src="img/pddlrl/nlm.png" alt="nlm.png" />
+</p>
+</div>
+
+<ul class="org-ul">
+<li><b>Size</b> &amp; <b>Permutation invariant</b> to FOL binary inputs</li>
+
+<li><b>Quite useful for various FOL tasks</b>
+<ul class="org-ul">
+<li>ILP [Dong et. al. ICLR 2019]</li>
+<li>Regression (our work)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2509a6f" class="outline-2">
+<h2 id="org2509a6f"><span class="section-number-2">27.</span> Results</h2>
+<div class="outline-text-2" id="text-27">
+<p>
+Skipped
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbcce052" class="outline-2">
+<h2 id="orgbcce052"><span class="section-number-2">28.</span> ICAPS 2022 : Conclusion</h2>
+<div class="outline-text-2" id="text-28">
+<div class="org-center">
+<div class="container-fluid" id="org9c222c0">
+<div class="row-fluid" id="org761b8c1">
+<div class="span6" id="org7c031d3">
+<ul class="org-ul">
+<li><p>
+<b>Sparse Rewards</b>
+</p>
+
+<div class="smaller" id="org2ae0101">
+<p>
+$r(s) = \left\{\begin{array}{ll} 1 &amp; \text{if}\ s \ \text{is a goal}, \\ 0 &amp; \text{otherwise}. \end{array}\right.$
+</p>
+
+<p>
+ゴールにたどり着くのが
+</p>
+
+<p>
+とても難しい
+</p>
+
+</div></li>
+</ul>
+
+</div>
+<div class="span6" id="org1cf2db9">
+<ul class="org-ul">
+<li><p>
+<b>Potential-Based</b>
+</p>
+
+<p>
+<b>Reward Shaping</b>
+</p>
+
+<p>
+$V^*_\gamma(s) = \hat{V}^*_\gamma(s) + \phi(s)$
+</p>
+
+<div class="smaller" id="org01e93ed">
+<p>
+$\phi(s)=$ 距離の見積もり $h(s)$
+</p>
+
+<p>
+Sparse Reward を解決
+</p>
+
+</div></li>
+</ul>
+
+</div>
+
+</div>
+<div class="row-fluid" id="org8313010">
+<div class="span6" id="org2b68ac7">
+<ul class="org-ul">
+<li><p>
+<b>Discounting</b>
+</p>
+
+<p>
+$h_\gamma(s)  = \dfrac{1 - \gamma^{h(s)}}{1 - \gamma}$
+</p>
+
+<p>
+$V(s) = \log_\gamma (1 - (1 - \gamma)V_\gamma(s))$
+</p>
+
+<div class="smaller" id="orgcca1a64">
+<p>
+これがないと
+</p>
+
+<p>
+$h(s)=\infty$ のとき死ぬ
+</p>
+
+</div></li>
+</ul>
+
+</div>
+<div class="span6" id="org889d28e">
+<ul class="org-ul">
+<li><p>
+<b>First-Order Logic Input</b>
+</p>
+
+
+<div id="orgbe20f78" class="figure">
+<p><img src="img/pddlrl/nlm.png" alt="nlm.png" />
+</p>
+</div>
+
+<div class="smaller" id="orgc07223a">
+<p>
+異なるサイズの問題に汎化
+</p>
+
+</div></li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="smaller" id="org5cad355">
+<ul class="org-ul">
+<li><p>
+<b>Q: RLだけで 古典プランニングを解けるか?</b> (A: <b>不可</b>)
+</p>
+
+<p>
+<b>Q: RLだけで プランニングを高速化できるか?</b> (A: <b>不可</b>)
+</p>
+
+<p>
+<b>Q: プランニングの道具と適切に組み合わせれば?</b> <b><i>(A: 可)</i></b>
+</p>
+
+<p>
+Lessons learned: <b><i>古典プランニングを甘く見るな</i></b>
+</p></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org97e91fd" class="outline-2">
+<h2 id="org97e91fd"><span class="section-number-2">29.</span> IJCAI24</h2>
+<div class="outline-text-2" id="text-29">
+
+<div id="orgbdafcab" class="figure">
+<p><img src="img/truncated-gaussian/title.png" alt="title.png" />
+</p>
+</div>
+
+
+
+<div class="xlarge" id="org037c34d">
+<div class="org-center">
+<p>
+RL 嫌いなんで &#x2026; 教師あり学習!
+</p>
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org35412b7" class="outline-2">
+<h2 id="org35412b7"><span class="section-number-2">30.</span> Task: Learn the shortest path cost</h2>
+<div class="outline-text-2" id="text-30">
+
+<div id="orga4fb034" class="figure">
+<p><img src="img/truncated-gaussian/1b.png" alt="1b.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf81ceea" class="outline-3">
+<h3 id="orgf81ceea"><span class="section-number-3">30.1.</span> Task: Learn the shortest path cost</h3>
+<div class="outline-text-3" id="text-30-1">
+
+<div id="orgc6df2e3" class="figure">
+<p><img src="img/truncated-gaussian/1a.png" alt="1a.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbff2a07" class="outline-3">
+<h3 id="orgbff2a07"><span class="section-number-3">30.2.</span> Task: Learn the shortest path cost</h3>
+<div class="outline-text-3" id="text-30-2">
+
+<div id="orgb5136ec" class="figure">
+<p><img src="img/truncated-gaussian/1.png" alt="1.png" />
+</p>
+</div>
+
+<div class="larger" id="org7c5d01f">
+<div class="org-center">
+<ul class="org-ul">
+<li><b>Q: Can we exploit the <i>admissibility</i> of heuristics</b> in training?</li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org51e7a37" class="outline-2">
+<h2 id="org51e7a37"><span class="section-number-2">31.</span> Stop using (Mean) Square Errors!</h2>
+<div class="outline-text-2" id="text-31">
+
+<div id="org1239c53" class="figure">
+<p><img src="img/truncated-gaussian/2j.png" alt="2j.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org859b83e" class="outline-3">
+<h3 id="org859b83e"><span class="section-number-3">31.1.</span> Stop using (Mean) Square Errors!</h3>
+<div class="outline-text-3" id="text-31-1">
+
+<div id="orga881532" class="figure">
+<p><img src="img/truncated-gaussian/2i.png" alt="2i.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeccd8f8" class="outline-3">
+<h3 id="orgeccd8f8"><span class="section-number-3">31.2.</span> Stop using (Mean) Square Errors!</h3>
+<div class="outline-text-3" id="text-31-2">
+
+<div id="orgae3e5fb" class="figure">
+<p><img src="img/truncated-gaussian/2h.png" alt="2h.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8c97eda" class="outline-3">
+<h3 id="org8c97eda"><span class="section-number-3">31.3.</span> Stop using (Mean) Square Errors!</h3>
+<div class="outline-text-3" id="text-31-3">
+
+<div id="orgdaa616c" class="figure">
+<p><img src="img/truncated-gaussian/2g.png" alt="2g.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org105d630" class="outline-3">
+<h3 id="org105d630"><span class="section-number-3">31.4.</span> Stop using (Mean) Square Errors!</h3>
+<div class="outline-text-3" id="text-31-4">
+
+<div id="orgbc9301f" class="figure">
+<p><img src="img/truncated-gaussian/2f.png" alt="2f.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge99ddf9" class="outline-3">
+<h3 id="orge99ddf9"><span class="section-number-3">31.5.</span> Stop using (Mean) Square Errors!</h3>
+<div class="outline-text-3" id="text-31-5">
+
+<div id="org63108f2" class="figure">
+<p><img src="img/truncated-gaussian/2e.png" alt="2e.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org73ebc4b" class="outline-3">
+<h3 id="org73ebc4b"><span class="section-number-3">31.6.</span> Stop using (Mean) Square Errors!</h3>
+<div class="outline-text-3" id="text-31-6">
+
+<div id="org93fc532" class="figure">
+<p><img src="img/truncated-gaussian/2d.png" alt="2d.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4ce7efd" class="outline-3">
+<h3 id="org4ce7efd"><span class="section-number-3">31.7.</span> Stop using (Mean) Square Errors!</h3>
+<div class="outline-text-3" id="text-31-7">
+
+<div id="org28d9ab2" class="figure">
+<p><img src="img/truncated-gaussian/2c.png" alt="2c.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org76d1c82" class="outline-3">
+<h3 id="org76d1c82"><span class="section-number-3">31.8.</span> Stop using (Mean) Square Errors!</h3>
+<div class="outline-text-3" id="text-31-8">
+
+<div id="org96a5fe8" class="figure">
+<p><img src="img/truncated-gaussian/2b.png" alt="2b.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org35c41cd" class="outline-3">
+<h3 id="org35c41cd"><span class="section-number-3">31.9.</span> Stop using (Mean) Square Errors!</h3>
+<div class="outline-text-3" id="text-31-9">
+
+<div id="orgf4a022b" class="figure">
+<p><img src="img/truncated-gaussian/2a.png" alt="2a.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org94ce776" class="outline-3">
+<h3 id="org94ce776"><span class="section-number-3">31.10.</span> Stop using (Mean) Square Errors!</h3>
+<div class="outline-text-3" id="text-31-10">
+
+<div id="orgd4de550" class="figure">
+<p><img src="img/truncated-gaussian/2.png" alt="2.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4f60d45" class="outline-2">
+<h2 id="org4f60d45"><span class="section-number-2">32.</span> </h2>
+<div class="outline-text-2" id="text-32">
+
+<div id="org07ee511" class="figure">
+<p><img src="img/truncated-gaussian/3c.png" alt="3c.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge9aaa3a" class="outline-3">
+<h3 id="orge9aaa3a"><span class="section-number-3">32.1.</span> </h3>
+<div class="outline-text-3" id="text-32-1">
+
+<div id="orgf6ed7bf" class="figure">
+<p><img src="img/truncated-gaussian/3b.png" alt="3b.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb4a06b6" class="outline-3">
+<h3 id="orgb4a06b6"><span class="section-number-3">32.2.</span> </h3>
+<div class="outline-text-3" id="text-32-2">
+
+<div id="orgeda0893" class="figure">
+<p><img src="img/truncated-gaussian/3a.png" alt="3a.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org51925d2" class="outline-3">
+<h3 id="org51925d2"><span class="section-number-3">32.3.</span> </h3>
+<div class="outline-text-3" id="text-32-3">
+
+<div id="org5fe4634" class="figure">
+<p><img src="img/truncated-gaussian/3.png" alt="3.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org97c1aab" class="outline-2">
+<h2 id="org97c1aab"><span class="section-number-2">33.</span> Thinking with Distributions</h2>
+<div class="outline-text-2" id="text-33">
+<p>
+Is $\mathcal{N}(\mu,\sigma)$ the correct distribution for $h^*$?
+</p>
+
+
+<div id="org3cb8de6" class="figure">
+<p><img src="img/truncated-gaussian/4e.png" alt="4e.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org43ea2dd" class="outline-3">
+<h3 id="org43ea2dd"><span class="section-number-3">33.1.</span> Thinking with Distributions</h3>
+<div class="outline-text-3" id="text-33-1">
+<p>
+Is $\mathcal{N}(\mu,\sigma)$ the correct distribution for $h^*$?
+</p>
+
+
+<div id="orgdf34534" class="figure">
+<p><img src="img/truncated-gaussian/4d.png" alt="4d.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org840a56c" class="outline-3">
+<h3 id="org840a56c"><span class="section-number-3">33.2.</span> Thinking with Distributions</h3>
+<div class="outline-text-3" id="text-33-2">
+<p>
+Is $\mathcal{N}(\mu,\sigma)$ the correct distribution for $h^*$?
+</p>
+
+
+<div id="org84b5a2c" class="figure">
+<p><img src="img/truncated-gaussian/4c.png" alt="4c.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org91adc5a" class="outline-3">
+<h3 id="org91adc5a"><span class="section-number-3">33.3.</span> Thinking with Distributions</h3>
+<div class="outline-text-3" id="text-33-3">
+<p>
+Is $\mathcal{N}(\mu,\sigma)$ the correct distribution for $h^*$?
+</p>
+
+
+<div id="org0e2fb3f" class="figure">
+<p><img src="img/truncated-gaussian/4b.png" alt="4b.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2d62b2c" class="outline-3">
+<h3 id="org2d62b2c"><span class="section-number-3">33.4.</span> Thinking with Distributions</h3>
+<div class="outline-text-3" id="text-33-4">
+<p>
+Is $\mathcal{N}(\mu,\sigma)$ the correct distribution for $h^*$?
+</p>
+
+
+<div id="orgeb014a5" class="figure">
+<p><img src="img/truncated-gaussian/4a.png" alt="4a.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3ea8e38" class="outline-3">
+<h3 id="org3ea8e38"><span class="section-number-3">33.5.</span> Thinking with Distributions</h3>
+<div class="outline-text-3" id="text-33-5">
+<p>
+Is $\mathcal{N}(\mu,\sigma)$ the correct distribution for $h^*$?
+</p>
+
+
+<div id="org898fc38" class="figure">
+<p><img src="img/truncated-gaussian/4.png" alt="4.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org50d74c4" class="outline-2">
+<h2 id="org50d74c4"><span class="section-number-2">34.</span> What is the correct distribution?</h2>
+<div class="outline-text-2" id="text-34">
+<ul class="org-ul">
+<li><p>
+Follow the <b><i>Maximum Entropy Principle</i></b> (Jaynes 1957):
+</p>
+
+<blockquote>
+<ul class="org-ul">
+<li><i>Choose the distribution with the <b>largest entropy</b></i></li>
+<li><i>among those that satisfy the <b>expert knowledge / constraint</b>.</i></li>
+</ul>
+</blockquote></li>
+
+<li><div class="alignright" id="org540031c">
+<div class="larger" id="orgf1966e2">
+<p>
+↪ We know a lower bound $h\le h^*$ !
+</p>
+
+<p>
+<b>This is our expert knowledge!</b>
+</p>
+
+</div>
+
+</div></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgffb6b8a" class="outline-2">
+<h2 id="orgffb6b8a"><span class="section-number-2">35.</span> What is the max-ent distribution for our assumption?</h2>
+<div class="outline-text-2" id="text-35">
+
+<div id="orgab3424b" class="figure">
+<p><img src="img/truncated-gaussian/5c.png" alt="5c.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgadd0f3e" class="outline-3">
+<h3 id="orgadd0f3e"><span class="section-number-3">35.1.</span> What is the max-ent distribution for our assumption?</h3>
+<div class="outline-text-3" id="text-35-1">
+
+<div id="org4c6f5fa" class="figure">
+<p><img src="img/truncated-gaussian/5b.png" alt="5b.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb07f1b2" class="outline-3">
+<h3 id="orgb07f1b2"><span class="section-number-3">35.2.</span> What is the max-ent distribution for our assumption?</h3>
+<div class="outline-text-3" id="text-35-2">
+
+<div id="org5f95a9c" class="figure">
+<p><img src="img/truncated-gaussian/5a.png" alt="5a.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6642db2" class="outline-3">
+<h3 id="org6642db2"><span class="section-number-3">35.3.</span> Results</h3>
+<div class="outline-text-3" id="text-35-3">
+
+<div id="org71973f9" class="figure">
+<p><img src="img/truncated-gaussian/6.png" alt="6.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2ddc2bc" class="outline-2">
+<h2 id="org2ddc2bc"><span class="section-number-2">36.</span> IJCAI 2024 : Conclusion</h2>
+<div class="outline-text-2" id="text-36">
+<div class="container-fluid" id="org6ba7290">
+<div class="row-fluid" id="org552af06">
+<div class="span6" id="org5a2d4f9">
+<ul class="org-ul">
+<li><p>
+<b>We learn</b> $h^*$
+</p>
+
+
+<div id="org558353a" class="figure">
+<p><img src="img/truncated-gaussian/1.png" alt="1.png" />
+</p>
+</div></li>
+</ul>
+
+</div>
+<div class="span6" id="org93e7e89">
+<ul class="org-ul">
+<li><p>
+<b>Square error = Gaussian</b>
+</p>
+
+
+<div id="org4588958" class="figure">
+<p><img src="img/truncated-gaussian/3.png" alt="3.png" />
+</p>
+</div></li>
+</ul>
+
+</div>
+
+</div>
+<div class="row-fluid" id="org9d99de0">
+<div class="span6" id="org84d4c8f">
+<ul class="org-ul">
+<li><p>
+<b>Gaussian is a lie</b>
+</p>
+
+
+<div id="org299cdaf" class="figure">
+<p><img src="img/truncated-gaussian/4.png" alt="4.png" />
+</p>
+</div></li>
+</ul>
+
+</div>
+<div class="span6" id="orge14ae4c">
+<ul class="org-ul">
+<li><p>
+<b>Max-ent: Truncated Gaussian</b>
+</p>
+
+
+<div id="orge21f3f9" class="figure">
+<p><img src="img/truncated-gaussian/5a.png" alt="5a.png" />
+</p>
+</div></li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<p>
+Take-home message: <b>Whenever you see a square error, doubt it!</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org75bb746" class="outline-2">
+<h2 id="org75bb746"><span class="section-number-2">37.</span> 理性的な実世界エージェントのアーキテクチャ</h2>
+<div class="outline-text-2" id="text-37">
+<div class="container-fluid" id="org9db3329">
+<div class="row-fluid" id="org0bb77d8">
+<div class="span3" id="org9dd4d81">
+
+<div id="org66fd107" class="figure">
+<p><img src="img/static/mars/yoda-hmph.gif" alt="yoda-hmph.gif" />
+</p>
+</div>
+
+</div>
+<div class="span9" id="org817f20b">
+
+<div id="org9a52115" class="figure">
+<p><img src="img/nesyarch/0b.png" alt="0b.png" />
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org04e17a8" class="outline-2">
+<h2 id="org04e17a8"><span class="section-number-2">38.</span> 探索アルゴリズムの改善:</h2>
+<div class="outline-text-2" id="text-38">
+<div class="container-fluid" id="org48a0863">
+<div class="row-fluid" id="orgaaa6d07">
+<div class="span6" id="org325b679">
+<div class="xlarge" id="org0f0bfe1">
+<div class="org-center">
+<p>
+MCTS + Gaussian Bandit
+</p>
+
+<p>
+(ECAI 2024)
+</p>
+</div>
+
+</div>
+
+</div>
+<div class="span6" id="orge18c432">
+<div class="xlarge" id="orgc88ea6a">
+<div class="org-center">
+<p>
+MCTS + Power Bandit
+</p>
+
+<p>
+(SoCS 2024 extended abstract)
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4e2cd90" class="outline-2">
+<h2 id="org4e2cd90"><span class="section-number-2">39.</span> ECAI 2024</h2>
+<div class="outline-text-2" id="text-39">
+
+<div id="orgb9074cb" class="figure">
+<p><img src="img/scale-invariant/title.png" alt="title.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc41ca4d" class="outline-2">
+<h2 id="orgc41ca4d"><span class="section-number-2">40.</span> Monte Carlo Tree Search (General version)</h2>
+<div class="outline-text-2" id="text-40">
+
+<div id="org6e9fdd8" class="figure">
+<p><img src="img/search/mcts01.png" alt="mcts01.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0c53d1a" class="outline-3">
+<h3 id="org0c53d1a"><span class="section-number-3">40.1.</span> Monte Carlo Tree Search (General version)</h3>
+<div class="outline-text-3" id="text-40-1">
+
+<div id="org520e127" class="figure">
+<p><img src="img/search/mcts02.png" alt="mcts02.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org061c85c" class="outline-3">
+<h3 id="org061c85c"><span class="section-number-3">40.2.</span> Monte Carlo Tree Search (General version)</h3>
+<div class="outline-text-3" id="text-40-2">
+
+<div id="orgcfaca6c" class="figure">
+<p><img src="img/search/mcts03.png" alt="mcts03.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcfff3f6" class="outline-3">
+<h3 id="orgcfff3f6"><span class="section-number-3">40.3.</span> Monte Carlo Tree Search (General version)</h3>
+<div class="outline-text-3" id="text-40-3">
+
+<div id="org5215bf1" class="figure">
+<p><img src="img/search/mcts04.png" alt="mcts04.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdd9e63b" class="outline-3">
+<h3 id="orgdd9e63b"><span class="section-number-3">40.4.</span> Monte Carlo Tree Search (General version)</h3>
+<div class="outline-text-3" id="text-40-4">
+
+<div id="org883d5ce" class="figure">
+<p><img src="img/search/mcts05.png" alt="mcts05.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0d7b126" class="outline-3">
+<h3 id="org0d7b126"><span class="section-number-3">40.5.</span> Monte Carlo Tree Search (General version)</h3>
+<div class="outline-text-3" id="text-40-5">
+
+<div id="org3b939be" class="figure">
+<p><img src="img/search/mcts06.png" alt="mcts06.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1047c8c" class="outline-3">
+<h3 id="org1047c8c"><span class="section-number-3">40.6.</span> Monte Carlo Tree Search (General version)</h3>
+<div class="outline-text-3" id="text-40-6">
+
+<div id="orgebc5c13" class="figure">
+<p><img src="img/search/mcts07.png" alt="mcts07.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org93f7f6d" class="outline-3">
+<h3 id="org93f7f6d"><span class="section-number-3">40.7.</span> Monte Carlo Tree Search (General version)</h3>
+<div class="outline-text-3" id="text-40-7">
+
+<div id="org6f9515f" class="figure">
+<p><img src="img/search/mcts08.png" alt="mcts08.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org699e493" class="outline-3">
+<h3 id="org699e493"><span class="section-number-3">40.8.</span> Monte Carlo Tree Search (General version)</h3>
+<div class="outline-text-3" id="text-40-8">
+
+<div id="org68a173c" class="figure">
+<p><img src="img/search/mcts08.png" alt="mcts08.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">　　　　　　</th>
+<th scope="col" class="org-left">Heuristic function 　</th>
+<th scope="col" class="org-left">　　　　　　　　　　　</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Game</td>
+<td class="org-left">✗ Hand-coded</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">(e.g., Go)</td>
+<td class="org-left">✗ Not accurate</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">　　　　　　</td>
+<td class="org-left">　</td>
+<td class="org-left">　</td>
+</tr>
+
+<tr>
+<td class="org-left">　　　　　　</td>
+<td class="org-left">　</td>
+<td class="org-left">　</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org8da78df" class="outline-3">
+<h3 id="org8da78df"><span class="section-number-3">40.9.</span> Monte Carlo Tree Search (General version)</h3>
+<div class="outline-text-3" id="text-40-9">
+
+<div id="org2299e32" class="figure">
+<p><img src="img/search/mcts08.png" alt="mcts08.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">　　　　　　</th>
+<th scope="col" class="org-left">Heuristic function 　</th>
+<th scope="col" class="org-left">Simulation / Rollout</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Game</td>
+<td class="org-left">✗ Hand-coded</td>
+<td class="org-left">✔ Finite horizon (9x9)</td>
+</tr>
+
+<tr>
+<td class="org-left">(e.g., Go)</td>
+<td class="org-left">✗ Not accurate</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">　　　　　　</td>
+<td class="org-left">　</td>
+<td class="org-left">　</td>
+</tr>
+
+<tr>
+<td class="org-left">　　　　　　</td>
+<td class="org-left">　</td>
+<td class="org-left">　</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org20269a5" class="outline-3">
+<h3 id="org20269a5"><span class="section-number-3">40.10.</span> Monte Carlo Tree Search (General version)</h3>
+<div class="outline-text-3" id="text-40-10">
+
+<div id="orgba8fd48" class="figure">
+<p><img src="img/search/mcts08.png" alt="mcts08.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">　　　　　　</th>
+<th scope="col" class="org-left">Heuristic function 　</th>
+<th scope="col" class="org-left">Simulation / Rollout</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Game</td>
+<td class="org-left">✗ Hand-coded</td>
+<td class="org-left">✔ Finite horizon (9x9)</td>
+</tr>
+
+<tr>
+<td class="org-left">(e.g., Go)</td>
+<td class="org-left">✗ Not accurate</td>
+<td class="org-left">✔ Dense reward</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">　　　　　　</td>
+<td class="org-left">　</td>
+<td class="org-left">　</td>
+</tr>
+
+<tr>
+<td class="org-left">　　　　　　</td>
+<td class="org-left">　</td>
+<td class="org-left">　</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org3baf54d" class="outline-3">
+<h3 id="org3baf54d"><span class="section-number-3">40.11.</span> Monte Carlo Tree Search (General version)</h3>
+<div class="outline-text-3" id="text-40-11">
+
+<div id="org2f2387f" class="figure">
+<p><img src="img/search/mcts08.png" alt="mcts08.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">　　　　　　</th>
+<th scope="col" class="org-left">Heuristic function 　</th>
+<th scope="col" class="org-left">Simulation / Rollout</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Game</td>
+<td class="org-left">✗ Hand-coded</td>
+<td class="org-left">✔ Finite horizon (9x9)</td>
+</tr>
+
+<tr>
+<td class="org-left">(e.g., Go)</td>
+<td class="org-left">✗ Not accurate</td>
+<td class="org-left">✔ Dense reward</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Classical</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Planning</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org8c254c6" class="outline-3">
+<h3 id="org8c254c6"><span class="section-number-3">40.12.</span> Monte Carlo Tree Search (General version)</h3>
+<div class="outline-text-3" id="text-40-12">
+
+<div id="org2327418" class="figure">
+<p><img src="img/search/mcts08.png" alt="mcts08.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">　　　　　　</th>
+<th scope="col" class="org-left">Heuristic function 　</th>
+<th scope="col" class="org-left">Simulation / Rollout</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Game</td>
+<td class="org-left">✗ Hand-coded</td>
+<td class="org-left">✔ Finite horizon (9x9)</td>
+</tr>
+
+<tr>
+<td class="org-left">(e.g., Go)</td>
+<td class="org-left">✗ Not accurate</td>
+<td class="org-left">✔ Dense reward</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Classical</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">✗ Infinite horizon</td>
+</tr>
+
+<tr>
+<td class="org-left">Planning</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org54a72ae" class="outline-3">
+<h3 id="org54a72ae"><span class="section-number-3">40.13.</span> Monte Carlo Tree Search (General version)</h3>
+<div class="outline-text-3" id="text-40-13">
+
+<div id="org0e3ad27" class="figure">
+<p><img src="img/search/mcts08.png" alt="mcts08.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">　　　　　　</th>
+<th scope="col" class="org-left">Heuristic function 　</th>
+<th scope="col" class="org-left">Simulation / Rollout</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Game</td>
+<td class="org-left">✗ Hand-coded</td>
+<td class="org-left">✔ Finite horizon (9x9)</td>
+</tr>
+
+<tr>
+<td class="org-left">(e.g., Go)</td>
+<td class="org-left">✗ Not accurate</td>
+<td class="org-left">✔ Dense reward</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Classical</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">✗ Infinite horizon</td>
+</tr>
+
+<tr>
+<td class="org-left">Planning</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">✗ Sparse reward</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org4d50898" class="outline-3">
+<h3 id="org4d50898"><span class="section-number-3">40.14.</span> Monte Carlo Tree Search (General version)</h3>
+<div class="outline-text-3" id="text-40-14">
+
+<div id="orgbe9d522" class="figure">
+<p><img src="img/search/mcts08.png" alt="mcts08.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">　　　　　　</th>
+<th scope="col" class="org-left">Heuristic function 　</th>
+<th scope="col" class="org-left">Simulation / Rollout</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Game</td>
+<td class="org-left">✗ Hand-coded</td>
+<td class="org-left">✔ Finite horizon (9x9)</td>
+</tr>
+
+<tr>
+<td class="org-left">(e.g., Go)</td>
+<td class="org-left">✗ Not accurate</td>
+<td class="org-left">✔ Dense reward</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Classical</td>
+<td class="org-left">✔ Automated</td>
+<td class="org-left">✗ Infinite horizon</td>
+</tr>
+
+<tr>
+<td class="org-left">Planning</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">✗ Sparse reward</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgcb571dc" class="outline-3">
+<h3 id="orgcb571dc"><span class="section-number-3">40.15.</span> Monte Carlo Tree Search (General version)</h3>
+<div class="outline-text-3" id="text-40-15">
+
+<div id="orgfb2cabd" class="figure">
+<p><img src="img/search/mcts08.png" alt="mcts08.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">　　　　　　</th>
+<th scope="col" class="org-left"><b><i>Heuristic function</i></b> 　</th>
+<th scope="col" class="org-left">Simulation / Rollout</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Game</td>
+<td class="org-left">✗ Hand-coded</td>
+<td class="org-left">✔ Finite horizon (9x9)</td>
+</tr>
+
+<tr>
+<td class="org-left">(e.g., Go)</td>
+<td class="org-left">✗ Not accurate</td>
+<td class="org-left">✔ Dense reward</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Classical</td>
+<td class="org-left">✔ Automated</td>
+<td class="org-left">✗ Infinite horizon</td>
+</tr>
+
+<tr>
+<td class="org-left">Planning</td>
+<td class="org-left">✔ Domain-Independent</td>
+<td class="org-left">✗ Sparse reward</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf0a44b5" class="outline-2">
+<h2 id="orgf0a44b5"><span class="section-number-2">41.</span> Backup in MCTS : Avg</h2>
+<div class="outline-text-2" id="text-41">
+
+<div id="org7ea8df5" class="figure">
+<p><img src="img/tree-based/1.png" alt="1.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4cdabd6" class="outline-3">
+<h3 id="org4cdabd6"><span class="section-number-3">41.1.</span> Backup in MCTS : Avg vs. Min</h3>
+<div class="outline-text-3" id="text-41-1">
+
+<div id="org90726d0" class="figure">
+<p><img src="img/tree-based/2.png" alt="2.png" />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org002d39e" class="outline-3">
+<h3 id="org002d39e"><span class="section-number-3">41.2.</span> Backup in MCTS : Avg vs. Min = <b><i>GBFS, A*</i></b></h3>
+<div class="outline-text-3" id="text-41-2">
+
+<div id="orgc2bd20e" class="figure">
+<p><img src="img/tree-based/3.png" alt="3.png" />
+</p>
+</div>
+
+<div class="org-center">
+<div class="xlarge" id="org7701015">
+<ul class="org-ul">
+<li><b>GBFS: Traditional SotA</b></li>
+<li><p>
+UCT has been <span class="underline"><i>bad</i></span>
+</p>
+
+<p>
+(UCT = MCTS+UCB1)
+</p></li>
+</ul>
+
+</div>
+</div>
+
+<div class="note" id="orgdeae269">
+<p>
+Schulte and Keller. "Balancing exploration and exploitation in classical planning." SOCS, 2014
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf019104" class="outline-2">
+<h2 id="orgf019104"><span class="section-number-2">42.</span> Why: <b><i>Poor theoretical understanding</i></b> of bandits.</h2>
+<div class="outline-text-2" id="text-42">
+<blockquote>
+<p>
+$\text{UCB1}_i = \mu_i-c\sqrt{\frac{\log N}{n_i}}$ , <b>for</b> $\mu_i \in [0,c]$
+</p>
+
+<div class="org-center">
+<p>
+$N$: parent visit, $n_i$: visit for child $i$
+</p>
+
+<p>
+$\mu_i$ : mean over the subtree of $i$
+</p>
+</div>
+</blockquote>
+
+<ul class="org-ul">
+<li><b>Rewards must have a <i>known, fixed, shared reward range</i></b>.
+
+<ul class="org-ul">
+<li><p>
+But $h(s)$ <b>have <i>no known range!</i></b>
+</p>
+
+<p>
+<span class="underline">Requirments unsatisfied. All theoretical guarantees violated.</span>
+</p></li>
+</ul></li>
+
+<li><p>
+<b>Our solution: Gaussian Bandit</b> defined on <b>Entire</b> $\mathbb{R}=[-\infty,\infty]$
+</p>
+
+<blockquote>
+<p>
+$\text{UCB1-Normal2}_i = \mu_i-\sigma_i \sqrt{\log N}$ , <b>for</b> $\mu_i \in \mathbb{R}$
+</p>
+
+<div class="org-center">
+<p>
+$\mu_i, \sigma_i$ : mean / stdev over the subtree of $i$
+</p>
+</div>
+</blockquote></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org01dd2e7" class="outline-2">
+<h2 id="org01dd2e7"><span class="section-number-2">43.</span> Results (ECAI 2024)</h2>
+<div class="outline-text-2" id="text-43">
+
+<div id="org6ec4805" class="figure">
+<p><img src="img/static/ecai24-results.png" alt="ecai24-results.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5207336" class="outline-2">
+<h2 id="org5207336"><span class="section-number-2">44.</span> New Algorithm : Model the minimum <b><i>correctly</i></b></h2>
+<div class="outline-text-2" id="text-44">
+<p>
+Fit the data to&#x2026;
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-center" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">UCB1</td>
+<td class="org-left"><b>a <i>known</i> finite support distribution</b></td>
+<td class="org-center">$[0,1]$ , $[3,5]$</td>
+</tr>
+
+<tr>
+<td class="org-left">UCB1-Normal</td>
+<td class="org-left"><b>a Gaussian distribution</b></td>
+<td class="org-center">$[-\infty,\infty]$</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<ul class="org-ul">
+<li><b>Do heuristics have <i>known</i> bounds e.g. $[3,5]$ ? <i>No!</i></b></li>
+
+<li><p>
+<b>Are heuristic samples $\in[-\infty,\infty]$ ? <i>No! It is non-negative!</i></b>
+</p>
+
+<p>
+$0 \ge h(s)$
+</p></li>
+</ul>
+
+<div class="larger" id="orgdb8af4a">
+<div class="org-center">
+<ul class="org-ul">
+<li><b>Gaussian assumption is <i>STILL WRONG</i></b></li>
+</ul>
+</div>
+
+</div>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-orgdfae573" class="outline-2">
+<h2 id="orgdfae573"><span class="section-number-2">45.</span> What distribution is the right answer?</h2>
+<div class="outline-text-2" id="text-45">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">Range</th>
+<th scope="col" class="org-left">How it is distributed?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Gaussian</td>
+<td class="org-left"><span class="underline"><i>Unbounded</i></span> ✗</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Exponential</td>
+<td class="org-left"><b><i>Half-Bounded</i></b></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Uniform</td>
+<td class="org-left"><b><i>Bounded</i></b></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">　　　　　　　　　　　　　　　　　</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<div id="org7c7bcb8" class="figure">
+<p><img src="img/scale-invariant/candidate-distribution.png" alt="candidate-distribution.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org101755f" class="outline-3">
+<h3 id="org101755f"><span class="section-number-3">45.1.</span> What distribution is the right answer?</h3>
+<div class="outline-text-3" id="text-45-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">Range</th>
+<th scope="col" class="org-left">How it is distributed?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Gaussian</td>
+<td class="org-left"><span class="underline"><i>Unbounded</i></span> ✗</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Exponential</td>
+<td class="org-left"><b><i>Half-Bounded</i></b></td>
+<td class="org-left"><span class="underline"><i>Smallest value is most common</i></span> ✗</td>
+</tr>
+
+<tr>
+<td class="org-left">Uniform</td>
+<td class="org-left"><b><i>Bounded</i></b></td>
+<td class="org-left">Equally likely around min and max</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">　　　　　　　　　　　　　　　　　</td>
+</tr>
+</tbody>
+</table>
+
+
+<div id="org4f7528d" class="figure">
+<p><img src="img/scale-invariant/candidate-distribution.png" alt="candidate-distribution.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7ec2516" class="outline-3">
+<h3 id="org7ec2516"><span class="section-number-3">45.2.</span> What distribution is the right answer?</h3>
+<div class="outline-text-3" id="text-45-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">Range</th>
+<th scope="col" class="org-left">How it is distributed?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Gaussian</td>
+<td class="org-left"><span class="underline"><i>Unbounded</i></span> ✗</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Exponential</td>
+<td class="org-left"><b><i>Half-Bounded</i></b></td>
+<td class="org-left"><span class="underline"><i>Smallest value is most common</i></span> ✗</td>
+</tr>
+
+<tr>
+<td class="org-left">Uniform</td>
+<td class="org-left"><b><i>Bounded</i></b></td>
+<td class="org-left">Equally likely around min and max</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Power</b></td>
+<td class="org-left"><b><i>Bounded</i></b></td>
+<td class="org-left"><b><i>Smallest value is rare</i></b></td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">　　　　　　　　　　　　　　　　　</td>
+</tr>
+</tbody>
+</table>
+
+
+<div id="org9de6d70" class="figure">
+<p><img src="img/scale-invariant/power.png" alt="power.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org67bc7a2" class="outline-2">
+<h2 id="org67bc7a2"><span class="section-number-2">46.</span> But Why? <b><i>What theory</i></b> justifies Power?</h2>
+<div class="outline-text-2" id="text-46">
+<p>
+<b>Central Limit Theorem</b>: Given i.i.d. RVs $x_0, \ldots x_n$, there is a sequence $a_n&gt;0, b_n$ s.t. $\exists \mu, \sigma$
+</p>
+
+<p>
+\[
+ S_n= \sum_{i=0}^n \frac{x_i-b_n}{a_n}  \longrightarrow \mathcal{N}(\mu, \sigma)
+\]
+</p>
+</div>
+
+<div id="outline-container-org1fd7a58" class="outline-3">
+<h3 id="org1fd7a58"><span class="section-number-3">46.1.</span> But Why? <b><i>What theory</i></b> justifies Power?</h3>
+<div class="outline-text-3" id="text-46-1">
+<p>
+<b>Central Limit Theorem</b>: Given i.i.d. RVs $x_0, \ldots x_n$, there is a sequence $a_n&gt;0, b_n$ s.t. $\exists \mu, \sigma$
+</p>
+
+<p>
+\[
+ S_n= \sum_{i=0}^n \frac{x_i-b_n}{a_n}  \longrightarrow \mathcal{N}(\mu, \sigma)
+\]
+</p>
+
+<p>
+<b>Extreme Value Theorem type 1</b>: Given i.i.d. RVs $x_0, \ldots x_n$, there is a sequence $a_n&gt;0, b_n$ s.t. $\exists \mu, \sigma, \xi$
+</p>
+
+<p>
+\[
+ M_n= \max     \frac{x_i-b_n}{a_n}  \longrightarrow \mathrm{EVD}(\mu, \sigma, \xi)
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org291293a" class="outline-3">
+<h3 id="org291293a"><span class="section-number-3">46.2.</span> But Why? <b><i>What theory</i></b> justifies Power?</h3>
+<div class="outline-text-3" id="text-46-2">
+<p>
+<b>Central Limit Theorem</b>: Given i.i.d. RVs $x_0, \ldots x_n$, there is a sequence $a_n&gt;0, b_n$ s.t. $\exists \mu, \sigma$
+</p>
+
+<p>
+\[
+ S_n= \sum_{i=0}^n \frac{x_i-b_n}{a_n}  \longrightarrow \mathcal{N}(\mu, \sigma)
+\]
+</p>
+
+<p>
+<b>Extreme Value Theorem type 1</b>: Given i.i.d. RVs $x_0, \ldots x_n$, there is a sequence $a_n&gt;0, b_n$ s.t. $\exists \mu, \sigma, \xi$
+</p>
+
+<p>
+\[
+ M_n= \max     \frac{x_i-b_n}{a_n}  \longrightarrow \mathrm{EVD}(\mu, \sigma, \xi)
+\]
+</p>
+
+<p>
+<b><i>Extreme Value Theorem type 2</i></b>: Given i.i.d. RVs $x_0 &lt; \ldots &lt; x_k &lt; \ldots &lt; x_n$, there is a sequence $a_n&gt;0, b_n$ s.t. $\exists \mu, \sigma, \xi$
+</p>
+
+<p>
+\[
+  p(x | x &gt; x_k)  \longrightarrow \mathrm{GPD}(\mu, \sigma, \xi)
+\]
+</p>
+
+<p>
+$\mathrm{GPD}$ : <b><i>Generalized Pareto Distribution</i></b> is the way to go. <b>Why?</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org81b4692" class="outline-3">
+<h3 id="org81b4692"><span class="section-number-3">46.3.</span> Power, Uniform, Exponential, Pareto are special cases of Generalized Pareto $\mathrm{GPD}(\theta, \sigma, \xi)$.</h3>
+<div class="outline-text-3" id="text-46-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-center" />
+
+<col  class="org-center" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-center">min</th>
+<th scope="col" class="org-center">max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">$\xi&gt;0$ = Pareto</td>
+<td class="org-center">$\theta$</td>
+<td class="org-center">$\infty$</td>
+</tr>
+
+<tr>
+<td class="org-left">$\xi=0$ = Exponential</td>
+<td class="org-center">$\theta$</td>
+<td class="org-center">$\infty$</td>
+</tr>
+
+<tr>
+<td class="org-left">$\xi&lt;0$ = (Flipped) Power</td>
+<td class="org-center">$\theta$</td>
+<td class="org-center">$\theta-\frac{\sigma}{\xi}$</td>
+</tr>
+
+<tr>
+<td class="org-left">$\xi=-1$ = Uniform</td>
+<td class="org-center">$\theta$</td>
+<td class="org-center">$\theta-\frac{\sigma}{\xi}$</td>
+</tr>
+
+<tr>
+<td class="org-left">$\xi&lt;-1$</td>
+<td class="org-center">$\theta$</td>
+<td class="org-center">$\theta-\frac{\sigma}{\xi}$</td>
+</tr>
+</tbody>
+</table>
+
+
+<div id="org720ef90" class="figure">
+<p><img src="img/static/gpd.png" alt="gpd.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9c64192" class="outline-2">
+<h2 id="org9c64192"><span class="section-number-2">47.</span> Modeling the average</h2>
+<div class="outline-text-2" id="text-47">
+
+<div id="org45576ac" class="figure">
+<p><img src="img/clt-vs-evt/0.png" alt="0.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc78a8ce" class="outline-3">
+<h3 id="orgc78a8ce"><span class="section-number-3">47.1.</span> Modeling the average = Fitting the dist. with Gaussian</h3>
+<div class="outline-text-3" id="text-47-1">
+
+<div id="orgb701776" class="figure">
+<p><img src="img/clt-vs-evt/1.png" alt="1.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org733292c" class="outline-3">
+<h3 id="org733292c"><span class="section-number-3">47.2.</span> Modeling the maximum</h3>
+<div class="outline-text-3" id="text-47-2">
+
+<div id="org0d8d141" class="figure">
+<p><img src="img/clt-vs-evt/2.png" alt="2.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8a65ea4" class="outline-3">
+<h3 id="org8a65ea4"><span class="section-number-3">47.3.</span> Modeling the maximum = Fitting the tail dist. with GP</h3>
+<div class="outline-text-3" id="text-47-3">
+
+<div id="orgfecba5e" class="figure">
+<p><img src="img/clt-vs-evt/3.png" alt="3.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org164672e" class="outline-2">
+<h2 id="org164672e"><span class="section-number-2">48.</span> New Algorithm : Model the minimum <b><i>correctly</i></b></h2>
+<div class="outline-text-2" id="text-48">
+<p>
+Fitting GPD itself is <b>difficult</b> (computational issue)
+</p>
+
+<p>
+&rarr; fit subclasses: <b>Uniform</b> and <b>Power</b>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">Lower bound</th>
+<th scope="col" class="org-left">Upper bound</th>
+<th scope="col" class="org-left">Shape</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">UCB1</td>
+<td class="org-left"><span class="underline"><i>Known</i></span> $0$</td>
+<td class="org-left"><span class="underline"><i>Known</i></span> $1$</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">UCB1-Normal</td>
+<td class="org-left">$-\infty$</td>
+<td class="org-left">$\infty$</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>UCB1-Uniform</b></td>
+<td class="org-left"><b><i>Unknown</i></b> $\ell$</td>
+<td class="org-left"><b><i>Unknown</i></b> $u$</td>
+<td class="org-left"><span class="underline"><i>Fixed, Flat</i></span></td>
+</tr>
+
+<tr>
+<td class="org-left"><b>UCB1-Power</b></td>
+<td class="org-left"><span class="underline"><i>Known</i></span> $0$</td>
+<td class="org-left"><b><i>Unknown</i></b> $u$</td>
+<td class="org-left"><b><i>Rare near goals</i></b></td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+$\text{UCB1-Uniform}_i = \frac{u_i+l_i}{2} -(u_i-l_i)\sqrt{6n_i \log N}$
+</p>
+
+<p>
+$\text{UCB1-Power}_i = \frac{u_ia_i}{a_i+1} -u_i\sqrt{6n_i \log N}$
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org4d25eda" class="outline-2">
+<h2 id="org4d25eda"><span class="section-number-2">49.</span> Results (SoCS 2024 Extended Abstract)</h2>
+<div class="outline-text-2" id="text-49">
+
+<div id="org5c2475f" class="figure">
+<p><img src="img/static/extreme-results.png" alt="extreme-results.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfdbc2e9" class="outline-2">
+<h2 id="orgfdbc2e9"><span class="section-number-2">50.</span> ECAI 2024 + SoCS 2024: Conclusion</h2>
+<div class="outline-text-2" id="text-50">
+<div class="org-center">
+<div class="container-fluid" id="org4be3ce9">
+<div class="row-fluid" id="org26d42a2">
+<div class="span4" id="org9e1ed34">
+<ul class="org-ul">
+<li><p>
+<b>UCT is slow in</b>
+</p>
+
+<p>
+Classical Planning
+</p>
+
+<p>
+$\mu - c \sqrt{ \frac{\log N}{n_i} }$
+</p></li>
+
+<li><p>
+<b>Why?</b>
+</p>
+
+<p>
+$h(s) \not\in [0,c]$
+</p>
+
+<p>
+(fixed range)
+</p></li>
+</ul>
+
+</div>
+<div class="span4" id="orgf9d3b41">
+<ul class="org-ul">
+<li><p>
+(ECAI 2024)
+</p>
+
+<p>
+<b>Use Gaussian Bandit!</b>
+</p>
+
+<p>
+$\mu - \sigma \sqrt{ \log N }$
+</p>
+
+<p>
+
+</p>
+
+<p>
+$h(s) \in [-\infty,\infty]$
+</p>
+
+<p>
+
+</p></li>
+
+<li><p>
+<b><i>STILL WRONG!</i></b>
+</p>
+
+<p>
+$0 \le h(s)$
+</p></li>
+</ul>
+
+</div>
+<div class="span4" id="org351173a">
+<ul class="org-ul">
+<li><p>
+(SoCS 2024)
+</p>
+
+<p>
+<b>Use Uniform / Power!</b>
+</p>
+
+<p>
+$\frac{u_i+l_i}{2} -(u_i-l_i)\sqrt{6n_i \log N}$
+</p>
+
+<p>
+$\frac{u_ia_i}{a_i+1} -u_i\sqrt{6n_i \log N}$
+</p></li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="xlarge" id="org6b3b01b">
+<ul class="org-ul">
+<li>Use bandits correctly!</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org29006a0" class="outline-2">
+<h2 id="org29006a0"><span class="section-number-2">51.</span> Conclusion &amp; Take-home message</h2>
+<div class="outline-text-2" id="text-51">
+<div class="container-fluid" id="orgeb35d67">
+<div class="row-fluid" id="org1d9f2d5">
+<div class="span8" id="org37abe8c">
+<ul class="org-ul">
+<li>記号接地:
+<ul class="org-ul">
+<li>PDDLを <b>正しく</b> モデル化しよう!
+<ul class="org-ul">
+<li>→グラフィカルモデル</li>
+</ul></li>
+</ul></li>
+<li>ヒューリスティクス学習:
+<ul class="org-ul">
+<li>RL : Reward Shaping を <b>正しく</b> やろう!
+<ul class="org-ul">
+<li><b><i>Discouning</i></b> , <span class="underline"><i>Undiscounting</i></span></li>
+</ul></li>
+<li>SL : $h^*(s)$ を <b>正しく</b> モデル化しよう!
+<ul class="org-ul">
+<li>Truncated Gaussian</li>
+</ul></li>
+</ul></li>
+<li>探索アルゴリズム改善 / Bandit:
+<ul class="org-ul">
+<li>$h(s)$ を <b>正しく</b> モデル化しよう!
+<ul class="org-ul">
+<li>→ Gaussian, Power</li>
+</ul></li>
+</ul></li>
+</ul>
+
+</div>
+<div class="span4" id="orgcc3bef2">
+
+<div id="org301f1b4" class="figure">
+<p><img src="img/nesyarch/0b.png" alt="0b.png" />
+</p>
+</div>
+
+<div class="larger" id="org9ae8d53">
+<div class="org-center">
+<ul class="org-ul">
+<li><p>
+<b>正しさへの</b>
+</p>
+
+<p>
+<b>こだわりは</b>
+</p>
+
+<p>
+<b>いつか</b>
+</p>
+
+<p>
+<b>実を結ぶはず</b>
+</p>
+
+<p>
+(大変だけど)
+</p></li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge7c6de0" class="outline-2">
+<h2 id="orge7c6de0"><span class="section-number-2">52.</span> Deep RL は <b>正しい</b> か?</h2>
+<div class="outline-text-2" id="text-52">
+<ul class="org-ul">
+<li>研究のやり方に問題があるように思われる</li>
+</ul>
+
+<div class="container-fluid" id="org1482823">
+<div class="row-fluid" id="org178b0dd">
+<div class="span5" id="org4d91572">
+
+<div id="org2e61124" class="figure">
+<p><img src="img/nesyarch/0b.png" alt="0b.png" />
+</p>
+</div>
+
+<ul class="org-ul">
+<li>Deep RL は <b>全部ごった煮</b>
+<ul class="org-ul">
+<li>表現学習</li>
+<li>ヒューリスティック</li>
+<li>探索アルゴリズム</li>
+<li>Active Learning</li>
+<li>Contiual Learning</li>
+</ul></li>
+</ul>
+
+</div>
+<div class="span7" id="orgeaf8adb">
+<ul class="org-ul">
+<li><b><i>1つの変更で全部が影響受ける</i></b>
+<ul class="org-ul">
+<li>なぜ性能良くなったのか、わからなくない?</li>
+</ul></li>
+<li><b><i>再現性の問題も、ある&#x2026;</i></b>
+<ul class="org-ul">
+<li>Leslie Kaelbring: RLの評価は最低20シードないと認めない！</li>
+</ul></li>
+<li><span class="underline"><i>The science</i></span> as a <b>sane</b> researcher:
+<ul class="org-ul">
+<li><span class="underline"><i>Split</i></span> the architecture into parts</li>
+<li><span class="underline"><i>Study each part individually</i></span></li>
+<li><span class="underline"><i>Correct mathematical modeling</i></span></li>
+<li>こういうアプローチに立ち返るのがいいと思います&#x2026;</li>
+</ul></li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf6cea4c" class="outline-2">
+<h2 id="orgf6cea4c"><span class="section-number-2">53.</span> LLM + Planning (, Reasoning) が成功するには?</h2>
+<div class="outline-text-2" id="text-53">
+<p>
+単体ではおそらくプランニング不可 by Rao (Subbarao Kambhampati)
+</p>
+
+<ul class="org-ul">
+<li>おおよそRLと同じような問題を抱えている (ごった煮)</li>
+<li>全部一度にこなそうとしている
+<ul class="org-ul">
+<li><b>表現学習</b> : ここだけはとても汎化している</li>
+<li><b>探索</b> : 全くしていない(Reflex Agent) か 非常に原始的 (CoT)</li>
+<li><b>ヒューリスティクス</b> : 「常識」の丸暗記</li>
+</ul></li>
+<li>プランニングに対する <b>解像度</b> が低い</li>
+</ul>
+
+<div class="note" id="orgbfe0f1a">
+<p>
+Gundawar, Atharva, et al. "Robust Planning with LLM-Modulo Framework: Case Study in Travel Planning." arXiv
+</p>
+
+<p>
+Kambhampati, Subbarao, et al. "LLMs Can't Plan, But Can Help Planning in LLM-Modulo Frameworks." arXiv
+</p>
+
+<p>
+Valmeekam, Karthik, et al. "On the planning abilities of large language models-a critical investigation." Neurips 2023
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc9e4e59" class="outline-2">
+<h2 id="orgc9e4e59"><span class="section-number-2">54.</span> 自分が将来的にやりそうなネタ</h2>
+<div class="outline-text-2" id="text-54">
+<ul class="org-ul">
+<li><b>表現学習</b> : LLM を使ってPDDL生成 (Latplanと同じ)</li>
+<li><b>ヒューリスティクス</b> : LLM を使ってロボットのガイド
+<ul class="org-ul">
+<li>Planning Modulo LLM : 探索の中からLLMを使う</li>
+</ul></li>
+<li><b>探索</b> : LLM で CDCL とかやると面白そう</li>
+</ul>
+
+<p>
+現在あまりインターンは採用していないが、共同研究は可能!
+</p>
+
+<div class="org-center">
+<p>
+MIT-IBM Watson AI Lab
+</p>
+
+
+<div id="org27f64bf" class="figure">
+<p><img src="img/MIT-IBM.png" alt="MIT-IBM.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Masataro Asai</p>
+<p class="date">Created: 2024-09-18 Wed 00:41</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

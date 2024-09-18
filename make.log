@@ -1,0 +1,18 @@
+make[1]: Entering directory '/home/masataro/repos/presentations/2024-09-02-iwakuni'
+make -C img
+make -C css
+make -C scripts
+make[2]: Entering directory '/home/masataro/repos/presentations/2024-09-02-iwakuni/img'
+make[2]: Entering directory '/home/masataro/repos/presentations/2024-09-02-iwakuni/css'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/masataro/repos/presentations/2024-09-02-iwakuni/css'
+make[2]: Entering directory '/home/masataro/repos/presentations/2024-09-02-iwakuni/scripts'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/masataro/repos/presentations/2024-09-02-iwakuni/scripts'
+scripts/org-html.sh presen.org presen.org.html
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/home/masataro/repos/presentations/2024-09-02-iwakuni/img'
+Loading /home/masataro/repos/presentations/2024-09-02-iwakuni/scripts/compile-org-html.el (source)...
+Org mode version 9.5.5 (release_9.5.5 @ /home/masataro/repos/presentations/2024-09-02-iwakuni/org-mode/lisp/)
+cp -f presen.org.html index.html
+make[1]: Leaving directory '/home/masataro/repos/presentations/2024-09-02-iwakuni'
