@@ -270,25 +270,25 @@ PDDL : Planning Domain Description Language
 
 [[png:15puzzle-with-pddl/2]]
 
-　
 
-　
 
-　
 
-　
+
+
+
+
 
 ** Latplan は PDDL を自動生成 (IJCAI20, JAIR22)
 
 [[png:15puzzle-with-pddl/1]]
 
-　
 
-　
 
-　
 
-　
+
+
+
+
 
 ** Latplan は PDDL を自動生成 (IJCAI20, JAIR22)
 
@@ -403,8 +403,8 @@ PDDL : Planning Domain Description Language
 #+begin_center
 + → $z_t$ と独立な変数 *e* を導入する必要あり。
 
-+ 　
-  
++
+
   [[png:space-ae/graphical-model-csae]]
 #+end_center
 
@@ -502,7 +502,7 @@ function_dictionary["myfunc"]
   これらは *別の名前空間に存在する*.
   #+end_larger
 
-  　
+
 
   自然言語シンボルも同様:
 
@@ -528,37 +528,37 @@ function_dictionary["myfunc"]
 
 [[png:namespace/1]]
 
-　
 
-　
 
-　
 
-　
+
+
+
+
 
 ** PDDL: 6つの名前空間, 6つのメカニズム
 
 [[png:namespace/2]]
 
-　
 
-　
 
-　
 
-　
+
+
+
+
 
 ** PDDL: 6つの名前空間, 6つのメカニズム
 
 [[png:namespace/3]]
 
-　
 
-　
 
-　
 
-　
+
+
+
+
 
 ** PDDL: 6つの名前空間, 6つのメカニズム
 
@@ -568,9 +568,9 @@ function_dictionary["myfunc"]
 
 　Stage 1-1, Stage 1-2, ...
 
-　
 
-　
+
+
 
 ** PDDL: 6つの名前空間, 6つのメカニズム
 
@@ -1039,7 +1039,7 @@ Ng, Harada, Russell. "Policy invariance under reward transformations: Theory and
 * Heuristic Function $h(s)$ in classical planning
 
 + *Distance estimate*
-  + $h(s)=5 \quad \longleftrightarrow \quad s - s_1 - s_2 - s_3 - s_4 - \text{goal}$ (おおよそ) 
+  + $h(s)=5 \quad \longleftrightarrow \quad s - s_1 - s_2 - s_3 - s_4 - \text{goal}$ (おおよそ)
   + Many implementations: $h^{\text{add}}$, $h^{\text{FF}}$, $h^{\text{CEA}}$, ...
 
     #+begin_smaller
@@ -1049,7 +1049,7 @@ Ng, Harada, Russell. "Policy invariance under reward transformations: Theory and
 #+begin_xlarge
 + *Heuristics satisfies the PBRS requirements*
 
-+ 
++
   #+begin_alignright
   */Let's use $h(s)$ for PBRS!/*
   #+end_alignright
@@ -1061,7 +1061,7 @@ Ng, Harada, Russell. "Policy invariance under reward transformations: Theory and
 *RL : /discounted rewards/* ↔ *Planning :* _/undiscounted costs/_
 #+end_larger
 
-　
+
 
 Our solution:
 
@@ -1079,7 +1079,7 @@ Our solution:
 
 + *Planning* : Convert $V_{\gamma}(s)\rightarrow V(s)$ : _/undiscounting/_ a learned $V_{\gamma}(s)$
 
-+   
++
   \begin{align}
   V_\gamma(s) = \dfrac{1 - \gamma^{V(s)}}{1 - \gamma}
   &\Leftrightarrow
@@ -1132,7 +1132,7 @@ Our solution: *Neural Logic Machine (NLM)* [Dong et. al. ICLR 2019]
 
 + *Quite useful for various FOL tasks*
   + ILP [Dong et. al. ICLR 2019]
-  + Regression (our work) 
+  + Regression (our work)
 
 * Results
 
@@ -1281,19 +1281,19 @@ RL 嫌いなんで ... 教師あり学習!
 
 [[png:truncated-gaussian/2]]
 
-* 
+*
 
 [[png:truncated-gaussian/3c]]
 
-** 
+**
 
 [[png:truncated-gaussian/3b]]
 
-** 
+**
 
 [[png:truncated-gaussian/3a]]
 
-** 
+**
 
 [[png:truncated-gaussian/3]]
 
@@ -1375,7 +1375,7 @@ Is $\mathcal{N}(\mu,\sigma)$ the correct distribution for $h^*$?
 
 [[png:truncated-gaussian/5a]]
 
-** Results 
+** Results
 
 [[png:truncated-gaussian/6]]
 
@@ -2097,11 +2097,11 @@ Fit the data to...
 #+end_quote
 
 # + *Fact* : Heuristic $h^{\text{FF}}$ has */unknown/* bounds
-# 
+#
 #   \[
 #   0 \leq h^+(s) \leq h^{\text{FF}}(s) < \ ?
 #   \]
-# 
+#
 #   (NP-hard to compute $h^+$ == unknown, $?$ is also unknown)
 
 * What distribution is the right answer?
@@ -2262,7 +2262,7 @@ $\text{UCB1-Power}_i = \frac{u_ia_i}{a_i+1} -u_i\sqrt{6n_i \log N}$
   $h(s) \not\in [0,c]$
 
   (fixed range)
-  
+
 #+end_span4
 #+begin_span4
 + (ECAI 2024)
@@ -2271,11 +2271,11 @@ $\text{UCB1-Power}_i = \frac{u_ia_i}{a_i+1} -u_i\sqrt{6n_i \log N}$
 
   $\mu - \sigma \sqrt{ \log N }$
 
-  　
-  
+
+
   $h(s) \in [-\infty,\infty]$
 
-  　
+
 
 + */STILL WRONG!/*
 
@@ -2336,79 +2336,16 @@ $\text{UCB1-Power}_i = \frac{u_ia_i}{a_i+1} -u_i\sqrt{6n_i \log N}$
 
 #+end_center
 #+end_larger
-  
+
 #+end_span4
 #+end_row-fluid
 #+end_container-fluid
 
 # + 意味あるニューロシンボリックをやるには
-# 
+#
 #   PhD2回分勉強する必要あり (記号系+学習系)
-# 
+#
 # + 記号系の人は、学習系の人をバカにしすぎないように
-# 
+#
 # + 学習系の人は、記号系の人/タスクを見くびらないように
 
-* Deep RL は *正しい* か?
-
-+ 研究のやり方に問題があるように思われる
-
-#+begin_container-fluid
-#+begin_row-fluid
-#+begin_span5
-[[png:nesyarch/0b]]
-
-+ Deep RL は *全部ごった煮*
-  + 表現学習
-  + ヒューリスティック
-  + 探索アルゴリズム
-  + Active Learning
-  + Contiual Learning
-#+end_span5
-#+begin_span7
-+ */1つの変更で全部が影響受ける/*
-  + なぜ性能良くなったのか、わからなくない?
-+ */再現性の問題も、ある.../*
-  + Leslie Kaelbring: RLの評価は最低20シードないと認めない！
-+ _/The science/_ as a *sane* researcher:
-  + _/Split/_ the architecture into parts
-  + _/Study each part individually/_
-  + _/Correct mathematical modeling/_
-  + こういうアプローチに立ち返るのがいいと思います...
-#+end_span7
-#+end_row-fluid
-#+end_container-fluid
-
-* LLM + Planning (, Reasoning) が成功するには?
-
-単体ではおそらくプランニング不可 by Rao (Subbarao Kambhampati)
-
-+ おおよそRLと同じような問題を抱えている (ごった煮)
-+ 全部一度にこなそうとしている
-  + *表現学習* : ここだけはとても汎化している
-  + *探索* : 全くしていない(Reflex Agent) か 非常に原始的 (CoT)
-  + *ヒューリスティクス* : 「常識」の丸暗記
-+ プランニングに対する *解像度* が低い
-
-#+begin_note
-Gundawar, Atharva, et al. "Robust Planning with LLM-Modulo Framework: Case Study in Travel Planning." arXiv
-
-Kambhampati, Subbarao, et al. "LLMs Can't Plan, But Can Help Planning in LLM-Modulo Frameworks." arXiv
-
-Valmeekam, Karthik, et al. "On the planning abilities of large language models-a critical investigation." Neurips 2023
-#+end_note
-
-* 自分が将来的にやりそうなネタ
-
-+ *表現学習* : LLM を使ってPDDL生成 (Latplanと同じ)
-+ *ヒューリスティクス* : LLM を使ってロボットのガイド
-  + Planning Modulo LLM : 探索の中からLLMを使う
-+ *探索* : LLM で CDCL とかやると面白そう
-
-現在あまりインターンは採用していないが、共同研究は可能!
-
-#+begin_center
-MIT-IBM Watson AI Lab
-
-[[png:MIT-IBM]]
-#+end_center
