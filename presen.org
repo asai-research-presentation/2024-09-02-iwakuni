@@ -31,10 +31,6 @@ Masataro Asai
 
 #+end_center
 
-#+begin_center
-質問はZoomに書き込み
-#+end_center
-
 #+end_outline-text-1
 
 * You found yourself on Mars, unexpected emergency...
